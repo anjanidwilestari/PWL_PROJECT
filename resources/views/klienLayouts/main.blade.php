@@ -25,6 +25,9 @@
     <link href="{{ asset('styleKlien/css/style.css')}}" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ asset('styleKlien/css/responsive.css')}}" rel="stylesheet" />
+
+    <!--Shortcut Icon -->
+    <link rel="shorcut icon" href="{{ asset('styleKlien/images/award.png')}}">
 </head>
 <body>
     <div class="hero_area">
