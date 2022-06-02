@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KlienController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [KlienController::class, 'home']);
+
+Route::get('/admin', [AdminController::class, 'dashboard']);
 
 // Route::get('/', function () {
 //     return view('welcome');
