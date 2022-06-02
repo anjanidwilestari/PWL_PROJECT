@@ -4,6 +4,8 @@
     {{ $title }}
 @endsection
 
+@section('dashboard', 'active')
+
 @section('content')
     <!-- page content -->
     <div class="right_col" role="main">

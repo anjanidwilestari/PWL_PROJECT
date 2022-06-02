@@ -24,12 +24,13 @@
         <div class="menu_section">
             <h3>General</h3>
             <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="index.html">Dashboard</a></li>
+                <li class="nav-item @yield('dashboard') ">
+                    <a><i class="fa fa-home"></i> Dashboard</span></a>
+                    {{-- <ul class="nav child_menu">
+                        <li><a class="nav-link {{ Request::path() === '/admin' }}" href="index.html">Dashboard </a></li>
                         <li><a href="index2.html">Dashboard2</a></li>
                         <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -56,8 +57,7 @@
                 </li>
                 <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="tables.html">Tables</a></li>
-                        <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                        <li><a class="nav-link @yield('contohtabel')"href="/admin/contohtabel">Contoh Tables</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
