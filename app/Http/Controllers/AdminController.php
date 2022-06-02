@@ -10,4 +10,8 @@ class AdminController extends Controller
     {
         return view('admin.dashboard', ['title' => 'Dashboard']);
     }
+    public function tabel()
+    {
+        return view('tabel', ['title' => 'Contoh Tabel']);
+    }
 }
