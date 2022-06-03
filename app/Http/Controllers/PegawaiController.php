@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Helpers\Helper;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -57,7 +57,7 @@ class PegawaiController extends Controller
         $pegawai->alamat = $request->get('alamat');
         $pegawai->tanggal_lahir = $request->get('tanggal_lahir');
         $pegawai->jabatan = $request->get('jabatan');
-        // $pegawai->kode_pegawai = Helper::KodePegawaiGenerator(new Pegawai, 'kode_pegawai', 5, 'KP');
+        $pegawai->kode_pegawai = Helper::KodePegawaiGenerator();
 
         // if ($request->file('foto')){
         //     $image_name = $request ->file('foto')->store('imagespegawai', 'public');
@@ -67,7 +67,7 @@ class PegawaiController extends Controller
 
         $pegawai->save();
         
-        // Alert::success('Success','Data Pegawai Berhasil Ditambahkan');
+        Alert::success('Success','Data Pegawai Berhasil Ditambahkan');
         return redirect()->route('pegawai.index');
     }
 
@@ -110,7 +110,7 @@ class PegawaiController extends Controller
             'alamat' => 'required',
             'tanggal_lahir' => 'required',
             'jabatan' => 'required',
-            'kode_pegawai' => 'required',
+            // 'kode_pegawai' => 'required',
         ]);
         $pegawai = Pegawai::where('id', $id)->first();
         $pegawai->nama = $request->get('nama');
