@@ -123,126 +123,11 @@
     </section>
     <!-- end special section -->
 
-    <!-- about section -->
-    <section class="about_section layout_padding">
-        <div class="side_img">
-            <img src="{{ asset('styleKlien/images/side-img.png')}}" alt="" />
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="img_container">
-                        <div class="img-box b1">
-                            <img src="{{ asset('styleKlien/images/a-1.jpg')}}" alt="" />
-                        </div>
-                        <div class="img-box b2">
-                            <img src="{{ asset('styleKlien/images/a-2.jpg')}}" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="detail-box">
-                        <div class="heading_container">
-                            <h3>
-                                About Our College
-                            </h3>
-                            <p>
-                                It is a long established fact that a reader will be distracted
-                                by the readable content of a page when looking at its layout.
-                                The point of using Lorem Ipsum is that it has a more it
-                            </p>
-                            <a href="">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- end about section -->
+    
 
-    <!-- course section -->
-    <section class="course_section layout_padding-bottom">
-        <div class="side_img">
-            <img src="{{ asset('styleKlien/images/side-img.png')}}" alt="" />
-        </div>
-        <div class="container">
-            <div class="heading_container">
-                <h3>
-                    POPULAR COURSES
-                </h3>
-                <p>
-                    It is a long established fact that a reader will be distracted
-                </p>
-            </div>
-            <div class="course_container">
-                <div class="course_content">
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-1.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            LMS <br />
-                            Content
-                        </h5>
-                    </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-2.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            From <br />
-                            Zero to Hero
-                        </h5>'
-                    </div>
-                </div>
-                <div class="course_content">
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-3.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Learn <br />
-                            Python – Interactive
-                        </h5>
-                    </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-4.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Your <br />
-                            Complete Guide
-                        </h5>
-                    </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-5.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Photography
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <a href="">
-                    Read More
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- end course section -->
-
-    <!-- login section -->
+    {{-- <!-- login section -->
     <section class="login_section layout_padding">
         <div class="container">
             <div class="row">
@@ -279,9 +164,9 @@
             </div>
         </div>
     </section>
-    <!-- end login section -->
+    <!-- end login section --> --}}
 
-    <!-- event section -->
+    {{-- <!-- event section -->
     <section class="event_section layout_padding">
         <div class="container">
             <div class="heading_container">
@@ -343,7 +228,7 @@
             </div>
         </div>
     </section>
-    <!-- end event section -->
+    <!-- end event section --> --}}
 
     <!-- client section -->
     <section class="client_section layout_padding-bottom">
@@ -426,52 +311,6 @@
     </section>
     <!-- end client section -->
 
-    <!-- contact section -->
-    <section class="contact_section ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="detail-box">
-                        <div class="heading_container">
-                            <h3>
-                                Contact Us
-                            </h3>
-                            <p>
-                                It is a long established fact that a reader will be distracted
-                                by the readable
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-form">
-                        <h5>
-                            Get In Touch
-                        </h5>
-                        <form action="">
-                            <div>
-                                <input type="text" placeholder="Full Name " />
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Phone Number" />
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Email Address" />
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Message" class="input_message" />
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn_on-hover">
-                                    Send
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end contact section -->
+    
 
 @endsection
