@@ -1,6 +1,6 @@
 {{-- <div class="left_col scroll-view"> --}}
     <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><i class="fa fa-unlock"></i> <span>Gentelella Alela!</span></a>
+        <a href="index.html" class="site_title"><img width="200px" height="75px" src="{{ asset('styleAdmin/production/images/logo-bolang.png')}}" alt="..."></a>
     </div>
 
     <div class="clearfix"></div>
@@ -17,7 +17,7 @@
     </div>
     <!-- /menu profile quick info -->
 
-    <br />
+    <br>
 
     <!-- sidebar menu -->
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -36,7 +36,7 @@
                     <ul class="nav child_menu">
                         <li class="nav-item"><a href="form.html">Kategori Produk</a></li>
                         <li class="nav-item"><a href="form_advanced.html">Produk</a></li>
-                        <li class="nav-item"><a href="form_validation.html">Karyawan</a></li>
+                        <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
                         <li class="nav-item"><a href="form_wizards.html">Member</a></li>
                         {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
                         <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}

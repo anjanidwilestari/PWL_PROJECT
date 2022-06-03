@@ -12,7 +12,7 @@
     <meta name="author" content="" />
 
     <title>
-        Joson || 
+        Bolang Gunung || 
         @yield('title')
     </title>
 
@@ -27,7 +27,7 @@
     <link href="{{ asset('styleKlien/css/responsive.css')}}" rel="stylesheet" />
 
     <!--Shortcut Icon -->
-    <link rel="shorcut icon" href="{{ asset('styleKlien/images/award.png')}}">
+    <link rel="shorcut icon" href="{{ asset('styleKlien/images/logo-square.png')}}">
 </head>
 <body>
     <div class="hero_area">
