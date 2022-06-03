@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [KlienController::class, 'home']);
 
-Route::get('/admin', [AdminController::class, 'dashboard']);
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('home');;
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
 
 // Route::get('/', function () {

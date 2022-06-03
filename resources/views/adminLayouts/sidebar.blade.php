@@ -24,7 +24,7 @@
         <div class="menu_section">
             <h3>General</h3>
             <ul class="nav side-menu">
-                <li class="nav-item @yield('dashboard') ">
+                <li class="nav-item @yield('dashboard') " href="{{route('home')}}">
                     <a><i class="fa fa-home"></i> Dashboard</span></a>
                     {{-- <ul class="nav child_menu">
                         <li><a class="nav-link {{ Request::path() === '/admin' }}" href="index.html">Dashboard </a></li>
@@ -32,17 +32,35 @@
                         <li><a href="index3.html">Dashboard3</a></li>
                     </ul> --}}
                 </li>
-                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="form.html">General Form</a></li>
-                        <li><a href="form_advanced.html">Advanced Components</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                        <li><a href="form_upload.html">Form Upload</a></li>
-                        <li><a href="form_buttons.html">Form Buttons</a></li>
+                        <li class="nav-item"><a href="form.html">Kategori Produk</a></li>
+                        <li class="nav-item"><a href="form_advanced.html">Produk</a></li>
+                        <li class="nav-item"><a href="form_validation.html">Karyawan</a></li>
+                        <li class="nav-item"><a href="form_wizards.html">Member</a></li>
+                        {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
+                        <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}
                     </ul>
                 </li>
-                <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-exchange"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="nav-item"><a href="chartjs.html">Penyewaan</a></li>
+                        <li class="nav-item"><a href="chartjs2.html">Pengembalian</a></li>
+                        {{-- <li class="nav-item"><a href="morisjs.html">Terlambat</a></li> --}}
+                        {{-- <li class="nav-item"><a href="echarts.html">ECharts</a></li>
+                        <li class="nav-item"><a href="other_charts.html">Other Charts</a></li> --}}
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-bar-chart-o"></i> Daftar Transaksi <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="nav-item"><a href="chartjs.html">Berhasil</a></li>
+                        <li class="nav-item"><a href="chartjs2.html">Belum Kembali</a></li>
+                        <li class="nav-item"><a href="morisjs.html">Terlambat</a></li>
+                        {{-- <li class="nav-item"><a href="echarts.html">ECharts</a></li>
+                        <li class="nav-item"><a href="other_charts.html">Other Charts</a></li> --}}
+                    </ul>
+                </li>
+                {{-- <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="general_elements.html">General Elements</a></li>
                         <li><a href="media_gallery.html">Media Gallery</a></li>
@@ -54,30 +72,24 @@
                         <li><a href="inbox.html">Inbox</a></li>
                         <li><a href="calendar.html">Calendar</a></li>
                     </ul>
-                </li>
-                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                </li> --}}
+                <li><a><i class="fa fa-table"></i> Rekap Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a class="nav-link @yield('contohtabel')"href="/admin/contohtabel">Contoh Tables</a></li>
+                        <li><a class="nav-link"href="/admin/contohtabel">Berhasil</a></li>
+                        <li><a class="nav-link"href="/admin/contohtabel">Belum Kembali</a></li>
+                        <li><a class="nav-link"href="/admin/contohtabel">Terlambat</a></li>
                     </ul>
                 </li>
-                <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="chartjs.html">Chart JS</a></li>
-                        <li><a href="chartjs2.html">Chart JS2</a></li>
-                        <li><a href="morisjs.html">Moris JS</a></li>
-                        <li><a href="echarts.html">ECharts</a></li>
-                        <li><a href="other_charts.html">Other Charts</a></li>
-                    </ul>
-                </li>
-                <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                {{-- <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
                         <li><a href="fixed_footer.html">Fixed Footer</a></li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
-        <div class="menu_section">
+        {{-- <div class="menu_section">
             <h3>Live On</h3>
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
@@ -119,7 +131,7 @@
                 <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
                             class="label label-success pull-right">Coming Soon</span></a></li>
             </ul>
-        </div>
+        </div> --}}
 
     </div>
     <!-- /sidebar menu -->
