@@ -63,6 +63,8 @@
             @include('adminLayouts.footer')
           </div>
         </div>
+
+    @include('sweetalert::alert')
     <!-- jQuery -->
     <script src="{{ asset('styleAdmin/vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
@@ -103,5 +105,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('styleAdmin/build/js/custom.min.js')}}"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
 </body>
