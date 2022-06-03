@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> || @yield('title')</title>
+    <title> Bolang Gunung || @yield('title')</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('styleAdmin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -33,11 +33,22 @@
     <link href="{{ asset('styleAdmin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('styleAdmin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- bootstrap-datetimepicker -->
+    <link href="{{ asset('styleAdmin/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="{{ asset('styleAdmin/vendors/normalize-css/normalize.css" rel="stylesheet')}}">
+    <link href="{{ asset('styleAdmin/vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet')}}">
+    <link href="{{ asset('styleAdmin/vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet')}}">
+    <!-- Bootstrap Colorpicker -->
+    <link href="{{ asset('styleAdmin/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('styleAdmin/vendors/cropper/dist/cropper.min.css')}}" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="{{ asset('styleAdmin/build/css/custom.min.css')}}" rel="stylesheet">
 
     <!--Shortcut Icon -->
-    <link rel="shorcut icon" href="{{ asset('styleAdmin/production/images/img.jpg')}}">
+    <link rel="shorcut icon" href="{{ asset('styleAdmin/production/images/logo-square.png')}}">
 </head>
     <body class="nav-md">
         <div class="container body">
