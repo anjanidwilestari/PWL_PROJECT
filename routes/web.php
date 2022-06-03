@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KlienController;
+use App\Http\Controllers\PegawaiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [KlienController::class, 'home']);
 
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('home');;
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
+Route::resource('/admin/pegawai',PegawaiController::class);
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('home');
+// Auth::logout();
+// Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
