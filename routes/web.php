@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [KlienController::class, 'home']);
+// Route::get('/', [KlienController::class, 'home']);
 
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('home');
+Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
-Route::resource('/admin/pegawai',PegawaiController::class);
+Route::resource('pegawai',PegawaiController::class);
 
 // Route::get('/', function () {
 //     return view('welcome');
