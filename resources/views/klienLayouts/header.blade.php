@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/klien-about"> Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/klien-hubungi">Hubungi</a>
+                        <a class="nav-link" href="/klien-contact">Hubungi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Login</a>
