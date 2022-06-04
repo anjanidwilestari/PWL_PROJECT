@@ -170,7 +170,7 @@
                     Klien Kami
                 </h3>
                 <p>
-                    Lihat apa yang mereka katakan tentang persewaan barang dari Bolang Gunung
+                    Lihat apa yang mereka katakan tentang rental alat dari Bolang Gunung
                 </p>
             </div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
