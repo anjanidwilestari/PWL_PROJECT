@@ -23,8 +23,8 @@
                     <h1>
                         RENTAL ALAT PENDAKIAN
                     </h1>
-                    <a href="">
-                      Baca Sekarang
+                    <a href="/klien-produk">
+                      Lihat Sekarang
                     </a>
                   </div>
                 </div>
@@ -41,8 +41,8 @@
                     <h1>
                         RENTAL ALAT CAMPING
                     </h1>
-                    <a href="">
-                      Baca Sekarang
+                    <a href="/klien-produk">
+                      Lihat Sekarang
                     </a>
                   </div>
                 </div>
@@ -59,7 +59,7 @@
                     <h1>
                       SEWA SEKARANG 
                     </h1>
-                    <a href="">
+                    <a href="https://wa.me/6285231404775">
                       Hubungi Kami
                     </a>
                   </div>

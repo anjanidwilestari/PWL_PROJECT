@@ -23,7 +23,7 @@
                 <div class="course_content">
                     <div class="box">
                         <img src="{{ asset('styleKlien/images/c-1.jpg')}}" alt="" />
-                        <a href="" class="">
+                        <a href="https://wa.me/6285231404775" class="">
                             <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
                         </a>
                         <h5>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="box">
                         <img src="{{ asset('styleKlien/images/c-2.jpg')}}" alt="" />
-                        <a href="" class="">
+                        <a href="https://wa.me/6285231404775" class="">
                             <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
                         </a>
                         <h5>
@@ -45,7 +45,7 @@
                 <div class="course_content">
                     <div class="box">
                         <img src="{{ asset('styleKlien/images/c-3.jpg')}}" alt="" />
-                        <a href="" class="">
+                        <a href="https://wa.me/6285231404775" class="">
                             <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
                         </a>
                         <h5>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="box">
                         <img src="{{ asset('styleKlien/images/c-4.jpg')}}" alt="" />
-                        <a href="" class="">
+                        <a href="https://wa.me/6285231404775" class="">
                             <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
                         </a>
                         <h5>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="box">
                         <img src="{{ asset('styleKlien/images/c-5.jpg')}}" alt="" />
-                        <a href="" class="">
+                        <a href="https://wa.me/6285231404775" class="">
                             <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
                         </a>
                         <h5>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="">
+                <a href="https://wa.me/6285231404775">
                     Sewa Sekarang
                 </a>
             </div>

@@ -68,7 +68,7 @@
             </div>
             <div class="btn-box">
                 <a href="">
-                    Read More
+                    Sewa Sekarang
                 </a>
             </div>
         </div>

@@ -36,7 +36,7 @@
                                 anda untuk pendakian dan bagi anda yang bingung ingin menyewa perlengkapan camping, kami adalah 
                                 solusi tepat untuk anda, dengan harga yang terjangkau dan mengutamakan keselamatan.
                             </p>
-                            <a href="">
+                            <a href="https://wa.me/6285231404775">
                                 Sewa Sekarang
                             </a>
                         </div>
