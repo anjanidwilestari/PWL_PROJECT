@@ -106,22 +106,18 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'foto' => 'required',
             'alamat' => 'required',
             'tanggal_lahir' => 'required',
             'jabatan' => 'required',
-            // 'kode_pegawai' => 'required',
         ]);
         $pegawai = Pegawai::where('id', $id)->first();
         $pegawai->nama = $request->get('nama');
-        $image_name = $request->file('foto')->store('imagespegawai', 'public');
-        $pegawai->foto = $image_name;
         $pegawai->alamat = $request->get('alamat');
         $pegawai->tanggal_lahir = $request->get('tanggal_lahir');
         $pegawai->jabatan = $request->get('jabatan');
 
         if($request->hasFile('foto')){
-            if($pegawai->foto_pegawai && file_exists(storage_path('app/public/'. $pegawai->foto))){
+            if($pegawai->foto && file_exists(storage_path('app/public/'. $pegawai->foto))){
                 Storage::delete('public/'.$pegawai->foto);
             }
             $image_name = $request->file('foto')->store('imagespegawai', 'public');
