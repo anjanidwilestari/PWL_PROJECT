@@ -1,4 +1,4 @@
-@extends('klienLayouts.main')
+@extends('klienLayouts.main2')
 
 @section('title')
     {{ $title }}
@@ -11,19 +11,24 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="detail-box">
-                    <div class="heading_container">
+                    <div class="heading_container" >
                         <h3>
                             Hubungi Kami
                         </h3>
                         <p>
-                            It is a long established fact that a reader will be distracted
-                            by the readable
+                            Sewa alat pendakian dan camping sekarang
                         </p>
+                        <div class="btn-box">
+                            <a href="https://wa.me/6285231404775">
+                                <img width="30px" height="30px" src="{{ asset('styleKlien/images/wa.png')}}" alt="" />
+                                WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="contact-form">
+            <div class="col-md-6" >
+                <div class="contact-form" >
                     <h5>
                         Get In Touch
                     </h5>
