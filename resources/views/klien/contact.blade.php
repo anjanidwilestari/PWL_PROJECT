@@ -13,7 +13,7 @@
                 <div class="detail-box">
                     <div class="heading_container">
                         <h3>
-                            Contact Us
+                            Hubungi Kami
                         </h3>
                         <p>
                             It is a long established fact that a reader will be distracted

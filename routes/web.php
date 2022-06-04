@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/klien', [KlienController::class, 'home']);
+Route::get('/klien-beranda', [KlienController::class, 'home']);
+Route::get('/klien-produk', [KlienController::class, 'produk']);
+Route::get('/klien-galery', [KlienController::class, 'galery']);
+Route::get('/klien-about', [KlienController::class, 'about']);
+Route::get('/klien-contact', [KlienController::class, 'contact']);
 
 Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
