@@ -1,71 +1,85 @@
-@extends('klienLayouts.main')
+@extends('klienLayouts.main2')
 
 @section('title')
     {{ $title }}
 @endsection
 
 @section('content')
-    <!-- event section -->
-    <section class="event_section layout_padding">
+    <!-- course section -->
+    <section class="course_section layout_padding-bottom">
+        <div class="side_img">
+            <img src="{{ asset('styleKlien/images/side-img.png')}}" alt="" />
+        </div>
         <div class="container">
-            <div class="heading_container">
+            <div class="heading_container" style="padding-top: 40px" >
                 <h3>
-                    Events
+                    Galeri Bolang Gunung
                 </h3>
                 <p>
-                    Upcoming Education Events to feed your brain.
+                    Beberapa foto rental alat pendakian dan camping
                 </p>
             </div>
-            <div class="event_container">
-                <div class="box">
-                    <div class="img-box">
-                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
+            <div class="course_container">
+                <div class="course_content">
+                    <div class="box">
+                        <img src="{{ asset('styleKlien/images/c-1.jpg')}}" alt="" />
+                        <a href="" class="">
+                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
+                        </a>
+                        <h5>
+                            Matras <br />
+                            Gulung
+                        </h5>
                     </div>
-                    <div class="detail-box">
-                        <h4>
-                            Education Events 2021
-                        </h4>
-                        <h6>
-                            8:00 AM - 5:00 PM VENICE, ITALY
-                        </h6>
-                    </div>
-                    <div class="date-box">
-                        <h3>
-                            <span>
-                                15
-                            </span>
-                            March
-                        </h3>
+                    <div class="box">
+                        <img src="{{ asset('styleKlien/images/c-2.jpg')}}" alt="" />
+                        <a href="" class="">
+                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
+                        </a>
+                        <h5>
+                            Sleeping <br />
+                            Bag Polar
+                        </h5>'
                     </div>
                 </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
+                <div class="course_content">
+                    <div class="box">
+                        <img src="{{ asset('styleKlien/images/c-3.jpg')}}" alt="" />
+                        <a href="" class="">
+                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
+                        </a>
+                        <h5>
+                            Tenda <br />
+                            Dome – Outdoor
+                        </h5>
                     </div>
-                    <div class="detail-box">
-                        <h4>
-                            Education Events 2021
-                        </h4>
-                        <h6>
-                            8:00 AM - 5:00 PM VENICE, ITALY
-                        </h6>
+                    <div class="box">
+                        <img src="{{ asset('styleKlien/images/c-4.jpg')}}" alt="" />
+                        <a href="" class="">
+                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
+                        </a>
+                        <h5>
+                            Tenda <br />
+                            Pramuka
+                        </h5>
                     </div>
-                    <div class="date-box">
-                        <h3>
-                            <span>
-                                15
-                            </span>
-                            February
-                        </h3>
+                    <div class="box">
+                        <img src="{{ asset('styleKlien/images/c-5.jpg')}}" alt="" />
+                        <a href="" class="">
+                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
+                        </a>
+                        <h5>
+                            Tas Carrier
+                        </h5>
                     </div>
                 </div>
             </div>
             <div class="btn-box">
                 <a href="">
-                    Read More
+                    Sewa Sekarang
                 </a>
             </div>
         </div>
     </section>
-    <!-- end event section -->
+    <!-- end course section -->
 @endsection
