@@ -2631,7 +2631,7 @@ ul.timeline li {
 .tag:after {
     content: " ";
     height: 30px;
-    width: 0;
+    width: 20;
     position: absolute;
     left: 100%;
     top: 0;
@@ -2639,7 +2639,7 @@ ul.timeline li {
     pointer-events: none;
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
-    border-left: 11px solid #1ABB9C
+    border-left: 50px solid #1ABB9C
 }
 .timeline h2.title {
     position: relative;
