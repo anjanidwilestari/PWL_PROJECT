@@ -75,12 +75,12 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Kode Pegawai</th>
                                         <th>Nama</th>
                                         <th>Foto</th>
                                         <th>Alamat</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Jabatan</th>
-                                        <th>Kode Pegawai</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -89,12 +89,12 @@
                                     @foreach($pegawai as $data)
                                     <tr>
                                         <td scope="row">{{ ++$i}}</td>
+                                        <td>{{$data->kode_pegawai}}</td>
                                         <td>{{$data->nama}}</td>
                                         <td><img width="50px" height="50px" src="{{ asset('storage/' . $data->foto) }}"></td>
                                         <td>{{$data->alamat}}</td>
                                         <td>{{$data->tanggal_lahir}}</td>
                                         <td>{{$data->jabatan}}</td>
-                                        <td>{{$data->kode_pegawai}}</td>
                                         <td>
                                             <form action="{{ route('pegawai.destroy',  $data->id) }}" method="POST">
                                                 <a class="btn btn-icons btn-primary" href="{{route('pegawai.show', $data->id)}}"><i class="fa fa-eye"></i></a>

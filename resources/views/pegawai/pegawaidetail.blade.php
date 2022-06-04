@@ -48,6 +48,21 @@
                                 </li>
                                 <li>
                                     <div class="block">
+                                        <div class="tags">
+                                            <a href="" class="tag" width="100px">
+                                                <span>Kode Pegawai</span>
+                                            </a>
+                                        </div>
+                                        <div class="block_content">
+                                            <h2 class="title">
+                                                <a>{{$pegawai->kode_pegawai}}</a>
+                                            </h2>
+                                        </div>
+                                        <br>
+                                    </div>   
+                                </li>
+                                <li>
+                                    <div class="block">
                                         <div class="tags"  width="90px">
                                             <a href="" class="tag">
                                                 <span>Foto</span>
@@ -103,21 +118,6 @@
                                         <div class="block_content">
                                             <h2 class="title">
                                                 <a>{{$pegawai->jabatan}}</a>
-                                            </h2>
-                                        </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag" width="100px">
-                                                <span>Kode Pegawai</span>
-                                            </a>
-                                        </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->kode_pegawai}}</a>
                                             </h2>
                                         </div>
                                         <br>
