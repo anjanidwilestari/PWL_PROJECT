@@ -1,76 +1,68 @@
-@extends('klienLayouts.main')
+@extends('klienLayouts.main2')
 
 @section('title')
     {{ $title }}
 @endsection
 
 @section('content')
-    <!-- course section -->
-    <section class="course_section layout_padding-bottom">
-        <div class="side_img">
-            <img src="{{ asset('styleKlien/images/side-img.png')}}" alt="" />
-        </div>
+    <!-- event section -->
+    <section class="event_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h3>
-                    POPULAR COURSES
+                    Persewaan Terbaik
                 </h3>
                 <p>
-                    It is a long established fact that a reader will be distracted
+                    Rental alat pendakian dan camping  di Malang
                 </p>
             </div>
-            <div class="course_container">
-                <div class="course_content">
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-1.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            LMS <br />
-                            Content
-                        </h5>
+            <div class="event_container">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
                     </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-2.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            From <br />
-                            Zero to Hero
-                        </h5>'
+                    <div class="detail-box">
+                        <h4>
+                            Sleeping Bag
+                        </h4>
+                        <h6>
+                            Merk Milestone, warna orange, polar
+                        </h6> 
+                    </div>
+                    <div class="date-box">
+                        <h3>
+                            <span>
+                                RP
+                            </span>
+                            10.000
+                        </h3>
+                        <h6>
+                            Per hari
+                        </h6> 
                     </div>
                 </div>
-                <div class="course_content">
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-3.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Learn <br />
-                            Python – Interactive
-                        </h5>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
                     </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-4.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Your <br />
-                            Complete Guide
-                        </h5>
+                    <div class="detail-box">
+                        <h4>
+                            Tenda Dome
+                        </h4>
+                        <h6>
+                            Warna hijau, kapasitas 4 orang
+                        </h6>
                     </div>
-                    <div class="box">
-                        <img src="{{ asset('styleKlien/images/c-5.jpg')}}" alt="" />
-                        <a href="" class="">
-                            <img src="{{ asset('styleKlien/images/link.png')}}" alt="" />
-                        </a>
-                        <h5>
-                            Photography
-                        </h5>
+                    <div class="date-box">
+                        <h3>
+                            <span>
+                                RP
+                            </span>
+                            20.000
+                        </h3>
+                        <h6>
+                            Per hari
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -81,6 +73,5 @@
             </div>
         </div>
     </section>
-
-    <!-- end course section -->
+    <!-- end event section -->
 @endsection
