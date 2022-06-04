@@ -167,10 +167,10 @@
         <div class="container">
             <div class="heading_container" style="padding-top: 80px">
                 <h3>
-                    What People Say
+                    Klien Kami
                 </h3>
                 <p>
-                    It is a long established fact that a reader will be distracted
+                    Lihat apa yang mereka katakan tentang persewaan barang dari Bolang Gunung
                 </p>
             </div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -178,17 +178,17 @@
                     <div class="carousel-item active">
                         <div class="box">
                             <div class="img-box">
-                                <img src="{{ asset('styleKlien/images/client.png')}}" alt="" />
+                                <img width="60px" height="140px" src="{{ asset('styleKlien/images/client3.png')}}" alt="" />
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Distracted by
+                                    Rizwan Bell - Ketua Regu Komunitas RPL
                                 </h5>
                                 <p>
-                                    It is a long established fact that a reader will be
-                                    distracted by the readable content of a page when looking at
-                                    its layout. The point of using Lorem Ipsum is that it has a
-                                    more-or-less normal distribution of letters
+                                    Barangnya benar-benar memiliki kualitas yang bagus. 
+                                    Tidak ada kecacatan sama sekali pada barang-barang yang saya sewa seperti headlamp,
+                                    matras, tenda, alat masak nesting, dan juga tracking polenya. Benar-benar tempat rental 
+                                    yang sangat saya rekomendasikan.
                                 </p>
                             </div>
                         </div>
@@ -196,17 +196,16 @@
                     <div class="carousel-item">
                         <div class="box">
                             <div class="img-box">
-                                <img src="{{ asset('styleKlien/images/client.png')}}" alt="" />
+                                <img width="60px" height="140px" src="{{ asset('styleKlien/images/client2.png')}}" alt="" />
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Distracted by
+                                    Ayi Jane - Ketua Komunitas Eksplorer Jatim
                                 </h5>
                                 <p>
-                                    It is a long established fact that a reader will be
-                                    distracted by the readable content of a page when looking at
-                                    its layout. The point of using Lorem Ipsum is that it has a
-                                    more-or-less normal distribution of letters
+                                    Saat saya sampai di tempat persewaannya, semua barang sudah tertata rapi. 
+                                    Sangat terlihat jelas barang-barangnya selalu dijaga dengan baik. 
+                                    Pegawai yang melayani pun juga sangat membantu dalam pemilihan alat yang saya butuhkan.
                                 </p>
                             </div>
                         </div>
@@ -214,17 +213,15 @@
                     <div class="carousel-item">
                         <div class="box">
                             <div class="img-box">
-                                <img src="{{ asset('styleKlien/images/client.png')}}" alt="" />
+                                <img width="60px" height="140px" src="{{ asset('styleKlien/images/client.png')}}" alt="" />
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Distracted by
+                                    Sonia Lestari - Creator Solo Hiking Content
                                 </h5>
                                 <p>
-                                    It is a long established fact that a reader will be
-                                    distracted by the readable content of a page when looking at
-                                    its layout. The point of using Lorem Ipsum is that it has a
-                                    more-or-less normal distribution of letters
+                                    Benar-benar tempat rental yang sangat rekomended. Harga yang ditawarkan benar-benar terjangkau.
+                                    Sudah mendapat barang yang bagus, dapat harga sewa yang sesuai kantong banget.
                                 </p>
                             </div>
                         </div>
