@@ -2502,7 +2502,8 @@ span.tag {
     margin-right: 5px;
     font-weight: 500;
     margin-bottom: 5px;
-    font-family: helvetica
+    font-family: helvetica;
+    width: 200px;
 }
 span.tag a {
     color: #F1F6F7 !important
@@ -2606,11 +2607,11 @@ ul.timeline li {
     position: absolute;
     top: 15px;
     left: 0;
-    width: 84px
+    width: 200px
 }
 .timeline .tag {
     display: block;
-    height: 30px;
+    height: 50px;
     font-size: 13px;
     padding: 8px
 }
@@ -2624,7 +2625,8 @@ ul.timeline li {
 .tag {
     line-height: 1;
     background: #1ABB9C;
-    color: #fff !important
+    color: #fff !important;
+    width: 100px
 }
 .tag:after {
     content: " ";
