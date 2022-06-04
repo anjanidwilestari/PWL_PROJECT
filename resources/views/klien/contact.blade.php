@@ -4,6 +4,8 @@
     {{ $title }}
 @endsection
 
+@section('contact', 'active')
+
 @section('content')
 <!-- contact section -->
 <section class="contact_section ">

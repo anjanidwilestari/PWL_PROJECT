@@ -4,6 +4,8 @@
     {{ $title }}
 @endsection
 
+@section('produk', 'active')
+
 @section('content')
     <!-- event section -->
     <section class="event_section layout_padding">

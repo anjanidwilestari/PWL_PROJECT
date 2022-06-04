@@ -4,6 +4,8 @@
     {{ $title }}
 @endsection
 
+@section('beranda', 'active')
+
 @section('content')
 <!-- slider section -->
 <section class=" slider_section position-relative">

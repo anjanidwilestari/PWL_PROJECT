@@ -11,20 +11,20 @@
 
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav  ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item @yield('beranda')">
                         <a class="nav-link" href="/klien-beranda">Beranda <span
                                 class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @yield('produk')">
                         <a class="nav-link" href="/klien-produk"> Produk </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @yield('gallery')">
                         <a class="nav-link" href="/klien-galery"> Galeri </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @yield('dashboard')">
                         <a class="nav-link" href="/klien-about"> Tentang</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @yield('contact')">
                         <a class="nav-link" href="/klien-contact">Hubungi</a>
                     </li>
                     <li class="nav-item">

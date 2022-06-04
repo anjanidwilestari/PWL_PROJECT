@@ -4,6 +4,8 @@
     {{ $title }}
 @endsection
 
+@section('gallery', 'active')
+
 @section('content')
     <!-- course section -->
     <section class="course_section layout_padding-bottom">
