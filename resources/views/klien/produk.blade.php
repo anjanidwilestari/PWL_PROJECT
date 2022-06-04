@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="">
+                <a href="https://wa.me/6285231404775">
                     Sewa Sekarang
                 </a>
             </div>

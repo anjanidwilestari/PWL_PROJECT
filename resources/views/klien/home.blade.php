@@ -73,20 +73,20 @@
   </section>
   <!-- end slider section -->
     <!-- special section -->
-    <section class="special_section">
+    <section class="special_section" style="padding-top: 80px">
         <div class="container">
-            <div class="special_container">
+            <div class="special_container" >
                 <div class="box b1">
                     <div class="img-box">
                         <img src="{{ asset('styleKlien/images/award.png')}}" alt="" />
                     </div>
                     <div class="detail-box">
                         <h4>
-                            BEST <br>
-                            INDUSTRY LEADERS
+                            PERSEWAAN <br>
+                            TERPERCAYA
                         </h4>
-                        <a href="">
-                            Read More
+                        <a href="https://wa.me/6285231404775">
+                            Cek Sekarang
                         </a>
                     </div>
                 </div>
@@ -96,11 +96,11 @@
                     </div>
                     <div class="detail-box">
                         <h4>
-                            LEARN <br />
-                            COURSES ONLINE
+                            KUALITAS <br />
+                            BARANG BAGUS
                         </h4>
-                        <a href="">
-                            Read More
+                        <a href="/klien-galery">
+                            Cek Sekarang
                         </a>
                     </div>
                 </div>
@@ -110,11 +110,11 @@
                     </div>
                     <div class="detail-box">
                         <h4>
-                            BEST <br />
-                            LIBRARY & STORE
+                            HARGA <br />
+                            TERJANGKAU
                         </h4>
-                        <a href="">
-                            Read More
+                        <a href="/klien-produk">
+                            Cek Sekarang
                         </a>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
     <!-- client section -->
     <section class="client_section layout_padding-bottom">
         <div class="container">
-            <div class="heading_container">
+            <div class="heading_container" style="padding-top: 80px">
                 <h3>
                     What People Say
                 </h3>
