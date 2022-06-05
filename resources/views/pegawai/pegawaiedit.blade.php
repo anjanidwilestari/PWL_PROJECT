@@ -70,8 +70,8 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
-                                    <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                                    <input type="text" class="form-control has-feedback-right" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
+                                    <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 {{-- <div class="form-group">
