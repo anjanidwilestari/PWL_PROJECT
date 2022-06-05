@@ -21,7 +21,7 @@
                     <li class="nav-item @yield('gallery')">
                         <a class="nav-link" href="/klien-galery"> Galeri </a>
                     </li>
-                    <li class="nav-item @yield('dashboard')">
+                    <li class="nav-item @yield('about')">
                         <a class="nav-link" href="/klien-about"> Tentang</a>
                     </li>
                     <li class="nav-item @yield('contact')">
