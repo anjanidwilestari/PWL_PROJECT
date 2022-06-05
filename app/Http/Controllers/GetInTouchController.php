@@ -15,7 +15,7 @@ class GetInTouchController extends Controller
      */
     public function index(Request $request)
     {
-        return view('klien.contact', ['title' => 'Hubungi Kami']);
+        // return view('klien.contact', ['title' => 'Hubungi Kami']);
     }
 
     /**
