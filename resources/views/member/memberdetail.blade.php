@@ -51,7 +51,7 @@
                                         <div class="block">
                                             <div class="tags">
                                                 <a href="" class="tag">
-                                                    <span>Kode Pegawai</span>
+                                                    <span>Kode Member</span>
                                                 </a>
                                             </div>
                                             <div class="block_content">
