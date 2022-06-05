@@ -49,7 +49,7 @@
                                 <li>
                                     <div class="block">
                                         <div class="tags">
-                                            <a href="" class="tag" width="100px">
+                                            <a href="" class="tag">
                                                 <span>Kode Pegawai</span>
                                             </a>
                                         </div>
@@ -63,7 +63,7 @@
                                 </li>
                                 <li>
                                     <div class="block">
-                                        <div class="tags"  width="90px">
+                                        <div class="tags">
                                             <a href="" class="tag">
                                                 <span>Foto</span>
                                             </a>

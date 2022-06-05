@@ -74,14 +74,14 @@
                             <table id="datatable" class="table table-striped table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Kode Pegawai</th>
-                                        <th>Nama</th>
-                                        <th>Foto</th>
-                                        <th>Alamat</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Jabatan</th>
-                                        <th>Action</th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Kode Pegawai</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">Foto</th>
+                                        <th class="text-center">Alamat</th>
+                                        <th class="text-center">Tanggal Lahir</th>
+                                        <th class="text-center">Jabatan</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 

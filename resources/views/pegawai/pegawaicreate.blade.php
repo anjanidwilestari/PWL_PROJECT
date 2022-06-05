@@ -2,6 +2,7 @@
 @section('title')
     Tambah Data Pegawai
 @endsection
+@section('pegawai', 'active')
 @section('content')
     <div class="right_col" role="main">
         <div class="">
