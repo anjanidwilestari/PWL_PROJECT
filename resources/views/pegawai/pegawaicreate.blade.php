@@ -45,33 +45,35 @@
                                 @csrf
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Nama Lengkap * :</label>
                                     <input type="text" class="form-control has-feedback-left" placeholder="Nama Lengkap" name="nama" required>
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Jabatan * :</label>
                                     <select class="form-control" id="jabatan" name="jabatan">
                                         <option value="Manager">Manager</option>
                                         <option value="Admin">Admin</option>
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('jabatan'))
-                                        <div class="error">{{ $errors->first('jabatan') }}</div>
-                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     {{-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> --}}
+                                    <label for="fullname">Foto Pegawai * :</label>
                                     <input type="file" class="form-control" placeholder="Foto" name="foto" required>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Tanggal Lahir * :</label>
                                     <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" required>
                                     <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Alamat * :</label>
                                     <input type="text" class="form-control has-feedback-left" placeholder="Alamat" name="alamat" required>
                                     <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                 </div>
@@ -94,7 +96,7 @@
                                         <br><br>
                                         <button type="submit" class="btn btn-success">Submit</button>
                                         <a class="btn btn-primary" href="{{ route('pegawai.index') }}">Cancel</a>
-                                        <a class="btn btn-danger" type="reset">Reset</a>
+                                        <button class="btn btn-danger" type="reset">Reset</a>
                                     </div>
                                 </div>
                             </form>
