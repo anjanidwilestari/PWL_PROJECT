@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/klien-about"> Tentang</a>
                     </li>
                     <li class="nav-item @yield('contact')">
-                        <a class="nav-link" href="/klien-contact">Hubungi</a>
+                        <a class="nav-link" href="{{ route('contact.create') }}">Hubungi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Login</a>
