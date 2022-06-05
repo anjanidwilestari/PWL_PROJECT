@@ -97,7 +97,7 @@
                                     <div class="block">
                                         <div class="tags">
                                             <a href="" class="tag">
-                                                <span>Tgl Lahir</span>
+                                                <span>Tanggal Lahir</span>
                                             </a>
                                         </div>
                                         <div class="block_content">
