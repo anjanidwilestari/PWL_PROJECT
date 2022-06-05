@@ -2,6 +2,7 @@
 @section('title')
     Edit Data Kategori Produk
 @endsection
+@section('kategoriproduk', 'active')
 @section('content')
     <div class="right_col" role="main">
         <div class="">
@@ -45,14 +46,16 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Kategori" name="namakategori" required value="{{$kategoriproduk->nama_kategori}}">
-                                    <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                    <label for="nama_kategori">Kategori * :</label>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Kategori" name="nama_kategori" required value="{{$kategoriproduk->nama_kategori}}">
+                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Deskripsi" name="deskripsi" required value="{{$kategoriproduk->deskripsi}}">
-                                    <span class="fa fa-pencil form-control-feedback left" aria-hidden="true"></span>
+                                    <label for="fullname">Deskripsi * :</label>
+                                    <input type="text" class="form-control has-feedback-right" placeholder="Deskripsi" name="deskripsi" required value="{{$kategoriproduk->deskripsi}}">
+                                    <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="ln_solid"></div>
