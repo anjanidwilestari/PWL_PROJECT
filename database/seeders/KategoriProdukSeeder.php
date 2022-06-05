@@ -16,8 +16,8 @@ class KategoriProdukSeeder extends Seeder
     public function run()
     {
         DB::table('kategori_produks')->insert([
-            'nama_kategori' => 'Novel',
-            'deskripsi' => 'Buku dengan 100 halaman atau lebih',
+            'nama_kategori' => 'Tenda',
+            'deskripsi' => 'Tempat berteduh untuk pendakian dan camping',
         ]);
     }
 }
