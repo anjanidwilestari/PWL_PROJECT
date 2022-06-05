@@ -27,11 +27,8 @@ Route::get('/klien-contact', [KlienController::class, 'contact']);
 Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
 Route::resource('pegawai',PegawaiController::class);
-<<<<<<< HEAD
 Route::resource('kategoriproduk',KategoriProdukController::class);
-=======
 Route::resource('member',MemberController::class);
->>>>>>> 6ccb435cbcd9b2f8e18f5162060642782192cb16
 
 // Route::get('/', function () {
 //     return view('welcome');
