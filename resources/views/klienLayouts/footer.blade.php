@@ -5,27 +5,27 @@
             <div class="col-md-3">
                 <div class="info_menu">
                     <h5>
-                        QUICK LINKS
+                        TAUTAN LANGSUNG
                     </h5>
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span
+                            <a class="nav-link" href="/klien-beranda">Beranda <span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html"> About </a>
+                            <a class="nav-link" href="/klien-produk"> Produk </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="course.html"> Courses </a>
+                            <a class="nav-link" href="/klien-galery"> Galeri </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="event.html"> Events </a>
+                            <a class="nav-link" href="/klien-about"> Tentang </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact us</a>
+                            <a class="nav-link" href="/klien-contact">Hubungi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -33,12 +33,10 @@
             <div class="col-md-3">
                 <div class="info_course">
                     <h5>
-                        TOP RATED COURSE
+                        PERSEWAAN TERBAIK
                     </h5>
                     <p>
-                        There are many variations of passages of Lorem Ipsum available,
-                        but the majority have suffered alteration in some form, by
-                        injected humou
+                        Ada berbagai macam alat pendakian dan camping dengan kualitas terbaik. Kami menjadi solusi terbaik untuk anda. Hubungi kami sekarang juga.
                     </p>
                 </div>
             </div>
@@ -46,21 +44,21 @@
             <div class="col-md-5 offset-md-1">
                 <div class="info_news">
                     <h5>
-                        FOR ANY QUERY, PLEASE WRITE TO US
+                        HUBUNGI LEBIH LANJUT DI
                     </h5>
                     <div class="info_contact">
                         <a href="">
-                            Location
+                            Jl. Soekarno Hatta, Malang
                         </a>
                         <a href="">
-                            demo@gmail.com
+                            bolanggunungexample@gmail.com
                         </a>
-                        <a href="">
-                            Call : +01 1234567890
+                        <a href="https://wa.me/6285231404775">
+                            No. Telepon : +62 85231404775
                         </a>
                     </div>
                     <form action="">
-                        <input type="text" placeholder="Enter Your email" />
+                        <input type="text" placeholder="Masukkan email anda" />
                         <button>
                             Subscribe
                         </button>
@@ -76,15 +74,15 @@
 <!-- footer section -->
 <footer class="container-fluid footer_section">
     <p>
-        &copy; 2021 All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        &copy; 2022 All Rights Reserved By
+        <a href="/klien-beranda">Bolang Gunung</a>
     </p>
 </footer>
 
 <footer class="container-fluid footer_section">
     <p>
         Distributed By
-        <a href="https://themewagon.com/">Themewagon</a>
+        <a href="https://www.instagram.com/anjani.dwilestari/">Anjani</a><a href="https://www.instagram.com/bellasoniaa_/">Bella</a>
     </p>
 </footer>
 <!-- end footer section -->

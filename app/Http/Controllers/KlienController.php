@@ -12,18 +12,18 @@ class KlienController extends Controller
     }
     public function produk()
     {
-        return view('klien.produk', ['title' => '- Produk' ]);
+        return view('klien.produk', ['title' => 'Produk' ]);
     }
     public function galery()
     {
-        return view('klien.galery', ['title' => '- Galeri' ]);
+        return view('klien.galery', ['title' => 'Galeri' ]);
     }
     public function about()
     {
-        return view('klien.about', ['title' => '- Tentang Kami']);
+        return view('klien.about', ['title' => 'Tentang Kami']);
     }
     public function contact()
     {
-        return view('klien.contact', ['title' => '- Hubungi Kami']);
+        return view('klien.contact', ['title' => 'Hubungi Kami']);
     }
 }
