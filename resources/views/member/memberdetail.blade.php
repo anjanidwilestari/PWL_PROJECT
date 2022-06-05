@@ -1,7 +1,8 @@
 @extends('adminLayouts.main')
 @section('title')
-    Detail Data Pegawai
+    Detail Data Member
 @endsection
+@section('member', 'active')
 @section('content')
     <div class="right_col" role="main">
         <div class="">
@@ -9,7 +10,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Detail Data {{ $pegawai->nama }}</h2>
+                            <h2>Detail Data Member</h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -31,98 +32,117 @@
                         <div class="x_content">
                             <ul class="list-unstyled timeline">
                                 <div class="col-md-6">
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag">
-                                                <span>Nama</span>
-                                            </a>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Nama</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->nama }}</a>
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->nama}}</a>
-                                            </h2>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Kode Pegawai</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->kode_member }}</a>
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags"  width="90px">
-                                            <a href="" class="tag">
-                                                <span>Foto</span>
-                                            </a>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Alamat</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->alamat }}</a>
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a><img width="90px" height="134" src="{{ asset('storage/' . $pegawai->foto) }}"></a>
-                                            </h2>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Tanggal Lahir</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->tanggal_lahir }}</a>
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                            </div>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Umur</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->umur }} Tahun</a>
+                                                </h2>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </li>
+                                </div>
                                 <div class="col-md-6">
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag">
-                                                <span>Alamat</span>
-                                            </a>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Foto KTP</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a><img width="120px" height="75px" src="{{ asset('storage/' . $member->ktp) }}"></a>
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->alamat}}</a>
-                                            </h2>
+                                    </li>
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Kartu Pelajar</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    @if (($member->umur) < 17)
+                                                        <img width="120px" height="75px" src="{{ asset('storage/' . $member->kartu_pelajar) }}">
+                                                    @else
+                                                        <a>Tidak Perlu</a>
+                                                    @endif
+                                                </h2>
+                                            </div>
+                                            <br>
                                         </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag">
-                                                <span>Tgl Lahir</span>
-                                            </a>
-                                        </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->tanggal_lahir}}</a>
-                                            </h2>
-                                        </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag">
-                                                <span>Jabatan</span>
-                                            </a>
-                                        </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->jabatan}}</a>
-                                            </h2>
-                                        </div>
-                                        <br>
-                                    </div>   
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag" width="100px">
-                                                <span>Kode Pegawai</span>
-                                            </a>
-                                        </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{$pegawai->kode_pegawai}}</a>
-                                            </h2>
-                                        </div>
-                                        <br>
-                                    </div>   
-                                </li>
+                                    </li>
                                 </div>
                             </ul>
                         </div>
