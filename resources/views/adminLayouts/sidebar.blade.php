@@ -37,7 +37,7 @@
                         <li class="nav-item"><a href="form.html">Kategori Produk</a></li>
                         <li class="nav-item"><a href="form_advanced.html">Produk</a></li>
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
-                        <li class="nav-item"><a href="form_wizards.html">Member</a></li>
+                        <li class="nav-item"><a href="{{route('member.index')}}">Member</a></li>
                         {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
                         <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}
                     </ul>
