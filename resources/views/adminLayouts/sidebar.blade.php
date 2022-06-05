@@ -24,20 +24,18 @@
         <div class="menu_section">
             <h3>General</h3>
             <ul class="nav side-menu">
-                <li class="nav-item @yield('dashboard') " href="{{route('home')}}">
-                    <a><i class="fa fa-home"></i> Dashboard</span></a>
-                    {{-- <ul class="nav child_menu">
-                        <li><a class="nav-link {{ Request::path() === '/admin' }}" href="index.html">Dashboard </a></li>
-                        <li><a href="index2.html">Dashboard2</a></li>
-                        <li><a href="index3.html">Dashboard3</a></li>
-                    </ul> --}}
+                <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="nav-item"><a href="{{route('home')}}">Grafik Customer</a></li>
+                        <li class="nav-item"><a href="{{route('home')}}">Grafik Penyewaan</a></li>
+                    </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li class="nav-item"><a href="{{route('kategoriproduk.index')}}">Kategori Produk</a></li>
                         <li class="nav-item"><a href="#">Produk</a></li>
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
-                        <li class="nav-item"><a href="{{route('member.index')}}">Member</a></li>
+                        <li class="nav-item @yield('member')"><a href="{{route('member.index')}}">Member</a></li>
                         {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
                         <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}
                     </ul>
@@ -79,6 +77,11 @@
                         <li><a class="nav-link"href="/admin/contohtabel">Berhasil</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Belum Kembali</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Terlambat</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-envelope"></i> Kata Mereka <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="nav-item"><a href="{{ url('getintouch') }}">Get In Touch Member</a></li>
                     </ul>
                 </li>
                 {{-- <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
