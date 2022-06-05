@@ -98,8 +98,8 @@ class KategoriProdukController extends Controller
         
         $kategoriproduk->save();
 
-        return redirect()->route('kategoriproduk.index')
-        ->with('success', 'Data Kategori Produk Berhasil Diupdate');
+        Alert::success('Success','Data Kategori Produk Berhasil Diupdate');
+        return redirect()->route('kategoriproduk.index');
     }
 
     /**
