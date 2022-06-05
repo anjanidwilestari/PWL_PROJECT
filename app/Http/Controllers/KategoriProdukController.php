@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KategoriProduk;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriProdukController extends Controller
 {
@@ -12,9 +13,12 @@ class KategoriProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $kategoriproduk = KategoriProduk::paginate(5);
+        $posts = KategoriProduk::orderBy('nama_kategori', 'asc')->paginate(5);
+        return view('kategoriproduk.kategoriprodukindex', compact('kategoriproduk'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +28,7 @@ class KategoriProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategoriproduk.kategoriprodukcreate');
     }
 
     /**
@@ -35,7 +39,19 @@ class KategoriProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'nama_kategori' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $kategoriproduk = new KategoriProduk();
+        $kategoriproduk->nama_kategori = $request->get('nama_kategori');
+        $kategoriproduk->deskripsi = $request->get('deskripsi');
+
+        $kategoriproduk->save();
+
+        Alert::success('Success','Data Kategori Produk Berhasil Ditambahkan');
+        return redirect()->route('kategoriproduk.index');
     }
 
     /**
@@ -44,9 +60,10 @@ class KategoriProdukController extends Controller
      * @param  \App\Models\KategoriProduk  $kategoriProduk
      * @return \Illuminate\Http\Response
      */
-    public function show(KategoriProduk $kategoriProduk)
+    public function show($id)
     {
-        //
+        $kategoriproduk = KategoriProduk::find($id);
+        return view('kategoriproduk.kategoriprodukdetail',compact('kategoriproduk'));
     }
 
     /**
@@ -55,9 +72,10 @@ class KategoriProdukController extends Controller
      * @param  \App\Models\KategoriProduk  $kategoriProduk
      * @return \Illuminate\Http\Response
      */
-    public function edit(KategoriProduk $kategoriProduk)
+    public function edit($id)
     {
-        //
+        $kategoriproduk = KategoriProduk::find($id);
+        return view('kategoriproduk.kategoriprodukedit',compact('kategoriproduk'));
     }
 
     /**
@@ -67,9 +85,21 @@ class KategoriProdukController extends Controller
      * @param  \App\Models\KategoriProduk  $kategoriProduk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KategoriProduk $kategoriProduk)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_kategori' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $kategoriproduk = KategoriProduk::where('id', $id)->first();
+        $kategoriproduk->nama_kategori = $request->get('nama_kategori');
+        $kategoriproduk->deskripsi = $request->get('deskripsi');
+        
+        $kategoriproduk->save();
+
+        return redirect()->route('kategoriproduk.index')
+        ->with('success', 'Data Kategori Produk Berhasil Diupdate');
     }
 
     /**
@@ -78,8 +108,10 @@ class KategoriProdukController extends Controller
      * @param  \App\Models\KategoriProduk  $kategoriProduk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KategoriProduk $kategoriProduk)
+    public function destroy($id)
     {
-        //
+        KategoriProduk::find($id)->delete();
+        return redirect()->route('kategoriproduk.index')
+            -> with('success', ' Data Kategori Produk Berhasil Dihapus');
     }
 }
