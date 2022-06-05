@@ -18,6 +18,14 @@ class GetInTouchController extends Controller
         // return view('klien.contact', ['title' => 'Hubungi Kami']);
     }
 
+    public function getintouch(Request $request)
+    {
+        $getintouch = GetInTouch::paginate(5);
+        $posts = GetInTouch::orderBy('nama', 'asc')->paginate(5);
+        return view('getintouch.getintouchindex', compact('getintouch'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -63,7 +71,8 @@ class GetInTouchController extends Controller
      */
     public function show($id)
     {
-        //
+        $getintouch = GetInTouch::find($id);
+        return view('getintouch.getintouchdetail',compact('getintouch'));
     }
 
     /**
@@ -97,6 +106,8 @@ class GetInTouchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        GetInTouch::find($id)->delete();
+        return redirect()->route('getintouch')
+            -> with('success', 'Get In Touch Berhasil Dihapus');
     }
 }
