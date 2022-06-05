@@ -34,8 +34,8 @@
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"><a href="form.html">Kategori Produk</a></li>
-                        <li class="nav-item"><a href="form_advanced.html">Produk</a></li>
+                        <li class="nav-item"><a href="{{route('kategoriproduk.index')}}">Kategori Produk</a></li>
+                        <li class="nav-item"><a href="#">Produk</a></li>
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
                         <li class="nav-item"><a href="{{route('member.index')}}">Member</a></li>
                         {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>

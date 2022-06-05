@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PegawaiController;
@@ -26,6 +27,7 @@ Route::get('/klien-contact', [KlienController::class, 'contact']);
 Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
 Route::resource('pegawai',PegawaiController::class);
+Route::resource('kategoriproduk',KategoriProdukController::class);
 Route::resource('member',MemberController::class);
 
 // Route::get('/', function () {
