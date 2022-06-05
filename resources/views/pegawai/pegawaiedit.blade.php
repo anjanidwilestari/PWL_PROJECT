@@ -56,9 +56,6 @@
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('jabatan'))
-                                        <div class="error">{{ $errors->first('jabatan') }}</div>
-                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
