@@ -24,6 +24,7 @@ Route::get('/klien-produk', [KlienController::class, 'produk']);
 Route::get('/klien-galery', [KlienController::class, 'galery']);
 Route::get('/klien-about', [KlienController::class, 'about']);
 Route::resource('contact', GetInTouchController::class);
+Route::get('getintouch',[GetInTouchController::class, 'getintouch'])->name('getintouch');
 
 Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
