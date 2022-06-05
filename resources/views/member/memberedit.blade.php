@@ -1,6 +1,6 @@
 @extends('adminLayouts.main')
 @section('title')
-    Tambah Data Pegawai
+    Edit Data Pegawai
 @endsection
 @section('content')
     <div class="right_col" role="main">
@@ -41,40 +41,39 @@
                         <div class="x_content">
                             <br>
                             <form class="form-horizontal form-label-left input_mask" method="POST"
-                                enctype="multipart/form-data" action="{{ route('pegawai.store') }}">
+                                enctype="multipart/form-data" action="{{route('pegawai.update',$pegawai->id)}}">
                                 @csrf
-
+                                @method('PUT')
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Nama Lengkap * :</label>
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Lengkap" name="nama" required>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Lengkap" name="nama" required value="{{$pegawai->nama}}">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Jabatan * :</label>
-                                    <select class="form-control" id="jabatan" name="jabatan">
+                                    <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
                                         <option value="Manager">Manager</option>
                                         <option value="Admin">Admin</option>
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('jabatan'))
+                                        <div class="error">{{ $errors->first('jabatan') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     {{-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> --}}
-                                    <label for="fullname">Foto Pegawai * :</label>
-                                    <input type="file" class="form-control" placeholder="Foto" name="foto" required>
+                                    <input type="file" class="form-control" placeholder="Foto" name="foto" value="{{old('foto')}}">
+                                    <img width="80px" height="100"src="{{asset('storage/'. $pegawai->foto)}}" >
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Tanggal Lahir * :</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" required>
+                                    <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" required value="{{$pegawai->tanggal_lahir}}">
                                     <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Alamat * :</label>
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Alamat" name="alamat" required>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
                                     <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
@@ -96,7 +95,7 @@
                                         <br><br>
                                         <button type="submit" class="btn btn-success">Submit</button>
                                         <a class="btn btn-primary" href="{{ route('pegawai.index') }}">Cancel</a>
-                                        <button class="btn btn-danger" type="reset">Reset</a>
+                                        <a class="btn btn-danger" type="reset">Reset</a>
                                     </div>
                                 </div>
                             </form>
