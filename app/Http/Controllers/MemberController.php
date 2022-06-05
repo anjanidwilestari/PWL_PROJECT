@@ -50,7 +50,6 @@ class MemberController extends Controller
             // 'jabatan' => 'required',
         ]);
 
-        // Pegawai::create($request->all());
         $member = new Member;
         $member->nama = $request->get('nama');
         $member->ktp = $request->file('ktp')->store('imagesmember','public');
@@ -63,13 +62,6 @@ class MemberController extends Controller
         $member->alamat = $request->get('alamat');
         $member->tanggal_lahir = $request->get('tanggal_lahir');
         $member->kode_member = Helper::KodeMemberGenerator();
-
-        
-        // if ($request->file('foto')){
-        //     $image_name = $request ->file('foto')->store('imagespegawai', 'public');
-        // }
-
-        // $pegawai->foto = $image_name;
 
         $member->save();
         
@@ -97,8 +89,8 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
-        $pegawai = Member::find($id);
-        return view('member.memberedit',compact('memeber'));
+        $member = Member::find($id);
+        return view('member.memberedit',compact('member'));
     }
 
     /**
@@ -115,9 +107,10 @@ class MemberController extends Controller
             'alamat' => 'required',
             'umur' => 'required',
             'tanggal_lahir' => 'required',
-            'ktp' => 'required',
+            // 'ktp' => 'required',
         ]);
         $member = Member::where('id', $id)->first();
+        $member->nama = $request->get('nama');
         $member->umur = $request->get('umur');
         $member->alamat = $request->get('alamat');
         $member->tanggal_lahir = $request->get('tanggal_lahir');
@@ -127,7 +120,7 @@ class MemberController extends Controller
                 Storage::delete('public/'.$member->ktp);
             }
             $image_name = $request->file('ktp')->store('imagesmember', 'public');
-            $member->foto = $image_name;
+            $member->ktp = $image_name;
         }
         if($request->hasFile('kartu_pelajar')){
             if($member->kartu_pelajar && file_exists(storage_path('app/public/'. $member->kartu_pelajar))){
@@ -138,7 +131,6 @@ class MemberController extends Controller
         }
         $member->save();
 
-        // Pegawai::find($id)->update($request->all());
         return redirect()->route('member.index')
         ->with('success', 'Data Member Berhasil Diupdate');
     }
