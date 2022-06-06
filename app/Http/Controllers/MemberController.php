@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Member;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class MemberController extends Controller
 {
@@ -44,10 +45,9 @@ class MemberController extends Controller
         $request -> validate([
             'nama' => 'required',
             'alamat' => 'required',
-            'umur' => 'required',
+            'no_hp' => 'required|max:13',
             'tanggal_lahir' => 'required',
             'ktp' => 'required',
-            // 'jabatan' => 'required',
         ]);
 
         $member = new Member;
@@ -58,7 +58,7 @@ class MemberController extends Controller
         }else{
            $member->kartu_pelajar = $request->file('kartu_pelajar')->store('imagesmember','public');  
         }
-        $member->umur = $request->get('umur');
+        $member->no_hp = $request->get('no_hp');
         $member->alamat = $request->get('alamat');
         $member->tanggal_lahir = $request->get('tanggal_lahir');
         $member->kode_member = Helper::KodeMemberGenerator();
@@ -105,13 +105,12 @@ class MemberController extends Controller
         $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
-            'umur' => 'required',
+            'no_hp' => 'required|max:13',
             'tanggal_lahir' => 'required',
-            // 'ktp' => 'required',
         ]);
         $member = Member::where('id', $id)->first();
         $member->nama = $request->get('nama');
-        $member->umur = $request->get('umur');
+        $member->no_hp = $request->get('no_hp');
         $member->alamat = $request->get('alamat');
         $member->tanggal_lahir = $request->get('tanggal_lahir');
 
