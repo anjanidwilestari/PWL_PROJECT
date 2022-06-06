@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GetInTouchController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KlienController;
@@ -26,7 +27,7 @@ Route::get('/klien-about', [KlienController::class, 'about']);
 Route::resource('contact', GetInTouchController::class);
 Route::get('getintouch',[GetInTouchController::class, 'getintouch'])->name('getintouch');
 
-Route::get('/', [AdminController::class, 'dashboard'])->name('home');
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 Route::get('/admin/contohtabel', [AdminController::class, 'tabel']);
 Route::resource('pegawai',PegawaiController::class);
 Route::resource('kategoriproduk',KategoriProdukController::class);
