@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->date('tanggal_lahir');
-            $table->integer('umur');
+            $table->string('no_hp', 13);
             $table->string('ktp');
             $table->string('kartu_pelajar')->nullable();
             $table->string('kode_member');
