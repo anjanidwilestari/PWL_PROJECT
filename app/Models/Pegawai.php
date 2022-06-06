@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Pegawai extends Model
 {
@@ -18,4 +19,9 @@ class Pegawai extends Model
         'jabatan',
         'kode_pegawai',
     ];
+
+    public function getUmurAttribute(){
+        $umur = Carbon::parse($this->tanggal_lahir)->diff(Carbon::now())->format('%y Tahun');
+        return $umur;
+    }
 }

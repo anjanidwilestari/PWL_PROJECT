@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
@@ -14,9 +15,14 @@ class Member extends Model
         'nama',
         'alamat',
         'tanggal_lahir',
-        'umur',
+        'no_hp',
         'ktp',
         'kartu_pelajar',
         'kode_member'
     ];
+
+    public function getUmurAttribute(){
+        $umur = Carbon::parse($this->tanggal_lahir)->diff(Carbon::now())->format('%y Tahun');
+        return $umur;
+    }
 }
