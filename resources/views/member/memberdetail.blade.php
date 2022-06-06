@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $member->umur }} Tahun</a>
+                                                    <a>{{ $member->umur }}</a>
                                                 </h2>
                                             </div>
                                             <br>
@@ -109,6 +109,21 @@
                                     </li>
                                 </div>
                                 <div class="col-md-6">
+                                    <li>
+                                        <div class="block">
+                                            <div class="tags">
+                                                <a href="" class="tag">
+                                                    <span>Nomor HP</span>
+                                                </a>
+                                            </div>
+                                            <div class="block_content">
+                                                <h2 class="title">
+                                                    <a>{{ $member->no_hp }}</a>
+                                                </h2>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </li>
                                     <li>
                                         <div class="block">
                                             <div class="tags">
@@ -143,6 +158,12 @@
                                             <br>
                                         </div>
                                     </li>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
+                                        <br><br>
+                                        <a class="btn btn-primary" href="{{ route('member.index') }}"><i class="fa fa-home"></i> Kembali</a>
+                                    </div>
                                 </div>
                             </ul>
                         </div>
