@@ -80,6 +80,7 @@
                                         <th class="text-center">Foto</th>
                                         <th class="text-center">Alamat</th>
                                         <th class="text-center">Tanggal Lahir</th>
+                                        <th class="text-center">Umur</th>
                                         <th class="text-center">Jabatan</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -94,6 +95,7 @@
                                         <td><img width="50px" height="50px" src="{{ asset('storage/' . $data->foto) }}"></td>
                                         <td>{{$data->alamat}}</td>
                                         <td>{{$data->tanggal_lahir}}</td>
+                                        <td>{{$data->umur}}</td>
                                         <td>{{$data->jabatan}}</td>
                                         <td>
                                             <form action="{{ route('pegawai.destroy',  $data->id) }}" method="POST">

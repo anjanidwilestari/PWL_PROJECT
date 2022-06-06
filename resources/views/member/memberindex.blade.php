@@ -94,7 +94,7 @@
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->alamat }}</td>
                                             <td>{{ $data->tanggal_lahir }}</td>
-                                            <td>{{ $data->umur }} Tahun</td>
+                                            <td>{{ $data->umur }}</td>
                                             <td><img width="50px" height="40px" src="{{ asset('storage/' . $data->ktp) }}"></td>
                                             <td>
                                                 @if (($data->umur) < 17)
