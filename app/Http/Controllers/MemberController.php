@@ -31,6 +31,7 @@ class MemberController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('member.membercreate');
     }
 
@@ -89,6 +90,7 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $member = Member::find($id);
         return view('member.memberedit',compact('member'));
     }
@@ -142,6 +144,7 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         Member::find($id)->delete();
         return redirect()->route('member.index')
             -> with('success', 'Member Berhasil Dihapus');

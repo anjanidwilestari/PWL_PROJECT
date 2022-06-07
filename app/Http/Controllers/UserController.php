@@ -64,6 +64,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $user = User::find($id);
         return view('user.useredit',compact('user'));
     }
@@ -122,6 +123,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         User::find($id)->delete();
         return redirect()->route('user.index')
             -> with('success', 'User Berhasil Dihapus');

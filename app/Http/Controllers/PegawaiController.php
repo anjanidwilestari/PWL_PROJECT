@@ -30,6 +30,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('pegawai.pegawaicreate');
     }
 
@@ -91,6 +92,7 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $pegawai = Pegawai::find($id);
         return view('pegawai.pegawaiedit',compact('pegawai'));
     }
@@ -138,6 +140,7 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         Pegawai::find($id)->delete();
         return redirect()->route('pegawai.index')
             -> with('success', 'Pegawai Berhasil Dihapus');
