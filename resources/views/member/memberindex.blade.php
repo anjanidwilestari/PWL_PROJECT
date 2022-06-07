@@ -17,7 +17,6 @@
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                         <div class="input-group" action="{{ url()->current() }}" method="GET">
-                            {{-- <form class="form-inline my-2 my-lg-0" action="{{ url()->current() }}" method="GET"> --}}
                             <input type="text" class="form-control" placeholder="Search for .." aria-label="Search"
                                 name="keyword" value="{{ request('keyword') }}">
                             <span class="input-group-btn">
@@ -27,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+                @can('admin')
                 <div class="title_left">
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
@@ -34,19 +34,10 @@
                         </div>
                     </div>
                 </div>
+                @endcan
             </div>
 
             <div class="clearfix"></div>
-            {{-- <div class="alert-option">
-                <div class="col-md-12">
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{$message}}</p>
-                    </div>
-                @endif
-
-                </div>
-            </div> --}}
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
@@ -105,16 +96,13 @@
                                             </td>
                                             <td>
                                                 <form action="{{ route('member.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-primary"
-                                                        href="{{ route('member.show', $data->id) }}"><i
-                                                            class="fa fa-eye"></i></a>
-                                                    <a class="btn btn-icons btn-warning"
-                                                        href="{{ route('member.edit', $data->id) }}"><i
-                                                            class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-icons btn-primary" href="{{ route('member.show', $data->id) }}"><i class="fa fa-eye"></i></a>
+                                                    @can('admin')
+                                                    <a class="btn btn-icons btn-warning" href="{{ route('member.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i
-                                                            class="fa fa-trash-o"></i></button>
+                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

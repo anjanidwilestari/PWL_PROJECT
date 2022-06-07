@@ -94,16 +94,13 @@
                                             <td>{{ $data->jabatan }}</td>
                                             <td>
                                                 <form action="{{ route('user.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-primary"
-                                                        href="{{ route('user.show', $data->id) }}"><i
-                                                            class="fa fa-eye"></i></a>
-                                                    <a class="btn btn-icons btn-warning"
-                                                        href="{{ route('user.edit', $data->id) }}"><i
-                                                            class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-icons btn-primary" href="{{ route('user.show', $data->id) }}"><i class="fa fa-eye"></i></a>
+                                                    @can('admin')
+                                                    <a class="btn btn-icons btn-warning" href="{{ route('user.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i
-                                                            class="fa fa-trash-o"></i></button>
+                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

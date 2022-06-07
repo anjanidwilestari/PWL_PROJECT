@@ -17,7 +17,6 @@
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                         <div class="input-group" action="{{ url()->current() }}" method="GET">
-                            {{-- <form class="form-inline my-2 my-lg-0" action="{{ url()->current() }}" method="GET"> --}}
                                 <input type="text" class="form-control" placeholder="Search for .." aria-label="Search"
                                     name="keyword" value="{{ request('keyword') }}">
                                 <span class="input-group-btn">
@@ -27,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+                @can('admin')
                 <div class="title_left">
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
@@ -34,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
             </div>
 
             <div class="clearfix"></div>
@@ -100,10 +101,12 @@
                                         <td>
                                             <form action="{{ route('pegawai.destroy',  $data->id) }}" method="POST">
                                                 <a class="btn btn-icons btn-primary" href="{{route('pegawai.show', $data->id)}}"><i class="fa fa-eye"></i></a>
+                                                @can('admin')
                                                 <a class="btn btn-icons btn-warning" href="{{route('pegawai.edit', $data->id)}}"><i class="fa fa-pencil"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                 <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                @endcan
                                             </form>
                                         </td>
                                     </tr>
