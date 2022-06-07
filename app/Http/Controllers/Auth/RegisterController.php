@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nama' => ['required', 'string'],
+            'username' => ['required','string','max:20','unique:users'],
+            'password' => ['required', 'string', 'min:8'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'no_hp' => ['required', 'string', 'max:13', 'unique:users'],
+            'tanggal_lahir' => ['required','date'],
+            'alamat' => ['required','string'],
+            'jabatan' => ['required','string'],
+            'foto' => ['required']
         ]);
     }
 
@@ -65,9 +71,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'nama' => $data['nama'],
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'email' => $data['email'],
+            'no_hp' => $data['no_hp'],
+            'tanggal_lahir' => $data['tanggal_lahir'],
+            'alamat' => $data['alamat'],
+            'jabatan' => $data['jabatan'],
+            'foto' => $data['foto']->store('user', 'public')
         ]);
     }
 }
