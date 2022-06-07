@@ -7,10 +7,11 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
+                @if (Auth::user())
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="{{ asset('styleAdmin/production/images/img.jpg')}}" alt="">John Doe
+                        <img src="{{asset('storage/'.Auth()->user()->foto)}}" alt="">{{Auth()->user()->nama}}
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -22,10 +23,13 @@
                             </a>
                         </li>
                         <li><a href="javascript:;">Help</a></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <form action="{{route('logout')}}" id="logout-form" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
-
+                @endif
                 <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
                         aria-expanded="false">
@@ -35,7 +39,7 @@
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
                             <a>
-                                <span class="image"><img src="{{ asset('styleAdmin/production/images/img.jpg')}}" alt="Profile Image" /></span>
+                                <span class="image"><img src="{{asset('storage/'.Auth()->user()->foto)}}" alt="Profile Image" /></span>
                                 <span>
                                     <span>John Smith</span>
                                     <span class="time">3 mins ago</span>

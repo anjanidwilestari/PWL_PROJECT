@@ -8,11 +8,15 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
         <div class="profile_pic">
-            <img src="{{ asset('styleAdmin/production/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+            <img width="50px" height="60px" src="{{asset('storage/'.Auth()->user()->foto)}}" alt="..." class="img-circle profile_img">
         </div>
         <div class="profile_info">
             <span>Welcome,</span>
-            <h2>John Doe</h2>
+            <h2>{{Auth()->user()->nama}}</h2>
+            <div>
+                <small class="designation text-muted">{{Auth()->user()->jabatan}}</small>
+                <span class="status-indicator online"></span>
+            </div>
         </div>
     </div>
     <!-- /menu profile quick info -->
@@ -36,6 +40,7 @@
                         <li class="nav-item"><a href="#">Produk</a></li>
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
                         <li class="nav-item @yield('member')"><a href="{{route('member.index')}}">Member</a></li>
+                        <li class="nav-item @yield('user')"><a href="{{route('user.index')}}">Pengguna Website</a></li>
                         {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
                         <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}
                     </ul>
@@ -73,7 +78,6 @@
                 </li> --}}
                 <li><a><i class="fa fa-table"></i> Rekap Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a class="nav-link @yield('contohtabel')"href="/admin/contohtabel">Contoh Tables</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Berhasil</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Belum Kembali</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Terlambat</a></li>
