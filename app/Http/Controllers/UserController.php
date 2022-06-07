@@ -17,10 +17,20 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $user = User::paginate(5);
-        $posts = User::orderBy('nama', 'asc')->paginate(5);
+        $pagination = 5;
+        $user = User::when($request->keyword, function ($query) use ($request) {
+            $query
+                ->where('username', 'like', "%{$request->keyword}%")
+                ->orWhere('nama', 'like', "%{$request->keyword}%")
+                ->orWhere('alamat', 'like', "%{$request->keyword}%")
+                ->orWhere('email', 'like', "%{$request->keyword}%")
+                ->orWhere('no_hp', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggal_lahir', 'like', "%{$request->keyword}%")
+                ->orWhere('jabatan', 'like', "%{$request->keyword}%");
+        })->orderBy('nama')->paginate($pagination);
+
         return view('user.userindex', compact('user'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
     /**
