@@ -111,6 +111,23 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="paginate">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="detail-data col-md-12">
+                                        <p>Page : {!! $pegawai->currentPage() !!} <br />
+                                            Jumlah Data : {!! $pegawai->total() !!} <br />
+                                            Data Per Halaman : {!! $pegawai->perPage() !!} <br />
+                                        </p>
+                                    </div>
+                                    <div class="mx-auto">
+                                        <div class="paginate-button col-md-12">
+                                            {!! $pegawai->links() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -122,6 +122,23 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="paginate">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="detail-data col-md-12">
+                                        <p>Page : {!! $member->currentPage() !!} <br />
+                                            Jumlah Data : {!! $member->total() !!} <br />
+                                            Data Per Halaman : {!! $member->perPage() !!} <br />
+                                        </p>
+                                    </div>
+                                    <div class="mx-auto">
+                                        <div class="paginate-button col-md-12">
+                                            {!! $member->links() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
