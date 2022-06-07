@@ -54,9 +54,9 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jabatan * :</label>
                                     <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
-                                        <option value="Admin" @if ($user->jabatan == "Admin")selected @endif>Admin</option>
-                                        <option value="Manajer" @if ($user->jabatan == "Manajer")selected @endif>Manajer</option>
-                                        <option value="Karyawan" @if ($user->jabatan == "karyawan")selected @endif>Karyawan</option>
+                                        <option value="Admin" @if ($pegawai->jabatan == "Admin")selected @endif>Admin</option>
+                                        <option value="Manajer" @if ($pegawai->jabatan == "Manajer")selected @endif>Manajer</option>
+                                        <option value="Karyawan" @if ($pegawai->jabatan == "karyawan")selected @endif>Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
                                 </div>
