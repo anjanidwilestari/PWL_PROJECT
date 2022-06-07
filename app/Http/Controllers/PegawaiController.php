@@ -17,10 +17,18 @@ class PegawaiController extends Controller
      */
     public function index(Request $request)
     {
-        $pegawai = Pegawai::paginate(5);
-        $posts = Pegawai::orderBy('nama', 'asc')->paginate(5);
+        $pagination = 5;
+        $pegawai = Pegawai::when($request->keyword, function ($query) use ($request) {
+            $query
+                ->where('kode_pegawai', 'like', "%{$request->keyword}%")
+                ->orWhere('nama', 'like', "%{$request->keyword}%")
+                ->orWhere('alamat', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggal_lahir', 'like', "%{$request->keyword}%")
+                ->orWhere('jabatan', 'like', "%{$request->keyword}%");
+        })->orderBy('kode_pegawai')->paginate($pagination);
+
         return view('pegawai.pegawaiindex', compact('pegawai'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
     /**
@@ -42,7 +50,7 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
+        $request->validate([
             'nama' => 'required',
             'foto' => 'required',
             'alamat' => 'required',
@@ -54,7 +62,7 @@ class PegawaiController extends Controller
         // Pegawai::create($request->all());
         $pegawai = new Pegawai;
         $pegawai->nama = $request->get('nama');
-        $pegawai->foto = $request->file('foto')->store('imagespegawai','public');
+        $pegawai->foto = $request->file('foto')->store('imagespegawai', 'public');
         $pegawai->alamat = $request->get('alamat');
         $pegawai->tanggal_lahir = $request->get('tanggal_lahir');
         $pegawai->jabatan = $request->get('jabatan');
@@ -67,8 +75,8 @@ class PegawaiController extends Controller
         // $pegawai->foto = $image_name;
 
         $pegawai->save();
-        
-        Alert::success('Success','Data Pegawai Berhasil Ditambahkan');
+
+        Alert::success('Success', 'Data Pegawai Berhasil Ditambahkan');
         return redirect()->route('pegawai.index');
     }
 
@@ -81,7 +89,7 @@ class PegawaiController extends Controller
     public function show($id)
     {
         $pegawai = Pegawai::find($id);
-        return view('pegawai.pegawaidetail',compact('pegawai'));
+        return view('pegawai.pegawaidetail', compact('pegawai'));
     }
 
     /**
@@ -94,7 +102,7 @@ class PegawaiController extends Controller
     {
         $this->authorize('admin');
         $pegawai = Pegawai::find($id);
-        return view('pegawai.pegawaiedit',compact('pegawai'));
+        return view('pegawai.pegawaiedit', compact('pegawai'));
     }
 
     /**
@@ -118,9 +126,9 @@ class PegawaiController extends Controller
         $pegawai->tanggal_lahir = $request->get('tanggal_lahir');
         $pegawai->jabatan = $request->get('jabatan');
 
-        if($request->hasFile('foto')){
-            if($pegawai->foto && file_exists(storage_path('app/public/'. $pegawai->foto))){
-                Storage::delete('public/'.$pegawai->foto);
+        if ($request->hasFile('foto')) {
+            if ($pegawai->foto && file_exists(storage_path('app/public/' . $pegawai->foto))) {
+                Storage::delete('public/' . $pegawai->foto);
             }
             $image_name = $request->file('foto')->store('imagespegawai', 'public');
             $pegawai->foto = $image_name;
@@ -129,7 +137,7 @@ class PegawaiController extends Controller
 
         // Pegawai::find($id)->update($request->all());
         return redirect()->route('pegawai.index')
-        ->with('success', 'Data Pegawai Berhasil Diupdate');
+            ->with('success', 'Data Pegawai Berhasil Diupdate');
     }
 
     /**
@@ -143,6 +151,6 @@ class PegawaiController extends Controller
         $this->authorize('admin');
         Pegawai::find($id)->delete();
         return redirect()->route('pegawai.index')
-            -> with('success', 'Pegawai Berhasil Dihapus');
+            ->with('success', 'Pegawai Berhasil Dihapus');
     }
 }

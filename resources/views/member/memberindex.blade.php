@@ -16,14 +16,13 @@
                 </div>
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        <div class="input-group" action="{{ url()->current() }}" method="GET">
-                            <input type="text" class="form-control" placeholder="Search for .." aria-label="Search"
+                        <form class="input-group" action="{{ url()->current() }}" method="GET">
+                            <input type="search" class="form-control" placeholder="Search for .." aria-label="Search"
                                 name="keyword" value="{{ request('keyword') }}">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
+                                <button class="btn btn-default" type="submit">Go!</button>
                             </span>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 @can('admin')

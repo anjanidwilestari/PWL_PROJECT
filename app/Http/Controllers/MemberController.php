@@ -18,10 +18,17 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-        $member = Member::paginate(5);
-        $posts = Member::orderBy('nama', 'asc')->paginate(5);
+        $pagination = 5;
+        $member = Member::when($request->keyword, function ($query) use ($request) {
+            $query
+                ->where('kode_member', 'like', "%{$request->keyword}%")
+                ->orWhere('nama', 'like', "%{$request->keyword}%")
+                ->orWhere('alamat', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggal_lahir', 'like', "%{$request->keyword}%");
+        })->orderBy('kode_member')->paginate($pagination);
+
         return view('member.memberindex', compact('member'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
     /**
