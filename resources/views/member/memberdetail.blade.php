@@ -113,7 +113,7 @@
                                         <div class="block">
                                             <div class="tags">
                                                 <a href="" class="tag">
-                                                    <span>Nomor HP</span>
+                                                    <span>No Telepon</span>
                                                 </a>
                                             </div>
                                             <div class="block_content">
