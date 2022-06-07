@@ -54,15 +54,14 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jabatan * :</label>
                                     <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
-                                        <option value="Manager">Manager</option>
-                                        <option value="Admin">Admin</option>
-                                        <option value="Karyawan">Karyawan</option>
+                                        <option value="Admin" @if ($user->jabatan == "Admin")selected @endif>Admin</option>
+                                        <option value="Manajer" @if ($user->jabatan == "Manajer")selected @endif>Manajer</option>
+                                        <option value="Karyawan" @if ($user->jabatan == "karyawan")selected @endif>Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    {{-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> --}}
                                     <label for="fullname">Foto Pegawai * :</label>
                                     <input type="file" class="form-control" placeholder="Foto" name="foto" value="{{old('foto')}}">
                                     <img width="80px" height="100"src="{{asset('storage/'. $pegawai->foto)}}" >
@@ -79,19 +78,6 @@
                                     <input type="text" class="form-control has-feedback-right" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
                                     <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-
-                                {{-- <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Disabled Input </label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
-          </div>
-        </div> --}}
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
