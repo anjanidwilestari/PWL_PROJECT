@@ -4,63 +4,40 @@ namespace App\Helpers;
 
 use App\Models\Pegawai as MasterPegawai;
 use App\Models\Member as MasterMember;
+use Carbon\Carbon;
 
 class Helper{
     public static function KodePegawaiGenerator(){
-        $kode = 'KP'.date('ymd') .'';
-        $cek_kode_pegawai = MasterPegawai::where('kode_pegawai', 'like', '%' . $kode . '%')
-        ->select('kode_pegawai')
-        ->orderBy('kode_pegawai', 'desc')
-        ->first();
-
-        if (!empty($cek_kode_pegawai)) {
-            $get_angka_akhir = substr($cek_kode_pegawai->kode_pegawai, -3);
-            $get_angka_akhir = $get_angka_akhir + 1;
-            // dd($get_angka_akhir);
-            $arr_angka = [
-                '10' => '00',
-                '100' => '0',
-                '1000' => '',
-            ];
-            foreach ($arr_angka as $key_angka => $value_angka) {
-                // dd($get_angka_akhir, $get_angka_akhir < $key_angka);
-                if ($get_angka_akhir < $key_angka) {
-                    $kode = $kode .$value_angka. $get_angka_akhir;
-                    break;
-                }
-            }
+        $tanggal = Carbon::now()->format('d');
+        $bulan = Carbon::now()->format('m');
+        $tahun = Carbon::now()->format('y');
+        $thnBlnTgl = $tahun . $bulan . $tanggal;
+        $cekJumlah = MasterPegawai::count();
+        if($cekJumlah == 0){
+            $urut = 10001;
+            $nomor = 'KP' . $thnBlnTgl . $urut;
         } else {
-            $kode = $kode . '001';
+            $pegawai = MasterPegawai::all()->last();
+            $urut = (int)substr($pegawai->kode_pegawai, -5) + 1;
+            $nomor = 'KP' . $thnBlnTgl . $urut;
         }
-        return $kode;
+        return $nomor;
     }
 
     public static function KodeMemberGenerator(){
-        $kode = 'KM'.date('ymd') .'';
-        $cek_kode_member = MasterMember::where('kode_member', 'like', '%' . $kode . '%')
-        ->select('kode_member')
-        ->orderBy('kode_member', 'desc')
-        ->first();
-
-        if (!empty($cek_kode_member)) {
-            $get_angka_akhir = substr($cek_kode_member->kode_member, -3);
-            $get_angka_akhir = $get_angka_akhir + 1;
-            // dd($get_angka_akhir);
-            $arr_angka = [
-                '10' => '00',
-                '100' => '0',
-                '1000' => '',
-            ];
-            foreach ($arr_angka as $key_angka => $value_angka) {
-                // dd($get_angka_akhir, $get_angka_akhir < $key_angka);
-                if ($get_angka_akhir < $key_angka) {
-                    $kode = $kode .$value_angka. $get_angka_akhir;
-                    break;
-                }
-            }
+        $tanggal = Carbon::now()->format('d');
+        $bulan = Carbon::now()->format('m');
+        $tahun = Carbon::now()->format('y');
+        $thnBlnTgl = $tahun . $bulan . $tanggal;
+        $cekJumlah = MasterMember::count();
+        if($cekJumlah == 0){
+            $urut = 10001;
+            $nomor = 'KM' . $thnBlnTgl . $urut;
         } else {
-            $kode = $kode . '001';
+            $member = MasterMember::all()->last();
+            $urut = (int)substr($member->kode_member, -5) + 1;
+            $nomor = 'KM' . $thnBlnTgl . $urut;
         }
-        return $kode;
+        return $nomor;
     }
 }
