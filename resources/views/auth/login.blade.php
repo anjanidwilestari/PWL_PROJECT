@@ -43,14 +43,14 @@
                                 Rental Alat Pendakian dan Camping
                             </p>
                             <a href="{{ route('register') }}">
-                                REGISTER NOW
+                                DAFTAR SEKARANG
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="login_form">
                             <h3>
-                                Login Now
+                                Login Sekarang
                             </h3>
                             <br>
                             <form action="{{ route('login') }}" method="POST">
