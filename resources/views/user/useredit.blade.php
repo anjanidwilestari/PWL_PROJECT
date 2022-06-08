@@ -55,18 +55,27 @@
                                     <label for="fullname">Email * :</label>
                                     <input type="text" class="form-control has-feedback-right" placeholder="Email" name="email" required value="{{$user->email}}">
                                     <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('password'))
+                                        <div class="error">{{ $errors->first('email') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Username * :</label>
                                     <input type="text" class="form-control has-feedback-left" placeholder="Username" name="username" required value="{{$user->username}}">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('username'))
+                                        <div class="error">{{ $errors->first('username') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">No Handphone * :</label>
                                     <input type="text" class="form-control has-feedback-right" placeholder="No Handphone" name="no_hp" required value="{{$user->no_hp}}">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('no_hp'))
+                                        <div class="error">{{ $errors->first('no_hp') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -94,6 +103,9 @@
                                     <label for="fullname">Ganti Password :</label>
                                     <input type="password" class="form-control has-feedback-right" placeholder="Password" name="password">
                                     <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('password'))
+                                        <div class="error">{{ $errors->first('password') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -101,6 +113,12 @@
                                     <input type="file" class="form-control has-feedback-left" placeholder="Foto" name="foto" value="{{old('foto')}}">
                                     <span class="fa fa-image form-control-feedback left" aria-hidden="true"></span>
                                     <img width="80px" height="100"src="{{asset('storage/'. $user->foto)}}" >
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Konfirmasi Password :</label>
+                                    <input type="password" class="form-control has-feedback-right" placeholder= "Konfirmasi Password" name="password_confirmation">
+                                    <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="ln_solid"></div>

@@ -43,14 +43,14 @@
                                 Rental Alat Pendakian dan Camping
                             </p>
                             <a href="{{ route('login') }}">
-                                LOGIN NOW
+                                LOGIN SEKARANG
                             </a>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="login_form">
                             <h3>
-                                Register Now
+                                Daftar Sekarang
                             </h3>
                             <br>
                             <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
@@ -92,6 +92,17 @@
                                             @enderror
                                         </div>
                                         <div>
+                                            <h6 align="left">Konfirmasi Password</h6>
+                                            <input type="password"
+                                                class="form-control"
+                                                placeholder="Konfirmasi Password" name="password_confirmation" id="password_confirmation" required />
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div>
                                             <h6 align="left">Email</h6>
                                             <input type="email"
                                                 class="form-control @error('email') is-invalid @enderror"
@@ -102,6 +113,8 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div>
                                             <h6 align="left">No Handphone</h6>
                                             <input type="text" class="form-control @error('no_hp') is-invalid @enderror"
@@ -113,8 +126,6 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div>
                                             <h6 align="left">Tanggal Lahir</h6>
                                             <input type="date"

@@ -90,10 +90,10 @@ class UserController extends Controller
     {
         $request->validate([
             'nama'=> 'required',
-            'username' => 'required|string|max:20',
+            'username' => 'required|string|max:20|unique:users,username,'.$id,
             'password' => 'min:8|confirmed|nullable',
             'email' => 'required|email|unique:users,email,'.$id,
-            'no_hp' => 'string|max:13|required',
+            'no_hp' => 'string|max:13|required|unique:users,no_hp,'.$id,
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
             'jabatan' => 'required'
@@ -109,11 +109,11 @@ class UserController extends Controller
         }
         $user -> nama = $request->nama;
         $user -> username = $request->username;
-        if (!$request->password && !$request->password_confirmation) {
-            // dd('ini ga ganti');
-        } else {
-            $user->password = Hash::make($request->password);
-        }
+        // if (!$request->password && !$request->password_confirmation) {
+        //     // dd('ini ga ganti');
+        // } else {
+        //     $user->password = Hash::make($request->password);
+        // }
         $user -> email = $request->email;
         $user -> no_hp = $request->no_hp;
         $user -> tanggal_lahir = $request->tanggal_lahir;
