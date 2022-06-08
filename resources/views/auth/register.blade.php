@@ -175,7 +175,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit">Register</button>
+                                <button type="submit">DAFTAR</button>
                             </form>
                         </div>
                     </div>
