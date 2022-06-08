@@ -86,7 +86,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $member->tanggal_lahir }}</a>
+                                                    <a>{{ \Carbon\Carbon::parse($member->tanggal_lahir)->format('d M Y') }}</a>
                                                 </h2>
                                             </div>
                                             <br>

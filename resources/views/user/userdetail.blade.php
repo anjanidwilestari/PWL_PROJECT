@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $user->tanggal_lahir }}</a>
+                                                    <a>{{ \Carbon\Carbon::parse($user->tanggal_lahir)->format('d M Y') }}</a>
                                                 </h2>
                                             </div>
                                             <br>
