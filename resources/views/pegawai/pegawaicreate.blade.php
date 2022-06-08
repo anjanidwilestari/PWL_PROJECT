@@ -53,8 +53,8 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jabatan * :</label>
-                                    <select class="form-control" id="jabatan" name="jabatan">
-                                        <option value="Manager">Manager</option>
+                                    <select class="form-control has-feedback-right" id="jabatan" name="jabatan">
+                                        <option value="Manajer">Manajer</option>
                                         <option value="Admin">Admin</option>
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
@@ -64,12 +64,13 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     {{-- <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> --}}
                                     <label for="fullname">Foto Pegawai * :</label>
-                                    <input type="file" class="form-control" placeholder="Foto" name="foto" required>
+                                    <input type="file" class="form-control has-feedback-left" placeholder="Foto" name="foto" required>
+                                    <span class="fa fa-picture-o form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Tanggal Lahir * :</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" required>
+                                    <input type="date" class="form-control has-feedback-right" placeholder="Tanggal Lahir" name="tanggal_lahir" required>
                                     <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
