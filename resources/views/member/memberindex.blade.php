@@ -61,18 +61,19 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <table id="datatable" class="table table-striped table-bordered text-center">
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Kode Member</th>
-                                        <th class="text-center">Nama</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">Tanggal Lahir</th>
-                                        <th class="text-center">Umur</th>
-                                        <th class="text-center">Foto KTP</th>
-                                        <th class="text-center">Kartu Pelajar</th>
-                                        <th class="text-center">Action</th>
+                                        <th scope="col|row" class="text-center">No</th>
+                                        <th scope="col" class="text-center">Kode Member</th>
+                                        <th scope="col" class="text-center">Nama Member</th>
+                                        <th scope="col" class="text-center">Alamat</th>
+                                        <th scope="col" class="text-center">Tanggal Lahir</th>
+                                        <th scope="col" class="text-center">Umur</th>
+                                        <th scope="col" class="text-center">Foto KTP</th>
+                                        <th scope="col" class="text-center">Kartu Pelajar</th>
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
@@ -83,12 +84,12 @@
                                             <td>{{ $data->kode_member }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->alamat }}</td>
-                                            <td>{{ $data->tanggal_lahir }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->format('d-m-Y') }}</td>
                                             <td>{{ $data->umur }}</td>
-                                            <td><img width="50px" height="40px" src="{{ asset('storage/' . $data->ktp) }}"></td>
+                                            <td><img  width="70px" height="60px" src="{{ asset('storage/' . $data->ktp) }}"></td>
                                             <td>
                                                 @if (($data->umur) < 17)
-                                                <img width="50px" height="40px" src="{{ asset('storage/' . $data->kartu_pelajar) }}">
+                                                <img  width="70px" height="60px" src="{{ asset('storage/' . $data->kartu_pelajar) }}">
                                                 @else
                                                     Tidak Perlu
                                                 @endif
@@ -108,6 +109,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                         <div class="paginate">
                             <div class="container">

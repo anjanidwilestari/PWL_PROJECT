@@ -61,53 +61,65 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <table id="datatable" class="table table-striped table-bordered text-center">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Kode Pegawai</th>
-                                        <th class="text-center">Nama</th>
-                                        <th class="text-center">Foto</th>
-                                        <th class="text-center">Alamat</th>
-                                        <th class="text-center">Tanggal Lahir</th>
-                                        <th class="text-center">Umur</th>
-                                        <th class="text-center">Jabatan</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach ($pegawai as $data)
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table table-bordered text-center">
+                                    <thead>
                                         <tr>
-                                            <td scope="row">{{ ++$i }}</td>
-                                            <td>{{ $data->kode_pegawai }}</td>
-                                            <td>{{ $data->nama }}</td>
-                                            <td><img width="50px" height="50px"
-                                                    src="{{ asset('storage/' . $data->foto) }}"></td>
-                                            <td>{{ $data->alamat }}</td>
-                                            <td>{{ $data->tanggal_lahir }}</td>
-                                            <td>{{ $data->umur }}</td>
-                                            <td>{{ $data->jabatan }}</td>
-                                            <td>
-                                                <form action="{{ route('pegawai.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-primary"
-                                                        href="{{ route('pegawai.show', $data->id) }}"><i
-                                                            class="fa fa-eye"></i></a>
-                                                    @can('admin')
-                                                        <a class="btn btn-icons btn-warning"
-                                                            href="{{ route('pegawai.edit', $data->id) }}"><i
-                                                                class="fa fa-pencil"></i></a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-icons btn-danger"><i
-                                                                class="fa fa-trash-o"></i></button>
-                                                    @endcan
-                                                </form>
-                                            </td>
+                                            <th scope="col" class="text-center">No</th>
+                                            <th scope="col" class="text-center">Kode Pegawai</th>
+                                            <th scope="col" class="text-center">Nama Pegawai</th>
+                                            <th scope="col" class="text-center">Foto Pegawai</th>
+                                            <th scope="col" class="text-center">Alamat</th>
+                                            <th scope="col" class="text-center">Tanggal Lahir</th>
+                                            <th scope="col" class="text-center">Umur</th>
+                                            <th scope="col" class="text-center">Jabatan</th>
+                                            <th scope="col" class="text-center">Action</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($pegawai as $data)
+                                            <tr>
+                                                <td scope="row">{{ ++$i }}</td>
+                                                <td>{{ $data->kode_pegawai }}</td>
+                                                <td>{{ $data->nama }}</td>
+                                                <td><img width="70px" height="70px"
+                                                        src="{{ asset('storage/' . $data->foto) }}"></td>
+                                                <td>{{ $data->alamat }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->format('d-m-Y') }}</td>
+                                                <td>{{ $data->umur }}</td>
+                                                @if ($data->jabatan == 'Admin')
+                                                    <td class="text-center"><span
+                                                            class="label label-success">Admin</span></td>
+                                                @elseif ($data->jabatan == 'Manajer')
+                                                    <td class="text-center"><span
+                                                            class="label label-default">Manajer</span></td>
+                                                @else
+                                                    <td class="text-center"><span
+                                                            class="label label-info">Karyawan</span></td>
+                                                @endif
+                                                <td>
+                                                    <form action="{{ route('pegawai.destroy', $data->id) }}"
+                                                        method="POST">
+                                                        <a class="btn btn-icons btn-primary"
+                                                            href="{{ route('pegawai.show', $data->id) }}"><i
+                                                                class="fa fa-eye"></i></a>
+                                                        @can('admin')
+                                                            <a class="btn btn-icons btn-warning"
+                                                                href="{{ route('pegawai.edit', $data->id) }}"><i
+                                                                    class="fa fa-pencil"></i></a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-icons btn-danger"><i
+                                                                    class="fa fa-trash-o"></i></button>
+                                                        @endcan
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="paginate">
                             <div class="container">
