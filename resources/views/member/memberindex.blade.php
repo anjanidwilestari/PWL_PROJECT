@@ -65,7 +65,7 @@
                                 <table class="table table-striped jambo_table table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th scope="col|row" class="text-center">No</th>
+                                        <th scope="col" class="text-center">No</th>
                                         <th scope="col" class="text-center">Kode Member</th>
                                         <th scope="col" class="text-center">Nama Member</th>
                                         <th scope="col" class="text-center">Alamat</th>

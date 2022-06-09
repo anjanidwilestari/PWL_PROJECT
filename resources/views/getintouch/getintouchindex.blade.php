@@ -62,43 +62,46 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table width="400px" id="datatable" class="table table-striped table-bordered text-center"">
-                                    <thead>
-                                        <tr>
-                                            <th class=" text-center">No</th>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">No Handphone</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center" width="350px"> Isi Pesan</th>
-                                    <th class="text-center">Action</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach ($getintouch as $data)
+                                <div class="table-responsive">
+                                    <table class="table table-striped jambo_table table-bordered text-center">
+                                        <thead>
                                             <tr>
-                                                <td scope="row">{{ ++$i }}</td>
-                                                <td>{{ $data->nama }}</td>
-                                                <td>{{ $data->no_hp }}</td>
-                                                <td>{{ $data->email }}</td>
-                                                <td>{{ $data->pesan }}</td>
-                                                <td>
-                                                    <form action="{{ route('contact.destroy', $data->id) }}"
-                                                        method="POST">
-                                                        <a class="btn btn-icons btn-primary"
-                                                            href="{{ route('contact.show', $data->id) }}">
-                                                            <i class="fa fa-eye"></i></a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        @can('admin')
-                                                            <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                        @endcan
-                                                    </form>
-                                                </td>
+                                                <th class=" text-center">No</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">No Handphone</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center" width="350px"> Isi Pesan</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach ($getintouch as $data)
+                                                <tr>
+                                                    <td scope="row">{{ ++$i }}</td>
+                                                    <td>{{ $data->nama }}</td>
+                                                    <td>{{ $data->no_hp }}</td>
+                                                    <td>{{ $data->email }}</td>
+                                                    <td>{{ $data->pesan }}</td>
+                                                    <td>
+                                                        <form action="{{ route('contact.destroy', $data->id) }}"
+                                                            method="POST">
+                                                            <a class="btn btn-icons btn-primary"
+                                                                href="{{ route('contact.show', $data->id) }}">
+                                                                <i class="fa fa-eye"></i></a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            @can('admin')
+                                                                <button type="submit" class="btn btn-icons btn-danger"><i
+                                                                        class="fa fa-trash-o"></i></button>
+                                                            @endcan
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
