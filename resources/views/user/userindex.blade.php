@@ -111,13 +111,13 @@
                                             Data Per Halaman : {!! $user->perPage() !!} <br />
                                         </p>
                                     </div>
-                                    <div class="mx-auto">
-                                        <div class="paginate-button col-md-12">
-                                            {!! $user->links() !!}
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="text-center">
+                            {{-- <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search"> --}}
+                                {{ $user->links()}}
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>

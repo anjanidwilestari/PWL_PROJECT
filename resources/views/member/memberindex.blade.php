@@ -113,20 +113,21 @@
                         </div>
                         <div class="paginate">
                             <div class="container">
-                                <div class="row">
-                                    <div class="detail-data col-md-12">
+                                <div class="page-title">
+                                    <div class="title_left">
                                         <p>Page : {!! $member->currentPage() !!} <br />
                                             Jumlah Data : {!! $member->total() !!} <br />
                                             Data Per Halaman : {!! $member->perPage() !!} <br />
                                         </p>
                                     </div>
-                                    <div class="mx-auto">
-                                        <div class="paginate-button col-md-12">
-                                            {!! $member->links() !!}
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
+                        </div>
+                        <div class="text-center">
+                            {{-- <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search"> --}}
+                                {{ $member->links()}}
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>
