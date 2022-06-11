@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kategori_id')->nullable();
+            $table->foreign('kategori_id')->references('id')->on('kategori_produks');
+            $table->string('nama_produk');
+            $table->string('kode_produk')->nullable();
+            $table->string('gambar')->nullable();
+            $table->string('biaya_per_hari');
+            //$table->integer('is_stock');
             $table->timestamps();
         });
     }
