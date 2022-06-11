@@ -1,8 +1,8 @@
 @extends('adminLayouts.main')
 @section('title')
-    Edit Data Pegawai
+    Edit Data Produk
 @endsection
-@section('pegawai', 'active')
+@section('produk', 'active')
 @section('content')
     <div class="right_col" role="main">
         <div class="">
@@ -10,7 +10,7 @@
                 <div class="col-md-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Edit Data Pegawai <small></small></h2>
+                            <h2>Edit Data Produk <small></small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -42,48 +42,46 @@
                         <div class="x_content">
                             <br>
                             <form class="form-horizontal form-label-left input_mask" method="POST"
-                                enctype="multipart/form-data" action="{{route('pegawai.update',$pegawai->id)}}">
+                                enctype="multipart/form-data" action="{{route('produk.update',$produk->id)}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Nama Lengkap * :</label>
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Lengkap" name="nama" required value="{{$pegawai->nama}}">
+                                    <label for="fullname">Nama Produk * :</label>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Nama Produk" name="nama_produk" required value="{{$produk->nama_produk}}">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Jabatan * :</label>
-                                    <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
-                                        <option value="Admin" @if ($pegawai->jabatan == "Admin")selected @endif>Admin</option>
-                                        <option value="Manajer" @if ($pegawai->jabatan == "Manajer")selected @endif>Manajer</option>
-                                        <option value="Karyawan" @if ($pegawai->jabatan == "karyawan")selected @endif>Karyawan</option>
-                                    </select>
+                                    <label for="fullname">Kategori Produk * :</label>
+                                    <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id" required> 
+                                        @foreach ($nama_kategori as $data)
+                                          <option value="{{$data->id}}"
+                                            @if ($data->id == $produk->kategori_id) selected
+                                            @endif>{{$data->nama_kategori}}
+                                          </option>
+                                        @endforeach
+                                      </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Foto Pegawai * :</label>
-                                    <input type="file" class="form-control" placeholder="Foto" name="foto" value="{{old('foto')}}">
-                                    <img width="80px" height="100"src="{{asset('storage/'. $pegawai->foto)}}" >
+                                    <label for="fullname">Gambar produk * :</label>
+                                    <input type="file" class="form-control" placeholder="Gambar" name="gambar" value="{{old('gambar')}}">
+                                    <img width="80px" height="100"src="{{asset('storage/'. $produk->gambar)}}" >
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Tanggal Lahir * :</label>
-                                    <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" required value="{{$pegawai->tanggal_lahir}}">
-                                    <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+                                    <label for="fullname">Biaya per Hari * :</label>
+                                    <input type="text" class="form-control" placeholder="Biaya per Hari" name="biaya_per_hari" required value="{{$produk->biaya_per_hari}}">
+                                    <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Alamat * :</label>
-                                    <input type="text" class="form-control has-feedback-right" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
-                                    <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
-                                </div>
+                                
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
                                         <br><br>
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        <a class="btn btn-primary" href="{{ route('pegawai.index') }}">Cancel</a>
+                                        <a class="btn btn-primary" href="{{ route('produk.index') }}">Cancel</a>
                                         <button class="btn btn-danger" type="reset">Reset</button>
                                     </div>
                                 </div>

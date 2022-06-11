@@ -53,7 +53,7 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Kategori Produk * :</label>
-                                    <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id">
+                                    <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id" required>
                                         <option value="">--Pilih Kategori Produk--</option>
                                         @foreach ($nama_kategori as $data)
                                             <option value="{{$data->id}}" {{old('kategori_id') == $data->id ? 'selected' : ''}}>{{$data->nama_kategori}}</option>
