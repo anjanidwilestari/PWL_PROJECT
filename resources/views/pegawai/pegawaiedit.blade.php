@@ -56,7 +56,7 @@
                                     <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
                                         <option value="Admin" @if ($pegawai->jabatan == "Admin")selected @endif>Admin</option>
                                         <option value="Manajer" @if ($pegawai->jabatan == "Manajer")selected @endif>Manajer</option>
-                                        <option value="Karyawan" @if ($pegawai->jabatan == "karyawan")selected @endif>Karyawan</option>
+                                        <option value="Karyawan" @if ($pegawai->jabatan == "Karyawan")selected @endif>Karyawan</option>
                                     </select>
                                     <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
                                 </div>
