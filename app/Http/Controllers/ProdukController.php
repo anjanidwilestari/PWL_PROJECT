@@ -97,7 +97,8 @@ class ProdukController extends Controller
     {
         $this->authorize('admin');
         $produk = Produk::find($id);
-        return view('produk.produkedit', compact('produk'));
+        $nama_kategori = KategoriProduk::all();
+        return view('produk.produkedit', compact('produk','nama_kategori'));
     }
 
     /**
@@ -129,7 +130,7 @@ class ProdukController extends Controller
 
         // produk::find($id)->update($request->all());
         return redirect()->route('produk.index')
-            ->with('success', 'Data produk Berhasil Diupdate');
+            ->with('success', 'Data Produk Berhasil Diupdate');
     }
 
     /**
