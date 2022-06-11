@@ -1,6 +1,6 @@
 {{-- <div class="left_col scroll-view"> --}}
     <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><img width="200px" height="75px" src="{{ asset('styleAdmin/production/images/logo-bolang.png')}}" alt="..."></a>
+        <a href="{{route('home')}}" class="site_title"><img width="200px" height="75px" src="{{ asset('styleAdmin/production/images/logo-bolang.png')}}" alt="..."></a>
     </div>
 
     <div class="clearfix"></div>
@@ -11,7 +11,7 @@
             <img width="50px" height="60px" src="{{asset('storage/'.Auth()->user()->foto)}}" alt="..." class="img-circle profile_img">
         </div>
         <div class="profile_info">
-            <span>Welcome,</span>
+            <span>Selamat Datang,</span>
             <h2>{{Auth()->user()->nama}}</h2>
             <div>
                 <small class="designation text-muted">{{Auth()->user()->jabatan}}</small>

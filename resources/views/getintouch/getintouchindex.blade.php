@@ -22,7 +22,7 @@
                                 <input type="text" class="form-control" placeholder="Search for .." aria-label="Search"
                                     name="keyword" value="{{ request('keyword') }}">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Go!</button>
+                                    <button class="btn btn-default" type="button">Cari!</button>
                                 </span>
                                 </form>
                             </div>
