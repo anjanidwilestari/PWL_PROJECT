@@ -68,8 +68,8 @@ class ProdukController extends Controller
         $produk->kode_produk = Helper::KodeProdukGenerator();
         $produk->gambar = $request->file('gambar')->store('imagesproduk', 'public');
         $produk->biaya_per_hari = $request->biaya_per_hari;
-        
 
+        
         $produk->save();
 
         Alert::success('Success', 'Data Produk Berhasil Ditambahkan');
