@@ -55,7 +55,7 @@
                                     <label for="fullname">Kategori Produk * :</label>
                                     <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id">
                                         <option value="">--Pilih Kategori Produk--</option>
-                                        @foreach ($kategoriproduk as $data)
+                                        @foreach ($nama_kategori as $data)
                                             <option value="{{$data->id}}" {{old('kategori_id') == $data->id ? 'selected' : ''}}>{{$data->nama_kategori}}</option>
                                         @endforeach
                                     </select>

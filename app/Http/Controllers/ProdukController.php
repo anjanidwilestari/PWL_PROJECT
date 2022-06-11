@@ -25,8 +25,8 @@ class ProdukController extends Controller
             ->orwhere('nama_produk','like',"%{$request->keyword}%")
             ->orWhere('biaya_per_hari','like',"%{$request->keyword}%")
             ->orWhere('is_stock','like',"%{$request->keyword}%")
-            ->orWhereHas('nama_kategori',function(Builder $kategoriproduk) use ($request){
-                $kategoriproduk->where('nama_kategori','like',"%{$request->keyword}%");
+            ->orWhereHas('nama_kategori',function(Builder $nama_kategori) use ($request){
+                $nama_kategori->where('nama_kategori','like',"%{$request->keyword}%");
             });
         })->orderBy('kode_produk')->paginate($pagination);
 
@@ -42,8 +42,8 @@ class ProdukController extends Controller
     public function create()
     {
         $this->authorize('admin');
-        $kategoriproduk = KategoriProduk::all();
-        return view('produk.produkcreate',['nama_kategori'=>$kategoriproduk]);
+        $nama_kategori = KategoriProduk::all();
+        return view('produk.produkcreate',['nama_kategori'=>$nama_kategori]);
     }
 
     /**
