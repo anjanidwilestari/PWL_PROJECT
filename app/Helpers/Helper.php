@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\Pegawai as MasterPegawai;
 use App\Models\Member as MasterMember;
+use App\Models\Produk as MasterProduk;
 use Carbon\Carbon;
 
 class Helper{
@@ -37,6 +38,23 @@ class Helper{
             $member = MasterMember::all()->last();
             $urut = (int)substr($member->kode_member, -5) + 1;
             $nomor = 'KM' . $thnBlnTgl . $urut;
+        }
+        return $nomor;
+    }
+
+    public static function KodeProdukGenerator(){
+        $tanggal = Carbon::now()->format('d');
+        $bulan = Carbon::now()->format('m');
+        $tahun = Carbon::now()->format('y');
+        $thnBlnTgl = $tahun . $bulan . $tanggal;
+        $cekJumlah = MasterProduk::count();
+        if($cekJumlah == 0){
+            $urut = 10001;
+            $nomor = 'KR' . $thnBlnTgl . $urut;
+        } else {
+            $produk = MasterProduk::all()->last();
+            $urut = (int)substr($produk->kode_produk, -5) + 1;
+            $nomor = 'KR' . $thnBlnTgl . $urut;
         }
         return $nomor;
     }

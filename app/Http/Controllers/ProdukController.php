@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Produk;
 use App\Models\KategoriProduk;
 use Illuminate\Http\Request;
@@ -64,8 +65,10 @@ class ProdukController extends Controller
         $produk = new Produk();
         $produk->kategori_id = $request->kategori_id;
         $produk->nama_produk = $request->nama_produk;
+        $produk->kode_produk = Helper::KodeProdukGenerator();
         $produk->gambar = $request->file('gambar')->store('imagesproduk', 'public');
         $produk->biaya_per_hari = $request->biaya_per_hari;
+        
 
         $produk->save();
 
