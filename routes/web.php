@@ -8,6 +8,7 @@ use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('kategoriproduk', KategoriProdukController::class);
     Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
     Route::resource('member', MemberController::class);
+    Route::resource('produk', ProdukController::class);
 });
 
 Route::get('/klien-beranda', [KlienController::class, 'home']);
