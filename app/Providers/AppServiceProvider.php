@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::useBootstrap();
+        Paginator::defaultView('vendor.pagination.custom');
 
         Gate::define('admin', function(User $user){
             return $user->jabatan === 'Admin';
