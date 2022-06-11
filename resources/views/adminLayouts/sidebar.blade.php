@@ -36,8 +36,8 @@
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"><a href="{{route('kategoriproduk.index')}}">Kategori Produk</a></li>
-                        <li class="nav-item"><a href="#">Produk</a></li>
+                        <li class="nav-item @yield('kategoriproduk')"><a href="{{route('kategoriproduk.index')}}">Kategori Produk</a></li>
+                        <li class="nav-item @yield('produk')"><a href="{{route('produk.index')}}">Produk</a></li>
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
                         <li class="nav-item @yield('member')"><a href="{{route('member.index')}}">Member</a></li>
                         <li class="nav-item @yield('user')"><a href="{{route('user.index')}}">Pengguna Website</a></li>
