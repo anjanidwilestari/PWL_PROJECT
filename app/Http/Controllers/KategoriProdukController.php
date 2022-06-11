@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\KategoriProduk;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class KategoriProdukController extends Controller
 {
@@ -15,10 +17,16 @@ class KategoriProdukController extends Controller
      */
     public function index(Request $request)
     {
-        $kategoriproduk = KategoriProduk::paginate(5);
-        $posts = KategoriProduk::orderBy('nama_kategori', 'asc')->paginate(5);
-        return view('kategoriproduk.kategoriprodukindex', compact('kategoriproduk'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $pagination = 5;
+        $kategoriproduk = KategoriProduk::when($request->keyword, function ($query) use ($request) {
+            $query
+                ->where('id', 'like', "%{$request->keyword}%")
+                ->orWhere('nama_kategori', 'like', "%{$request->keyword}%")
+                ->orWhere('deskripsi', 'like', "%{$request->keyword}%");
+            })->orderBy('id')->paginate($pagination);
+
+            return view('kategoriproduk.kategoriprodukindex', compact('kategoriproduk'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
     /**
@@ -28,6 +36,7 @@ class KategoriProdukController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('kategoriproduk.kategoriprodukcreate');
     }
 
@@ -74,6 +83,7 @@ class KategoriProdukController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         $kategoriproduk = KategoriProduk::find($id);
         return view('kategoriproduk.kategoriprodukedit',compact('kategoriproduk'));
     }
@@ -110,6 +120,7 @@ class KategoriProdukController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         KategoriProduk::find($id)->delete();
         return redirect()->route('kategoriproduk.index')
             -> with('success', ' Data Kategori Produk Berhasil Dihapus');
