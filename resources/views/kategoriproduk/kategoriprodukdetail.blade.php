@@ -62,6 +62,12 @@
                                         </div>   
                                     </li>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
+                                        <br><br>
+                                        <a class="btn btn-primary" href="{{ route('kategoriproduk.index') }}"><i class="fa fa-home"></i> Kembali</a>
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     </div>
