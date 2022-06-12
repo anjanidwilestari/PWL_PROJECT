@@ -18,7 +18,8 @@ class Produk extends Model
         'nama_produk',
         'kode_produk',
         'gambar',
-        'biaya_per_hari',
+        'harga',
+        'satuan',
     ];
 
     public function kategoriproduk(){
