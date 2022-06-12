@@ -24,10 +24,11 @@ class ProdukController extends Controller
             $query
             ->where('kode_produk', 'like', "%{$request->keyword}%")
             ->orwhere('nama_produk','like',"%{$request->keyword}%")
-            ->orWhere('biaya_per_hari','like',"%{$request->keyword}%")
-            ->orWhere('is_stock','like',"%{$request->keyword}%")
-            ->orWhereHas('nama_kategori',function(Builder $nama_kategori) use ($request){
-                $nama_kategori->where('nama_kategori','like',"%{$request->keyword}%");
+            ->orWhere('harga','like',"%{$request->keyword}%")
+            ->orWhere('satuan','like',"%{$request->keyword}%")
+            // ->orWhere('is_stock','like',"%{$request->keyword}%")
+            ->orWhereHas('kategoriproduk',function(Builder $kategoriproduk) use ($request){
+                $kategoriproduk->where('nama_kategori','like',"%{$request->keyword}%");
             });
         })->orderBy('kode_produk')->paginate($pagination);
 
@@ -43,8 +44,8 @@ class ProdukController extends Controller
     public function create()
     {
         $this->authorize('admin');
-        $nama_kategori = KategoriProduk::all();
-        return view('produk.produkcreate',['nama_kategori'=>$nama_kategori]);
+        $kategoriproduk = KategoriProduk::all();
+        return view('produk.produkcreate',['kategoriproduk'=>$kategoriproduk]);
     }
 
     /**
@@ -59,7 +60,8 @@ class ProdukController extends Controller
             'kategori_id' => 'required',
             'nama_produk' => 'required',
             'gambar' => 'required',
-            'biaya_per_hari' => 'required',
+            'harga' => 'required',
+            'satuan' => 'required',
             //'is_stock' => 'required',
         ]);
         $produk = new Produk();
@@ -67,7 +69,8 @@ class ProdukController extends Controller
         $produk->nama_produk = $request->nama_produk;
         $produk->kode_produk = Helper::KodeProdukGenerator();
         $produk->gambar = $request->file('gambar')->store('imagesproduk', 'public');
-        $produk->biaya_per_hari = $request->biaya_per_hari;
+        $produk->harga = $request->harga;
+        $produk->satuan = $request->satuan;
 
         
         $produk->save();
@@ -100,8 +103,8 @@ class ProdukController extends Controller
     {
         $this->authorize('admin');
         $produk = Produk::find($id);
-        $nama_kategori = KategoriProduk::all();
-        return view('produk.produkedit', compact('produk','nama_kategori'));
+        $kategoriproduk = KategoriProduk::all();
+        return view('produk.produkedit', compact('produk','kategoriproduk'));
     }
 
     /**
@@ -115,12 +118,14 @@ class ProdukController extends Controller
     {
         $request->validate([
             'nama_produk' => 'required',
-            'biaya_per_hari' => 'required',
+            'harga' => 'required',
+            'satuan'=>'required'
         ]);
 
         $produk = Produk::where('id', $id)->first();
         $produk->nama_produk = $request->get('nama_produk');
-        $produk->biaya_per_hari = $request->get('biaya_per_hari');
+        $produk->harga = $request->get('harga');
+        $produk->satuan = $request->get('satuan');
 
         if ($request->hasFile('gambar')) {
             if ($produk->gambar && file_exists(storage_path('app/public/' . $produk->gambar))) {
