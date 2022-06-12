@@ -96,6 +96,7 @@
                                             <td>{{ $data->status }}</td>
                                             <td>
                                                 <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
+                                                    <a class="btn btn-icons btn-dark" href="{{ route('peminjaman.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>
                                                     <a class="btn btn-icons btn-primary" href="{{ route('peminjaman.show', $data->id) }}"><i class="fa fa-eye"></i></a>
                                                     @can('admin')
                                                     <a class="btn btn-icons btn-warning" href="{{ route('peminjaman.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>

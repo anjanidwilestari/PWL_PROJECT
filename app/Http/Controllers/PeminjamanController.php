@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use PDF;
 
 class PeminjamanController extends Controller
 {
@@ -101,7 +102,9 @@ class PeminjamanController extends Controller
     public function show($id)
     {
         $peminjaman = Peminjaman::find($id);
-        return view('peminjaman.peminjamandetail',compact('peminjaman'));
+        $member = Member::all();
+        $produk = Produk::all();
+        return view('peminjaman.peminjamandetail',compact('peminjaman','member', 'produk'));
     }
 
     /**
@@ -167,5 +170,14 @@ class PeminjamanController extends Controller
         Peminjaman::find($id)->delete();
         return redirect()->route('peminjaman.index')
             -> with('success', 'Data Peminjaman Berhasil Dihapus');
+    }
+
+    public function cetaknota($id){
+        $peminjaman = new Peminjaman;
+        $peminjaman = $peminjaman->find($id);
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('peminjaman.notapdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream($id);
     }
 }
