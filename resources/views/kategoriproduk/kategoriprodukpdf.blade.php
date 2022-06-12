@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bolang Gunung || Rekap Customer</title>
+    <title>Bolang Gunung || Rekap Kategori Produk</title>
     <style>
         * {
             box-sizing: border-box;
@@ -53,7 +53,7 @@
                 <img src="{{ public_path("styleAdmin/production/images/logo-bolang-dark.jpg") }}" alt="" style="width: 150px; height: 150px;">
             </td>
             <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
-                <h2 align="center">LAPORAN CUSTOMER BOLANG GUNUNG
+                <h2 align="center">LAPORAN KATEGORI PRODUK BOLANG GUNUNG
                     <br>
                     Jl. Soekarno Hatta
                     <br>
@@ -91,32 +91,18 @@
             <thead>
                 <tr>
                     <th width="20px">No</th>
-                    <th width="100px">Kode Member</th>
-                    <th width="120px">Nama Member</th>
-                    <th width="120px">Alamat</th>
-                    <th width="120px">Tanggal Lahir</th>
-                    <th width="120px">Umur</th>
-                    <th width="120px">Kategori</th>
-                    {{-- <th width="120px">Foto KTP</th>
-                        <th width="120px">Kartu Pelajar</th> --}}
+                    <th width="100px">Kategori Produk</th>
+                    <th width="180px">Deskripsi</th>
+                    <th width="150px">Ditambahkan Pada</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($member as $m)
+                @foreach ($kategoriproduk as $k)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $m->kode_member }}</td>
-                        <td>{{ $m->nama }}</td>
-                        <td>{{ $m->alamat }}</td>
-                        <td>{{ \Carbon\Carbon::parse($m->tanggal_lahir)->format('d M Y') }}</td>
-                        <td>{{ $m->umur }}</td>
-                        <td>
-                            @if ($m->umur < 17)
-                                Di Bawah Umur
-                            @else
-                                Memenuhi
-                            @endif
-                        </td>
+                        <td>{{ $k->nama_kategori }}</td>
+                        <td>{{ $k->deskripsi }}</td>
+                        <td>{{ \Carbon\Carbon::parse($k->created_at)->format('d M Y') }}</td>
                     </tr>
                 @endforeach
             </tbody>

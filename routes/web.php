@@ -7,6 +7,7 @@ use App\Http\Controllers\GetInTouchController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KlienController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
@@ -41,6 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
     Route::resource('member', MemberController::class);
     Route::resource('produk', ProdukController::class);
+
+    Route::get('memberpdf', [PdfController::class, 'cetak_pdf_member'])->name('member.memberpdf');
+    Route::get('pegawaipdf', [PdfController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
+    Route::get('kategoriprodukpdf', [PdfController::class, 'cetak_pdf_kategori'])->name('kategoriproduk.kategoriprodukpdf');
+    Route::get('produkpdf', [PdfController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
 });
 
 Route::get('/klien-beranda', [KlienController::class, 'home']);
