@@ -96,10 +96,10 @@
             <tbody>
                     <tr>
                         <td>{{ $peminjaman->produk->nama_produk }}</td>
-                        <td>{{ $peminjaman->produk->biaya_per_hari }}</td>
+                        <td>Rp. {{ $peminjaman->harga_satuan }}</td>
                         <td>{{ $peminjaman->jumlah_pinjam }}</td>
-                        <td>{{ $peminjaman->lama_pinjam }} Hari</td>
-                        <td>{{ $peminjaman->total_harga }}</td>
+                        <td>{{ $peminjaman->lama_pinjam }} {{ $peminjaman->produk->satuan }}</td>
+                        <td>Rp. {{ $peminjaman->total_harga }}</td>
                         <td>{{ $peminjaman->status }}</td>
                     </tr>
             </tbody>
