@@ -58,4 +58,21 @@ class Helper{
         }
         return $nomor;
     }
+
+    public static function KodePeminjamanGenerator(){
+        $tanggal = Carbon::now()->format('d');
+        $bulan = Carbon::now()->format('m');
+        $tahun = Carbon::now()->format('y');
+        $thnBlnTgl = $tahun . $bulan . $tanggal;
+        $cekJumlah = MasterProduk::count();
+        if($cekJumlah == 0){
+            $urut = 10001;
+            $nomor = 'KT' . $thnBlnTgl . $urut;
+        } else {
+            $produk = MasterProduk::all()->last();
+            $urut = (int)substr($produk->kode_produk, -5) + 1;
+            $nomor = 'KT' . $thnBlnTgl . $urut;
+        }
+        return $nomor;
+    }
 }
