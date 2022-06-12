@@ -20,6 +20,7 @@ class Peminjaman extends Model
         'nama_petugas',
         'jumlah_pinjam',
         'total_harga',
+        'harga_satuan',
         'tgl_pinjam',
         'lama_pinjam',
         'status'

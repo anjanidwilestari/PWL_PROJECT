@@ -71,7 +71,7 @@ class Helper{
             $nomor = 'KT' . $thnBlnTgl . $urut;
         } else {
             $peminjaman = MasterPeminjaman::all()->last();
-            $urut = (int)substr($peminjaman->peminjaman, -5) + 1;
+            $urut = (int)substr($peminjaman->kode_peminjaman, -5) + 1;
             $nomor = 'KT' . $thnBlnTgl . $urut;
         }
         return $nomor;

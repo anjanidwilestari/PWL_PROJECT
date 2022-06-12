@@ -30,6 +30,7 @@ class PeminjamanController extends Controller
                 ->orWhere('jumlah_pinjam', 'like', "%{$request->keyword}%")
                 ->orWhere('total_harga', 'like', "%{$request->keyword}%")
                 ->orWhere('tgl_pinjam', 'like', "%{$request->keyword}%")
+                ->orWhere('harga_satuan', 'like', "%{$request->keyword}%")
                 ->orWhere('lama_pinjam', 'like', "%{$request->keyword}%")
                 ->orWhere('status', 'like', "%{$request->keyword}%")
                 ->orWhereHas('member',function(Builder $member) use ($request){
@@ -71,6 +72,7 @@ class PeminjamanController extends Controller
             'nama_petugas' => 'required',
             'jumlah_pinjam' => 'required',
             'total_harga' => 'required',
+            'harga_satuan' => 'required',
             'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
             'status' => 'required',
@@ -83,6 +85,7 @@ class PeminjamanController extends Controller
         $peminjaman->jumlah_pinjam = $request->get('jumlah_pinjam');
         $peminjaman->total_harga = $request->get('total_harga');
         $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
+        $peminjaman->harga_satuan = $request->get('harga_satuan');
         $peminjaman->lama_pinjam = $request->get('lama_pinjam');
         $peminjaman->status = $request->get('status');
         $peminjaman->kode_peminjaman = Helper::KodePeminjamanGenerator();
@@ -137,6 +140,7 @@ class PeminjamanController extends Controller
             'produk_id' => 'required',
             'nama_petugas' => 'required',
             'jumlah_pinjam' => 'required',
+            'harga_satuan' => 'required',
             'total_harga' => 'required',
             'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
@@ -147,6 +151,7 @@ class PeminjamanController extends Controller
         $peminjaman->produk_id = $request->produk_id;
         $peminjaman->nama_petugas = $request->get('nama_petugas');
         $peminjaman->jumlah_pinjam = $request->get('jumlah_pinjam');
+        $peminjaman->harga_satuan = $request->get('harga_satuan');
         $peminjaman->total_harga = $request->get('total_harga');
         $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
         $peminjaman->lama_pinjam = $request->get('lama_pinjam');
@@ -179,5 +184,10 @@ class PeminjamanController extends Controller
 
         $pdf = PDF::loadview('peminjaman.notapdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream($id);
+    }
+
+    public function getHarga($id){
+        $loadData = Produk::find($id);
+        return response()->json($loadData);
     }
 }

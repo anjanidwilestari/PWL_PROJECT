@@ -50,10 +50,15 @@
                                     <label for="fullname">Nama Penyewa * :</label>
                                     <select class="form-control has-feedback-left" id="member_id" name="member_id" required>
                                         @foreach ($member as $m)
-                                            <option value="{{ $m->id }}" @if ($m->id == $peminjaman->member_id) selected @endif>{{ $m->nama }}</option>
+                                            <option value="{{ $m->id }}"
+                                                @if ($m->id == $peminjaman->member_id) selected @endif>{{ $m->nama }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('member_id'))
+                                        <div class="error">{{ $errors->first('member_id') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -61,16 +66,24 @@
                                     <input type="date" class="form-control has-feedback-right" placeholder="Tanggal Pinjam"
                                         name="tgl_pinjam" required value="{{ $peminjaman->tgl_pinjam }}">
                                     <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('tgl_pinjam'))
+                                        <div class="error">{{ $errors->first('tgl_pinjam') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Produk yang Disewa * :</label>
                                     <select class="form-control has-feedback-left" id="produk_id" name="produk_id" required>
                                         @foreach ($produk as $p)
-                                            <option value="{{ $p->id }}" @if ($p->id == $peminjaman->produk_id) selected @endif>{{ $p->nama_produk }}</option>
+                                            <option value="{{ $p->id }}"
+                                                @if ($p->id == $peminjaman->produk_id) selected @endif>{{ $p->nama_produk }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('produk_id'))
+                                        <div class="error">{{ $errors->first('produk_id') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -78,13 +91,20 @@
                                     <input type="number" class="form-control has-feedback-right" placeholder="Total Harga"
                                         name="total_harga" value="{{ $peminjaman->total_harga }}">
                                     <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('total_harga'))
+                                        <div class="error">{{ $errors->first('total_harga') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jumlah Sewa* :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam" min="1" onkeyup="hitungHarga()" placeholder="Jumlah Sewa"
-                                        name="jumlah_pinjam" required value="{{ $peminjaman->jumlah_pinjam }}">
+                                    <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam" min="1"
+                                        onkeyup="hitungHarga()" placeholder="Jumlah Sewa" name="jumlah_pinjam" required
+                                        value="{{ $peminjaman->jumlah_pinjam }}">
                                     <span class="fa fa-list-ol form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('jumlah_pinjam'))
+                                        <div class="error">{{ $errors->first('jumlah_pinjam') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -92,23 +112,46 @@
                                     <input type="text" class="form-control has-feedback-right" placeholder="Nama Pegawai"
                                         name="nama_petugas" value="{{ $peminjaman->nama_petugas }}">
                                     <span class="fa fa-users form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('nama_petugas'))
+                                    <div class="error">{{ $errors->first('nama_petugas') }}</div>
+                                @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Lama Sewa* :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="lama_pinjam" min="1" onkeyup="hitungHarga()" placeholder="Lama Sewa"
-                                        name="lama_pinjam" required value="{{ $peminjaman->lama_pinjam }}">
+                                    <input type="number" class="form-control has-feedback-left" id="lama_pinjam" min="1"
+                                        onkeyup="hitungHarga()" placeholder="Lama Sewa" name="lama_pinjam" required
+                                        value="{{ $peminjaman->lama_pinjam }}">
                                     <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('lama_pinjam'))
+                                        <div class="error">{{ $errors->first('lama_pinjam') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Status * :</label>
                                     <select class="form-control has-feedback-right" id="status" name="status">
-                                        <option value="Lunas" @if ($peminjaman->status == "Lunas")selected @endif>Lunas</option>
-                                        <option value="Belum Lunas" @if ($peminjaman->status == "Belum Lunas")selected @endif>Belum Lunas</option>
+                                        <option value="Lunas" @if ($peminjaman->status == 'Lunas') selected @endif>Lunas
+                                        </option>
+                                        <option value="Belum Lunas" @if ($peminjaman->status == 'Belum Lunas') selected @endif>Belum
+                                            Lunas</option>
                                     </select>
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('status'))
+                                        <div class="error">{{ $errors->first('status') }}</div>
+                                    @endif
                                 </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
+                                    <label for="fullname">Harga Satuan * :</label>
+                                    <input type="number" class="form-control has-feedback-left" id="harga_satuan"
+                                        name="harga_satuan" required placeholder="Harga satuan" onkeyup="hitungHarga()" value="{{ $peminjaman->harga_satuan }}">
+                                    <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
+                                    @if ($errors->has('harga_satuan'))
+                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
+                                    @endif
+                                </div>
+
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
@@ -133,13 +176,13 @@
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-        $('select#produk_id').on('change',function(e){
+        $('select#produk_id').on('change', function(e) {
             var selected_produk = $(this).children("option:selected").val();
             $.ajax({
-                type:"GET",
-                dataType:"json",
-                url:'/getProduk/'+selected_produk,
-                success:function(response){
+                type: "GET",
+                dataType: "json",
+                url: '/getProduk/' + selected_produk,
+                success: function(response) {
                     console.log(response);
                     $('#biaya_per_hari').val(response.biaya_per_hari);
                     $('#satuan').text(response.satuan);
