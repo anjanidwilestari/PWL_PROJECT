@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KategoriProduk;
 use App\Models\Member;
 use App\Models\Pegawai;
+use App\Models\Peminjaman;
 use App\Models\Produk;
 use PDF;
 use Carbon\Carbon;
@@ -41,6 +42,16 @@ class PdfController extends Controller
         $tanggal = Carbon::now()->format('d-m-Y');
 
         $pdf = PDF::loadview('produk.produkpdf',['produk'=>$produk], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
+
+    public function cetak_pdf_peminjaman(){
+        $peminjaman = Peminjaman::all();
+        // $produk = Produk::all();
+        // $member = Member::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();
     }
 }
