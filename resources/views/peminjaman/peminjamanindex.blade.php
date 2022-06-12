@@ -30,6 +30,8 @@
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
                             <a class="btn btn-round btn-success" href="{{ route('peminjaman.create') }}">+ Tambah Data</a>
+                            <a class="btn btn-round btn-danger" href="{{route('peminjaman.peminjamanpdf')}}">
+                                <i class="fa fa-print"></i></a>
                         </div>
                     </div>
                 </div>

@@ -86,7 +86,7 @@
                 <td>bolanggunungexample@gmail.com</td>
             </tr>
         </table>
-        <h4>Data Customer Bolang Gunung</h4>
+        <h4>Data Transaksi Bolang Gunung</h4>
         <table border="1">
             <thead>
                 <tr>
