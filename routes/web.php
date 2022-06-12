@@ -9,6 +9,7 @@ use App\Http\Controllers\KlienController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
     Route::resource('member', MemberController::class);
     Route::resource('produk', ProdukController::class);
+    Route::resource('peminjaman', PeminjamanController::class);
 
     Route::get('memberpdf', [PdfController::class, 'cetak_pdf_member'])->name('member.memberpdf');
     Route::get('pegawaipdf', [PdfController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
