@@ -96,6 +96,7 @@
                     <th width="120px">Produk yang Disewa</th>
                     <th width="60px">Jumlah Sewa</th>
                     <th width="60px">Lama Sewa</th>
+                    <th width="80px">Total Harga</th>
                     <th width="120px">Petugas yang Melayani</th>
                 </tr>
             </thead>
@@ -108,6 +109,7 @@
                         <td>{{ $p->produk->nama_produk }}</td>
                         <td>{{ $p->jumlah_pinjam }}</td>
                         <td>{{ $p->lama_pinjam }} Hari</td>
+                        <td>Rp. {{ $p->total_harga }}</td>
                         <td>{{ $p->nama_petugas }}</td>
                     </tr>
                 @endforeach
