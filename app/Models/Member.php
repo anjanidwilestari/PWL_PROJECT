@@ -21,6 +21,11 @@ class Member extends Model
         'kode_member'
     ];
 
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
+
     public function getUmurAttribute(){
         $umur = Carbon::parse($this->tanggal_lahir)->diff(Carbon::now())->format('%y Tahun');
         return $umur;

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\KategoriProduk;
+use App\Models\Peminjaman;
 
 class Produk extends Model
 {
@@ -22,5 +23,10 @@ class Produk extends Model
 
     public function kategoriproduk(){
         return $this->belongsTo(KategoriProduk::class);
+    }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class);
     }
 }
