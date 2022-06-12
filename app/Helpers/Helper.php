@@ -5,6 +5,7 @@ namespace App\Helpers;
 use App\Models\Pegawai as MasterPegawai;
 use App\Models\Member as MasterMember;
 use App\Models\Produk as MasterProduk;
+use App\Models\Peminjaman as MasterPeminjaman;
 use Carbon\Carbon;
 
 class Helper{
@@ -64,13 +65,13 @@ class Helper{
         $bulan = Carbon::now()->format('m');
         $tahun = Carbon::now()->format('y');
         $thnBlnTgl = $tahun . $bulan . $tanggal;
-        $cekJumlah = MasterProduk::count();
+        $cekJumlah = MasterPeminjaman::count();
         if($cekJumlah == 0){
             $urut = 10001;
             $nomor = 'KT' . $thnBlnTgl . $urut;
         } else {
-            $produk = MasterProduk::all()->last();
-            $urut = (int)substr($produk->kode_produk, -5) + 1;
+            $peminjaman = MasterPeminjaman::all()->last();
+            $urut = (int)substr($peminjaman->peminjaman, -5) + 1;
             $nomor = 'KT' . $thnBlnTgl . $urut;
         }
         return $nomor;
