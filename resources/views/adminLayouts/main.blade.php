@@ -47,6 +47,8 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset('styleAdmin/build/css/custom.min.css')}}" rel="stylesheet">
 
+    <link href="{{ asset('styleAdmin/vendors/dropzone/dist/min/dropzone.min.css')}}" rel="stylesheet">
+
     <!--Shortcut Icon -->
     <link rel="shorcut icon" href="{{ asset('styleAdmin/production/images/logo-square.png')}}">
 </head>
@@ -67,6 +69,8 @@
     @include('sweetalert::alert')
 
     @yield('js')
+
+    @stack('js')
     <!-- jQuery -->
     <script src="{{ asset('styleAdmin/vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
