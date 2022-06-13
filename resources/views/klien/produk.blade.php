@@ -19,54 +19,37 @@
                 </p>
             </div>
             <div class="event_container">
+                @foreach($produk as $p)
                 <div class="box">
                     <div class="img-box">
-                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
+                        <img height = "150px" width = "200px" src="{{ asset('storage/' . $p->gambar) }}" alt="" />
                     </div>
                     <div class="detail-box">
                         <h4>
-                            Sleeping Bag
+                            {{$p->nama_produk}}
                         </h4>
-                        <h6>
-                            Merk Milestone, warna orange, polar
-                        </h6> 
-                    </div>
-                    <div class="date-box">
-                        <h3>
-                            <span>
-                                RP
-                            </span>
-                            10.000
-                        </h3>
-                        <h6>
-                            Per hari
-                        </h6> 
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="{{ asset('styleKlien/images/event-img.jpg')}}" alt="" />
-                    </div>
-                    <div class="detail-box">
-                        <h4>
-                            Tenda Dome
-                        </h4>
-                        <h6>
+                        {{-- <h6>
                             Warna hijau, kapasitas 4 orang
-                        </h6>
+                        </h6> --}}
                     </div>
                     <div class="date-box">
                         <h3>
                             <span>
-                                RP
+                                Rp
                             </span>
-                            20.000
+                            {{$p->harga}}
                         </h3>
                         <h6>
-                            Per hari
+                            Per {{$p->satuan}}
                         </h6>
                     </div>
                 </div>
+                @endforeach
+            </div>
+            <div class="text-center">
+                {{-- <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search"> --}}
+                    {{ $produk->links()}}
+                {{-- </div> --}}
             </div>
             <div class="btn-box">
                 <a href="https://wa.me/6285231404775">

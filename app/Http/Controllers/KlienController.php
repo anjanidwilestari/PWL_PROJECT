@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class KlienController extends Controller
@@ -12,6 +13,11 @@ class KlienController extends Controller
     }
     public function produk()
     {
+        $produk = Produk::paginate(3);
+
+        return view('klien.produk')
+            ->with('title', 'Produk')
+            ->with('produk', $produk);
         return view('klien.produk', ['title' => 'Produk' ]);
     }
     public function galery()
