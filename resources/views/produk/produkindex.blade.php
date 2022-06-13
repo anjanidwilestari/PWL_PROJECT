@@ -68,6 +68,7 @@
                                             <th scope="col" class="text-center">No</th>
                                             <th scope="col" class="text-center">Kode Produk</th>
                                             <th scope="col" class="text-center">Nama Produk</th>
+                                            {{-- <th scope="col" class="text-center">Kategori</th> --}}
                                             <th scope="col" class="text-center">Gambar</th>
                                             <th scope="col" class="text-center">Biaya per Hari</th>
                                             <th scope="col" class="text-center">Action</th>
