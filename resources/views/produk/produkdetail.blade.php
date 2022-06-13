@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title">
-                                                <a>{{$produk->kategoriproduk->nama_kategori}}</a>
+                                                <a>{{$produk->kategori_id}}</a>
                                             </h2>
                                         </div>
                                         <br>

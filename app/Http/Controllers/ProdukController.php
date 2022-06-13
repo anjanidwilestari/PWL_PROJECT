@@ -62,7 +62,6 @@ class ProdukController extends Controller
             'gambar' => 'required',
             'harga' => 'required',
             'satuan' => 'required',
-            //'is_stock' => 'required',
         ]);
         $produk = new Produk();
         $produk->kategori_id = $request->kategori_id;
@@ -116,16 +115,18 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request->all());
         $request->validate([
+            'kategori_id' => 'required',
             'nama_produk' => 'required',
             'harga' => 'required',
-            // 'satuan'=>'required'
         ]);
 
         $produk = Produk::where('id', $id)->first();
+        $produk->kategori_id = $request->get('kategori_id');
         $produk->nama_produk = $request->get('nama_produk');
         $produk->harga = $request->get('harga');
-        // $produk->satuan = $request->get('satuan');
+        //$produk->satuan = $request->get('satuan');
 
         if ($request->hasFile('gambar')) {
             if ($produk->gambar && file_exists(storage_path('app/public/' . $produk->gambar))) {

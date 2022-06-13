@@ -76,6 +76,7 @@
                                     </thead>
 
                                     <tbody>
+                                        
                                         @foreach ($produk as $data)
                                             <tr>
                                                 <td scope="row">{{ ++$i }}</td>
@@ -104,6 +105,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
