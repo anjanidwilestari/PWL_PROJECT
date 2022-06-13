@@ -47,7 +47,7 @@ class DashboardController extends Controller
             'peminjamans' => $peminjamans,
             'produks' => $produks,
             'bulan' => [
-                'Peminjaman Di bulan '.Carbon::now()->format('F'),
+                'Transaksi Peminjaman Bolang Gunung di Bulan '.Carbon::now()->format('F'),
             ],
             'produk' => array_merge($data_produk),
         ];
