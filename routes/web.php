@@ -45,16 +45,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('produk', ProdukController::class);
     Route::resource('peminjaman', PeminjamanController::class);
 
-    Route::get('memberpdf', [PdfController::class, 'cetak_pdf_member'])->name('member.memberpdf');
-    Route::get('pegawaipdf', [PdfController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
-    Route::get('kategoriprodukpdf', [PdfController::class, 'cetak_pdf_kategori'])->name('kategoriproduk.kategoriprodukpdf');
-    Route::get('produkpdf', [PdfController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
-    Route::get('peminjamanpdf', [PdfController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
+    //cetakpdf&nota
+    Route::get('memberpdf', [MemberController::class, 'cetak_pdf_member'])->name('member.memberpdf');
+    Route::get('pegawaipdf', [PegawaiController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
+    Route::get('kategoriprodukpdf', [KategoriProdukController::class, 'cetak_pdf_kategori'])->name('kategoriproduk.kategoriprodukpdf');
+    Route::get('produkpdf', [ProdukController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
+    Route::get('peminjamanpdf', [PeminjamanController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
     Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
 
+    //ajax
     Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);
 });
 
+//view klien
 Route::get('/klien-beranda', [KlienController::class, 'home']);
 Route::get('/klien-produk', [KlienController::class, 'produk']);
 Route::get('/klien-galery', [KlienController::class, 'galery']);

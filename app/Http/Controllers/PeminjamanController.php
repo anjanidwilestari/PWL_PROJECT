@@ -11,7 +11,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use PDF;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PeminjamanController extends Controller
 {
@@ -177,6 +178,14 @@ class PeminjamanController extends Controller
             -> with('success', 'Data Peminjaman Berhasil Dihapus');
     }
 
+    public function cetak_pdf_peminjaman(){
+        $peminjaman = Peminjaman::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
+
     public function cetaknota($id){
         $peminjaman = new Peminjaman;
         $peminjaman = $peminjaman->find($id);
@@ -190,12 +199,11 @@ class PeminjamanController extends Controller
         $loadData = Produk::find($id);
         return response()->json($loadData);
     }
-    // public function findPrice(Request $request){
-	
-	// 	//it will get price if its id match with product id
-	// 	$p=Produk::select('harga')->where('id',$request->id)->first();
-		
-    // 	return response()->json($p);
-	// }
-
+    
+    public function belumkembali(){
+        $peminjaman = DB::table('peminjamans')
+           ->where('status', 'Dipinjam')
+           ->get();
+        return view('transaksi.belumkembali',['peminjaman'=>$peminjaman]);
+    }
 }

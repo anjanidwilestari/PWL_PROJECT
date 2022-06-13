@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
+use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PegawaiController extends Controller
 {
@@ -152,5 +154,13 @@ class PegawaiController extends Controller
         Pegawai::find($id)->delete();
         return redirect()->route('pegawai.index')
             ->with('success', 'Pegawai Berhasil Dihapus');
+    }
+
+    public function cetak_pdf_pegawai(){
+        $pegawai = Pegawai::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('pegawai.pegawaipdf',['pegawai'=>$pegawai], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }

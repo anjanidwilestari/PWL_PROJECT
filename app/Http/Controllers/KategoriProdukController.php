@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\KategoriProduk;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class KategoriProdukController extends Controller
 {
@@ -124,5 +126,13 @@ class KategoriProdukController extends Controller
         KategoriProduk::find($id)->delete();
         return redirect()->route('kategoriproduk.index')
             -> with('success', ' Data Kategori Produk Berhasil Dihapus');
+    }
+
+    public function cetak_pdf_kategori(){
+        $kategoriproduk = KategoriProduk::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('kategoriproduk.kategoriprodukpdf',['kategoriproduk'=>$kategoriproduk], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }

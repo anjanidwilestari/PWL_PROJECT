@@ -4,7 +4,7 @@
     Data Peminjaman
 @endsection
 
-@section('Peminjaman', 'active')
+@section('peminjaman', 'active')
 
 @section('content')
     <!-- page content -->
@@ -20,7 +20,7 @@
                             <input type="search" class="form-control" placeholder="Search for .." aria-label="Search"
                                 name="keyword" value="{{ request('keyword') }}">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">Go!</button>
+                                <button class="btn btn-default" type="submit">Cari!</button>
                             </span>
                         </form>
                     </div>

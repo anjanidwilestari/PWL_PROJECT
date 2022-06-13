@@ -8,6 +8,7 @@ use App\Models\Member;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MemberController extends Controller
 {
@@ -155,5 +156,13 @@ class MemberController extends Controller
         Member::find($id)->delete();
         return redirect()->route('member.index')
             -> with('success', 'Member Berhasil Dihapus');
+    }
+
+    public function cetak_pdf_member(){
+        $member = Member::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('member.memberpdf',['member'=>$member], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }
