@@ -57,7 +57,7 @@
                     <br>
                     Jl. Soekarno Hatta
                     <br>
-                    Telepon: 08811890773, Email : bolanggunungexample@gmail.com
+                    Telepon: +6285231404775, Email : bolanggunungexample@gmail.com
                 </h2>
             </td>
         </table>
@@ -68,7 +68,7 @@
             <tr>
                 <td scope="col" width="60px">Ditujukan Kepada</td>
                 <td scope="row" width="50px">:</td>
-                <td scope="row">Pimpinan Bolang Gunung</td>
+                <td scope="row">Founder Bolang Gunung</td>
             </tr>
             <tr>
                 <td>Alamat</td>
@@ -78,7 +78,7 @@
             <tr>
                 <td>Telepon</td>
                 <td>:</td>
-                <td>08811890773</td>
+                <td>+6285231404775</td>
             </tr>
             <tr>
                 <td>Email</td>
