@@ -52,9 +52,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('produkpdf', [ProdukController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
     Route::get('peminjamanpdf', [PeminjamanController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
     Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
+    Route::get('dikembalikanpdf', [PeminjamanController::class, 'cetak_pdf_dikembalikan'])->name('peminjaman.dikembalikanpdf');
+    Route::get('belumkembalipdf', [PeminjamanController::class, 'cetak_pdf_belumkembali'])->name('peminjaman.belumkembalipdf');
 
     //ajax
     Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);
+
+    //daftar-transaksi
+    Route::get('peminjamanbelumkembali',[PeminjamanController::class,'belumkembali'])->name('peminjaman.belumkembali');
+    Route::get('peminjamandikembalikan',[PeminjamanController::class,'dikembalikan'])->name('peminjaman.dikembalikan');
 });
 
 //view klien

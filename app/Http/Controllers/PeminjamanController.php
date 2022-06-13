@@ -198,9 +198,42 @@ class PeminjamanController extends Controller
     }
     
     public function belumkembali(){
-        $peminjaman = DB::table('peminjamans')
-           ->where('status', 'Dipinjam')
-           ->get();
-        return view('transaksi.belumkembali',['peminjaman'=>$peminjaman]);
+        $pagination = 5;
+        $peminjaman = Peminjaman::with('member','produk')
+        ->where('status', 'like', 'Dipinjam') 
+        ->orderBy('kode_peminjaman')
+        ->paginate($pagination);
+
+        return view('transaksi.belumkembali', compact('peminjaman'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
+    }
+
+    public function dikembalikan(){
+        $pagination = 5;
+        $peminjaman = Peminjaman::with('member','produk')
+        ->where('status', 'like', 'Dikembalikan') 
+        ->orderBy('kode_peminjaman')
+        ->paginate($pagination);
+
+        return view('transaksi.dikembalikan', compact('peminjaman'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
+    }
+
+    public function cetak_pdf_dikembalikan(){
+        $peminjaman = Peminjaman::all()
+        ->where('status', 'like', 'Dikembalikan');
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('transaksi.dikembalikanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
+
+    public function cetak_pdf_belumkembali(){
+        $peminjaman = Peminjaman::all()
+        ->where('status', 'like', 'Dipinjam');
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('transaksi.belumkembalipdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }
