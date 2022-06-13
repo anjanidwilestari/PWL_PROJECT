@@ -76,7 +76,7 @@
                                     <select class="form-control has-feedback-left" id="produk_id" name="produk_id" required>
                                         <option value="">--Pilih Produk--</option>
                                         @foreach ($produk as $p)
-                                            <option value="{{ $p->id }}">{{ $p->nama_produk }}</option>
+                                            <option value="{{ $p->id }}" {{old('produk_id') == $p->id ? 'selected' : ''}}>{{ $p->nama_produk }}</option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
@@ -85,10 +85,10 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
                                     <label for="fullname">Harga Satuan * :</label>
                                     <input type="number" class="form-control has-feedback-right" id="harga_satuan"
-                                        name="harga_satuan" value="{{old('harga_satuan')}}" placeholder="Harga Satuan">
+                                        name="harga_satuan" required value="{{ old('harga_satuan') }}" placeholder="Harga Satuan">
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('harga_satuan'))
                                         <div class="error">{{ $errors->first('harga_satuan') }}</div>
@@ -133,7 +133,7 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="total_harga">
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
                                     <label for="fullname">Total Harga * :</label>
                                     <input type="number" class="form-control has-feedback-right" id="total_harga"
                                         name="total_harga" required value="{{ old('total_harga') }}"
@@ -149,7 +149,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
                                         <br><br>
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        <a class="btn btn-primary" href="{{ route('pegawai.index') }}">Cancel</a>
+                                        <a class="btn btn-primary" href="{{ route('peminjaman.index') }}">Cancel</a>
                                         <button class="btn btn-danger" type="reset">Reset</button>
                                     </div>
                                 </div>
@@ -162,38 +162,18 @@
     </div>
 @endsection
 @section('js')
-<script>
-    $(document).ready(function(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
-        $('select#produk_id').on('change',function(e){
-            var selected_produk = $(this).children("option:selected").val();
-            $.ajax({
-                type:"GET",
-                dataType:"json",
-                url:'/getTransaksi/'+selected_sapi,
-                success:function(response){
-                    console.log(response);
-                    $('#harga').val(response.harga)
-                }
-            })
-        });
-    });
-</script>
-{{-- <script>
-    $('input[type=radio][name=status]').change(function(){
-        if(this.value == 'Keluar') {
-            $('#hargaSatuan').hide();
-            $('#totalHarga').hide();
-        } else {
-            $('#hargaSatuan').show();
-            $('#totalHarga').show();
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // $('input[type=radio][name=status]').change(function(){
+    //     if(this.value == 'Keluar') {
+    //         $('#hargaSatuan').hide();
+    //         $('#totalHarga').hide();
+    //     } else {
+    //         $('#hargaSatuan').show();
+    //         $('#totalHarga').show();
 
-        }
-    });
+    //     }
+    // });
 
     $.ajaxSetup({
             headers: {
@@ -225,5 +205,5 @@
             var hitungTotal = parseFloat(hargaSatuan) * parseFloat(jumlahPinjam) * parseFloat(lamaPinjam);
             totalHarga.val(hitungTotal);
         }
-</script> --}}
+</script>
 @endsection

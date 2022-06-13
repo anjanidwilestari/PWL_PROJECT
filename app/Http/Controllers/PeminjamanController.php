@@ -149,12 +149,12 @@ class PeminjamanController extends Controller
         $peminjaman = Peminjaman::where('id', $id)->first();
         $peminjaman->member_id = $request->member_id;
         $peminjaman->produk_id = $request->produk_id;
-        $peminjaman->nama_petugas = $request->get('nama_petugas');
-        $peminjaman->jumlah_pinjam = $request->get('jumlah_pinjam');
-        $peminjaman->harga_satuan = $request->get('harga_satuan');
-        $peminjaman->total_harga = $request->get('total_harga');
-        $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
-        $peminjaman->lama_pinjam = $request->get('lama_pinjam');
+        $peminjaman->nama_petugas = $request->nama_petugas;
+        $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
+        $peminjaman->harga_satuan = $request->harga_satuan;
+        $peminjaman->total_harga = $request->total_harga;
+        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->lama_pinjam = $request->lama_pinjam;
         // $peminjaman->status = $request->get('status');
 
         $peminjaman->save();
@@ -186,8 +186,16 @@ class PeminjamanController extends Controller
         return $pdf->stream($id);
     }
 
-    public function getPrice($id){
+    public function getHarga($id){
         $loadData = Produk::find($id);
         return response()->json($loadData);
     }
+    // public function findPrice(Request $request){
+	
+	// 	//it will get price if its id match with product id
+	// 	$p=Produk::select('harga')->where('id',$request->id)->first();
+		
+    // 	return response()->json($p);
+	// }
+
 }
