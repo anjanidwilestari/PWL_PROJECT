@@ -119,13 +119,13 @@ class ProdukController extends Controller
         $request->validate([
             'nama_produk' => 'required',
             'harga' => 'required',
-            'satuan'=>'required'
+            // 'satuan'=>'required'
         ]);
 
         $produk = Produk::where('id', $id)->first();
         $produk->nama_produk = $request->get('nama_produk');
         $produk->harga = $request->get('harga');
-        $produk->satuan = $request->get('satuan');
+        // $produk->satuan = $request->get('satuan');
 
         if ($request->hasFile('gambar')) {
             if ($produk->gambar && file_exists(storage_path('app/public/' . $produk->gambar))) {

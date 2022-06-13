@@ -54,7 +54,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Kategori Produk * :</label>
                                     <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id" required> 
-                                        @foreach ($nama_kategori as $data)
+                                        @foreach ($kategoriproduk as $data)
                                           <option value="{{$data->id}}"
                                             @if ($data->id == $produk->kategori_id) selected
                                             @endif>{{$data->nama_kategori}}
@@ -71,8 +71,8 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Biaya per Hari * :</label>
-                                    <input type="text" class="form-control" placeholder="Biaya per Hari" name="biaya_per_hari" required value="{{$produk->biaya_per_hari}}">
+                                    <label for="fullname">Harga per {{$produk->satuan}} * :</label>
+                                    <input type="text" class="form-control" placeholder="harga" name="harga" required value="{{$produk->harga}}">
                                     <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                                 
