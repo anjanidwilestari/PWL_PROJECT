@@ -97,12 +97,12 @@
                                     <div class="block">
                                         <div class="tags">
                                             <a href="" class="tag">
-                                                <span>Biaya per Hari</span>
+                                                <span>Harga Satuan</span>
                                             </a>
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title">
-                                                <a>{{$produk->biaya_per_hari}}</a>
+                                                <a>Rp. {{$produk->harga}}/{{$produk->satuan}}</a>
                                             </h2>
                                         </div>
                                         <br>

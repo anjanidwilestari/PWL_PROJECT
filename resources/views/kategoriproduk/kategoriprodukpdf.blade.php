@@ -86,14 +86,14 @@
                 <td>bolanggunungexample@gmail.com</td>
             </tr>
         </table>
-        <h4>Data Customer Bolang Gunung</h4>
+        <h4>Data Kategori Bolang Gunung</h4>
         <table border="1">
             <thead>
                 <tr>
                     <th width="20px">No</th>
                     <th width="100px">Kategori Produk</th>
-                    <th width="180px">Deskripsi</th>
-                    <th width="150px">Ditambahkan Pada</th>
+                    <th width="200px">Deskripsi</th>
+                    <th width="120px">Ditambahkan Pada</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,7 +102,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $k->nama_kategori }}</td>
                         <td>{{ $k->deskripsi }}</td>
-                        <td>{{ \Carbon\Carbon::parse($k->created_at)->format('d M Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($k->created_at)->format('d F Y') }}</td>
                     </tr>
                 @endforeach
             </tbody>
