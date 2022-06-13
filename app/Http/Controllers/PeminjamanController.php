@@ -74,7 +74,7 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'total_harga' => 'required',
             'harga_satuan' => 'required',
-            'tgl_pinjam' => 'required',
+            // 'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
             // 'status' => 'required',
         ]);
@@ -85,7 +85,7 @@ class PeminjamanController extends Controller
         $peminjaman->nama_petugas = $request->nama_petugas;
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $peminjaman->total_harga = $request->total_harga;
-        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->tgl_pinjam = Carbon::now();
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->lama_pinjam = $request->lama_pinjam;
         $peminjaman->status = 'Dipinjam';
@@ -143,9 +143,7 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'harga_satuan' => 'required',
             'total_harga' => 'required',
-            'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
-            // 'status' => 'required',
         ]);
         $peminjaman = Peminjaman::where('id', $id)->first();
         $peminjaman->member_id = $request->member_id;
@@ -154,9 +152,8 @@ class PeminjamanController extends Controller
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->total_harga = $request->total_harga;
-        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->tgl_pinjam = Carbon::now();
         $peminjaman->lama_pinjam = $request->lama_pinjam;
-        // $peminjaman->status = $request->get('status');
 
         $peminjaman->save();
 

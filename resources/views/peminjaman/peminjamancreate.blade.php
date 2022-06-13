@@ -61,13 +61,13 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Tanggal Sewa * :</label>
-                                    <input type="date" class="form-control has-feedback-right" placeholder="Tanggal Pinjam"
-                                        name="tgl_pinjam" required value="{{ old('tgl_pinjam') }}">
-                                    <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('tgl_pinjam'))
-                                        <div class="error">{{ $errors->first('tgl_pinjam') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
+                                    <label for="fullname">Harga Satuan * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
+                                        name="harga_satuan" required value="{{ old('harga_satuan') }}" placeholder="Harga Satuan">
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('harga_satuan'))
+                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
                                     @endif
                                 </div>
 
@@ -85,13 +85,14 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
-                                    <label for="fullname">Harga Satuan * :</label>
-                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
-                                        name="harga_satuan" required value="{{ old('harga_satuan') }}" placeholder="Harga Satuan">
-                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('harga_satuan'))
-                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
+                                    <label for="fullname">Total Harga * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="total_harga"
+                                        name="total_harga" required value="{{ old('total_harga') }}"
+                                        placeholder="Total Harga">
+                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('total_harga'))
+                                        <div class="error">{{ $errors->first('total_harga') }}</div>
                                     @endif
                                 </div>
 
@@ -112,7 +113,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Pegawai yang Melayani* :</label>
                                     <input type="text" class="form-control has-feedback-right" placeholder="Nama Pegawai"
-                                        id="nama_petugas" name="nama_petugas" value="{{ Auth()->user()->nama }}">
+                                        id="nama_petugas" name="nama_petugas" value="{{ Auth()->user()->nama }}" readonly>
                                     <span class="fa fa-users form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('nama_petugas'))
                                         <div class="error">{{ $errors->first('nama_petugas') }}</div>
@@ -133,16 +134,7 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
-                                    <label for="fullname">Total Harga * :</label>
-                                    <input type="number" class="form-control has-feedback-right" id="total_harga"
-                                        name="total_harga" required value="{{ old('total_harga') }}"
-                                        placeholder="Total Harga">
-                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('total_harga'))
-                                        <div class="error">{{ $errors->first('total_harga') }}</div>
-                                    @endif
-                                </div>
+                                
 
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
@@ -164,17 +156,6 @@
 @section('js')
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-    // $('input[type=radio][name=status]').change(function(){
-    //     if(this.value == 'Keluar') {
-    //         $('#hargaSatuan').hide();
-    //         $('#totalHarga').hide();
-    //     } else {
-    //         $('#hargaSatuan').show();
-    //         $('#totalHarga').show();
-
-    //     }
-    // });
-
     $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
