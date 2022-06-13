@@ -53,7 +53,7 @@
                 <img src="{{ public_path("styleAdmin/production/images/logo-bolang-dark.jpg") }}" alt="" style="width: 150px; height: 150px;">
             </td>
             <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
-                <h2 align="center">LAPORAN KATEGORI PRODUK BOLANG GUNUNG
+                <h2 align="center">LAPORAN PRODUK BOLANG GUNUNG
                     <br>
                     Jl. Soekarno Hatta, Malang
                     <br>

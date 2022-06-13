@@ -55,9 +55,9 @@
             <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
                 <h2 align="center">LAPORAN CUSTOMER BOLANG GUNUNG
                     <br>
-                    Jl. Soekarno Hatta
+                    Jl. Soekarno Hatta, Malang
                     <br>
-                    Telepon: 08811890773, Email : bolanggunungexample@gmail.com
+                    Telepon: +6285231404775, Email : bolanggunungexample@gmail.com
                 </h2>
             </td>
         </table>
@@ -68,17 +68,17 @@
             <tr>
                 <td scope="col" width="60px">Ditujukan Kepada</td>
                 <td scope="row" width="50px">:</td>
-                <td scope="row">Pimpinan Bolang Gunung</td>
+                <td scope="row">Founder Bolang Gunung</td>
             </tr>
             <tr>
                 <td>Alamat</td>
                 <td scope="col">:</td>
-                <td>Jl. Soekarno Hatta</td>
+                <td>Jl. Soekarno Hatta, Malang</td>
             </tr>
             <tr>
                 <td>Telepon</td>
                 <td>:</td>
-                <td>08811890773</td>
+                <td>+6285231404775</td>
             </tr>
             <tr>
                 <td>Email</td>
