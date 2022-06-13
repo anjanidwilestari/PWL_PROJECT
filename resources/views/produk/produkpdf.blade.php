@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bolang Gunung || Rekap Kategori Produk</title>
+    <title>Bolang Gunung || Rekap Produk</title>
     <style>
         * {
             box-sizing: border-box;
