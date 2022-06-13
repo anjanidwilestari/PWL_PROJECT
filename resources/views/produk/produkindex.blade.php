@@ -68,6 +68,7 @@
                                             <th scope="col" class="text-center">No</th>
                                             <th scope="col" class="text-center">Kode Produk</th>
                                             <th scope="col" class="text-center">Nama Produk</th>
+                                            {{-- <th scope="col" class="text-center">Kategori</th> --}}
                                             <th scope="col" class="text-center">Gambar</th>
                                             <th scope="col" class="text-center">Biaya per Hari</th>
                                             <th scope="col" class="text-center">Action</th>
@@ -80,6 +81,7 @@
                                                 <td scope="row">{{ ++$i }}</td>
                                                 <td>{{ $data->kode_produk }}</td>
                                                 <td>{{ $data->nama_produk }}</td>
+                                                {{-- <td>{{$data->kategoriproduk->nama_kategori}}</td> --}}
                                                 <td><img width="70px" height="70px"
                                                         src="{{ asset('storage/' . $data->gambar) }}"></td>
                                                 <td>{{ $data->biaya_per_hari }}</td>

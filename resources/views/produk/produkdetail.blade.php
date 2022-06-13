@@ -61,6 +61,21 @@
                                         <br>
                                     </div>   
                                 </li>
+                                {{-- <li>
+                                    <div class="block">
+                                        <div class="tags">
+                                            <a href="" class="tag">
+                                                <span>Kategori</span>
+                                            </a>
+                                        </div>
+                                        <div class="block_content">
+                                            <h2 class="title">
+                                                <a>{{$produk->kategoriproduk->nama_kategori}}</a>
+                                            </h2>
+                                        </div>
+                                        <br>
+                                    </div>   
+                                </li> --}}
                                 <li>
                                     <div class="block">
                                         <div class="tags">
