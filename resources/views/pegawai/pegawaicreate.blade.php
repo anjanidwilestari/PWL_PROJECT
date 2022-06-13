@@ -54,6 +54,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jabatan * :</label>
                                     <select class="form-control has-feedback-right" id="jabatan" name="jabatan">
+                                        <option value="">--Pilih Jabatan--</option>
                                         <option value="Manajer">Manajer</option>
                                         <option value="Admin">Admin</option>
                                         <option value="Karyawan">Karyawan</option>

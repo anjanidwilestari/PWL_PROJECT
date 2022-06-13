@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->string('kode_produk')->nullable();
             $table->string('gambar')->nullable();
-            $table->string('biaya_per_hari');
-            //$table->integer('is_stock');
+            $table->double('harga');
+            $table->string('satuan');
             $table->timestamps();
         });
     }

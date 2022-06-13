@@ -55,7 +55,7 @@
                                     <label for="fullname">Kategori Produk * :</label>
                                     <select class="form-control has-feedback-right" id="kategori_id" name="kategori_id" required>
                                         <option value="">--Pilih Kategori Produk--</option>
-                                        @foreach ($nama_kategori as $data)
+                                        @foreach ($kategoriproduk as $data)
                                             <option value="{{$data->id}}" {{old('kategori_id') == $data->id ? 'selected' : ''}}>{{$data->nama_kategori}}</option>
                                         @endforeach
                                     </select>
@@ -73,23 +73,20 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Biaya per Hari * :</label>
-                                    <input type="text" class="form-control has-feedback-right" placeholder="Biaya per Hari" name="biaya_per_hari" required>
+                                    <label for="fullname">Harga * :</label>
+                                    <input type="number" class="form-control has-feedback-right" placeholder="Harga" name="harga" required>
                                     <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
-                                {{-- <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Disabled Input </label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Read-Only Input</label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
-          </div>
-        </div> --}}
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Satuan * :</label>
+                                    <select class="form-control has-feedback-right" id="satuan" name="satuan">
+                                        <option value="hari" {{old('satuan') == 'hari' ? 'selected' : ''}}>Hari</option>
+                                        <option value="jam" {{old('satuan') == 'jam' ? 'selected' : ''}}>Jam</option>
+                                    </select>
+                                    <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">

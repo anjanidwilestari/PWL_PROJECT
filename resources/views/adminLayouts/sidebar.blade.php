@@ -30,8 +30,8 @@
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"><a href="{{route('home')}}">Grafik Customer</a></li>
-                        <li class="nav-item"><a href="{{route('home')}}">Grafik Penyewaan</a></li>
+                        <li class="nav-item"><a href="{{route('home')}}">Grafik Peminjaman</a></li>
+                        {{-- <li class="nav-item"><a href="{{route('home')}}">Grafik Penyewaan</a></li> --}}
                     </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
@@ -47,7 +47,7 @@
                 </li>
                 <li><a><i class="fa fa-exchange"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"><a href="chartjs.html">Penyewaan</a></li>
+                        <li class="nav-item"><a href="{{route('peminjaman.index')}}">Penyewaan</a></li>
                         <li class="nav-item"><a href="chartjs2.html">Pengembalian</a></li>
                         {{-- <li class="nav-item"><a href="morisjs.html">Terlambat</a></li> --}}
                         {{-- <li class="nav-item"><a href="echarts.html">ECharts</a></li>
