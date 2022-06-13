@@ -75,19 +75,19 @@ class PeminjamanController extends Controller
             'harga_satuan' => 'required',
             'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
-            'status' => 'required',
+            // 'status' => 'required',
         ]);
 
         $peminjaman = new Peminjaman;
         $peminjaman->member_id = $request->member_id;
         $peminjaman->produk_id = $request->produk_id;
-        $peminjaman->nama_petugas = $request->get('nama_petugas');
-        $peminjaman->jumlah_pinjam = $request->get('jumlah_pinjam');
-        $peminjaman->total_harga = $request->get('total_harga');
-        $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
-        $peminjaman->harga_satuan = $request->get('harga_satuan');
-        $peminjaman->lama_pinjam = $request->get('lama_pinjam');
-        $peminjaman->status = $request->get('status');
+        $peminjaman->nama_petugas = $request->nama_petugas;
+        $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
+        $peminjaman->total_harga = $request->total_harga;
+        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->harga_satuan = $request->harga_satuan;
+        $peminjaman->lama_pinjam = $request->lama_pinjam;
+        $peminjaman->status = 'Dipinjam';
         $peminjaman->kode_peminjaman = Helper::KodePeminjamanGenerator();
         
         $peminjaman->save();
@@ -144,7 +144,7 @@ class PeminjamanController extends Controller
             'total_harga' => 'required',
             'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
-            'status' => 'required',
+            // 'status' => 'required',
         ]);
         $peminjaman = Peminjaman::where('id', $id)->first();
         $peminjaman->member_id = $request->member_id;
@@ -155,7 +155,7 @@ class PeminjamanController extends Controller
         $peminjaman->total_harga = $request->get('total_harga');
         $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
         $peminjaman->lama_pinjam = $request->get('lama_pinjam');
-        $peminjaman->status = $request->get('status');
+        // $peminjaman->status = $request->get('status');
 
         $peminjaman->save();
 
@@ -186,7 +186,7 @@ class PeminjamanController extends Controller
         return $pdf->stream($id);
     }
 
-    public function getHarga($id){
+    public function getPrice($id){
         $loadData = Produk::find($id);
         return response()->json($loadData);
     }

@@ -90,10 +90,16 @@
                                             <td>{{ $data->produk->nama_produk }}</td>
                                             <td>{{ $data->jumlah_pinjam }}</td>
                                             <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->format('d-m-Y') }}</td>
-                                            <td>{{ $data->lama_pinjam }} Hari</td>
+                                            <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
                                             <td>Rp {{ $data->total_harga }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
-                                            <td>{{ $data->status }}</td>
+                                                @if ($data->status == 'Dipinjam')
+                                                    <td class="text-center"><span
+                                                            class="label label-info">Dipinjam</span></td>
+                                                @else
+                                                    <td class="text-center"><span
+                                                            class="label label-success">Dikembalikan</span></td>
+                                                @endif
                                             <td>
                                                 <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
                                                     <a class="btn btn-icons btn-dark" href="{{ route('peminjaman.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>

@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('peminjamanpdf', [PdfController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
     Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
 
-    Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);
+    Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getPrice']);
 });
 
 Route::get('/klien-beranda', [KlienController::class, 'home']);

@@ -92,6 +92,8 @@
                                             <br>
                                         </div>
                                     </li>
+                                </div>
+                                <div class="col-md-6">
                                     <li>
                                         <div class="block">
                                             <div class="tags">
@@ -101,14 +103,12 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ \Carbon\Carbon::parse($peminjaman->tgl_pinjam)->format('d M Y') }}</a>
+                                                    <a>{{ \Carbon\Carbon::parse($peminjaman->tgl_pinjam)->format('d F Y') }}</a>
                                                 </h2>
                                             </div>
                                             <br>
                                         </div>
                                     </li>
-                                </div>
-                                <div class="col-md-6">
                                     <li>
                                         <div class="block">
                                             <div class="tags">
@@ -118,7 +118,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $peminjaman->lama_pinjam }}</a>
+                                                    <a>{{ $peminjaman->lama_pinjam }} {{$peminjaman->produk->satuan}}</a>
                                                 </h2>
                                             </div>
                                             <br>
@@ -149,21 +149,6 @@
                                         <div class="block_content">
                                             <h2 class="title">
                                                 <a>{{ $peminjaman->nama_petugas }}</a>
-                                            </h2>
-                                        </div>
-                                        <br>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="block">
-                                        <div class="tags">
-                                            <a href="" class="tag">
-                                                <span>Status</span>
-                                            </a>
-                                        </div>
-                                        <div class="block_content">
-                                            <h2 class="title">
-                                                <a>{{ $peminjaman->status }}</a>
                                             </h2>
                                         </div>
                                         <br>

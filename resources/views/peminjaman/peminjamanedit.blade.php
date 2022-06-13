@@ -86,13 +86,13 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Total Harga * :</label>
-                                    <input type="number" class="form-control has-feedback-right" placeholder="Total Harga"
-                                        name="total_harga" value="{{ $peminjaman->total_harga }}">
-                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('total_harga'))
-                                        <div class="error">{{ $errors->first('total_harga') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
+                                    <label for="fullname">Harga Satuan * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
+                                        name="harga_satuan" required placeholder="Harga satuan" onkeyup="hitungHarga()" value="{{ $peminjaman->harga_satuan }}">
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('harga_satuan'))
+                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
                                     @endif
                                 </div>
 
@@ -129,26 +129,12 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Status * :</label>
-                                    <select class="form-control has-feedback-right" id="status" name="status">
-                                        <option value="Lunas" @if ($peminjaman->status == 'Lunas') selected @endif>Lunas
-                                        </option>
-                                        <option value="Belum Lunas" @if ($peminjaman->status == 'Belum Lunas') selected @endif>Belum
-                                            Lunas</option>
-                                    </select>
-                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('status'))
-                                        <div class="error">{{ $errors->first('status') }}</div>
-                                    @endif
-                                </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
-                                    <label for="fullname">Harga Satuan * :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="harga_satuan"
-                                        name="harga_satuan" required placeholder="Harga satuan" onkeyup="hitungHarga()" value="{{ $peminjaman->harga_satuan }}">
-                                    <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
-                                    @if ($errors->has('harga_satuan'))
-                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
+                                    <label for="fullname">Total Harga * :</label>
+                                    <input type="number" class="form-control has-feedback-right" placeholder="Total Harga"
+                                        name="total_harga" value="{{ $peminjaman->total_harga }}">
+                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('total_harga'))
+                                        <div class="error">{{ $errors->first('total_harga') }}</div>
                                     @endif
                                 </div>
 

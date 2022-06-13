@@ -90,7 +90,7 @@
                     <th width="60px">Jumlah yang Disewa</th>
                     <th width="60px">Durasi Sewa</th>
                     <th width="60px">Total Harga</th>
-                    <th width="60px">Status</th>
+                    {{-- <th width="60px">Status</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -100,7 +100,7 @@
                         <td>{{ $peminjaman->jumlah_pinjam }}</td>
                         <td>{{ $peminjaman->lama_pinjam }} {{ $peminjaman->produk->satuan }}</td>
                         <td>Rp. {{ $peminjaman->total_harga }}</td>
-                        <td>{{ $peminjaman->status }}</td>
+                        {{-- <td>{{ $peminjaman->status }}</td> --}}
                     </tr>
             </tbody>
         </table>

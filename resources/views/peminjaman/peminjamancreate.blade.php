@@ -4,7 +4,6 @@
 @endsection
 @section('peminjaman', 'active')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class="right_col" role="main">
         <div class="">
             <div class="row">
@@ -77,10 +76,7 @@
                                     <select class="form-control has-feedback-left" id="produk_id" name="produk_id" required>
                                         <option value="">--Pilih Produk--</option>
                                         @foreach ($produk as $p)
-                                            <option value="{{ $p->id }}"
-                                                {{ old('produk_id') == $p->id ? 'selected' : '' }}>
-                                                {{ $p->nama_produk }}
-                                            </option>
+                                            <option value="{{ $p->id }}">{{ $p->nama_produk }}</option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
@@ -89,14 +85,13 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="total_harga">
-                                    <label for="fullname">Total Harga * :</label>
-                                    <input type="number" class="form-control has-feedback-right" id="total_harga"
-                                        name="total_harga" required value="{{ old('total_harga') }}"
-                                        placeholder="Total Harga">
-                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('total_harga'))
-                                        <div class="error">{{ $errors->first('total_harga') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
+                                    <label for="fullname">Harga Satuan * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
+                                        name="harga_satuan" value="{{old('harga_satuan')}}" placeholder="Harga Satuan">
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('harga_satuan'))
+                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
                                     @endif
                                 </div>
 
@@ -105,9 +100,9 @@
                                     <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam"
                                         name="jumlah_pinjam" required value="{{ old('jumlah_pinjam') }}" min="1"
                                         onkeyup="hitungHarga()" placeholder="Jumlah Sewa">
-                                    {{-- <div class="input-group-prepend bg-secondary">
+                                    <div class="input-group-prepend bg-secondary">
                                         <span class="input-group-text" id="satuan"></span>
-                                    </div> --}}
+                                    </div>
                                     <span class="fa fa-list-ol form-control-feedback left" aria-hidden="true"></span>
                                     @if ($errors->has('jumlah_pinjam'))
                                         <div class="error">{{ $errors->first('jumlah_pinjam') }}</div>
@@ -129,35 +124,23 @@
                                     <input type="number" class="form-control has-feedback-left" id="lama_pinjam"
                                         name="lama_pinjam" required value="{{ old('lama_pinjam') }}" min="1"
                                         onkeyup="hitungHarga()" placeholder="Lama Sewa">
-                                    {{-- <div class="input-group-prepend bg-secondary">
+                                    <div class="input-group-prepend bg-secondary">
                                         <span class="input-group-text" id="satuan"></span>
-                                    </div> --}}
+                                    </div>
                                     <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                     @if ($errors->has('lama_pinjam'))
                                         <div class="error">{{ $errors->first('lama_pinjam') }}</div>
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Status * :</label>
-                                    <select class="form-control has-feedback-right" id="status" name="status">
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="Belum Lunas">Belum Lunas</option>
-                                    </select>
-                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('status'))
-                                        <div class="error">{{ $errors->first('status') }}</div>
-                                    @endif
-                                </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
-                                    <label for="fullname">Harga Satuan * :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="harga_satuan"
-                                        name="harga_satuan" required value="{{ old('harga_satuan') }}"
-                                        placeholder="Harga satuan" onkeyup="hitungHarga()">
-                                    <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
-                                    @if ($errors->has('harga_satuan'))
-                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="total_harga">
+                                    <label for="fullname">Total Harga * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="total_harga"
+                                        name="total_harga" required value="{{ old('total_harga') }}"
+                                        placeholder="Total Harga">
+                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('total_harga'))
+                                        <div class="error">{{ $errors->first('total_harga') }}</div>
                                     @endif
                                 </div>
 
@@ -179,22 +162,53 @@
     </div>
 @endsection
 @section('js')
-    <script type="text/javascript">
+<script>
+    $(document).ready(function(){
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-        $('select#produk_id').on('change', function(e) {
+        $('select#produk_id').on('change',function(e){
             var selected_produk = $(this).children("option:selected").val();
             $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '/getPeminjaman/' + selected_produk,
-                success: function(response) {
+                type:"GET",
+                dataType:"json",
+                url:'/getTransaksi/'+selected_sapi,
+                success:function(response){
+                    console.log(response);
+                    $('#harga').val(response.harga)
+                }
+            })
+        });
+    });
+</script>
+{{-- <script>
+    $('input[type=radio][name=status]').change(function(){
+        if(this.value == 'Keluar') {
+            $('#hargaSatuan').hide();
+            $('#totalHarga').hide();
+        } else {
+            $('#hargaSatuan').show();
+            $('#totalHarga').show();
+
+        }
+    });
+
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $('select#produk_id').on('change',function(e){
+            var selected_produk = $(this).children("option:selected").val();
+            $.ajax({
+                type:"GET",
+                dataType:"json",
+                url:'/getPeminjaman/'+selected_produk,
+                success:function(response){
                     console.log(response);
                     $('#harga_satuan').val(response.harga);
-                    // $('#satuan').text(response.satuan);
                     hitungHarga();
                 }
             })
@@ -202,15 +216,14 @@
 
         // calculate price
         hitungHarga();
-
         function hitungHarga() {
             var totalHarga = $('#total_harga');
-            var satuan = $('#jumlah_pinjam').val();
-            var hargasatuan = $('#harga_satuan').val();
-            var lamapinjam = $('#lama_pinjam').val();
+            var lamaPinjam = $('#lama_pinjam').val();
+            var jumlahPinjam = $('#jumlah_pinjam').val();
+            var hargaSatuan = $('#harga_satuan').val();
 
-            var hitungTotal = parseFloat(satuan) * parseFloat(hargasatuan) * parseFloat(lamapinjam);
+            var hitungTotal = parseFloat(hargaSatuan) * parseFloat(jumlahPinjam) * parseFloat(lamaPinjam);
             totalHarga.val(hitungTotal);
         }
-    </script>
+</script> --}}
 @endsection
