@@ -23,7 +23,7 @@ class Produk extends Model
     ];
 
     public function kategoriproduk(){
-        return $this->belongsTo(KategoriProduk::class);
+        return $this->belongsTo('App\Models\KategoriProduk', 'kategori_id', 'id');
     }
 
     public function peminjaman()
