@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('pengembalians', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('peminjaman_id')->nullable();
+            $table->foreign('peminjaman_id')->references('id')->on('peminjamans');
+            $table->enum('status_kembali',['Berhasil','Terlambat','Bermasalah']);
+            $table->string('keterangan')->nullable();
+            $table->double('denda')->nullable();
             $table->timestamps();
         });
     }

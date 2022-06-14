@@ -10,6 +10,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('member', MemberController::class);
     Route::resource('produk', ProdukController::class);
     Route::resource('peminjaman', PeminjamanController::class);
+    Route::resource('pengembalian', PengembalianController::class);
 
     //cetakpdf&nota
     Route::get('memberpdf', [MemberController::class, 'cetak_pdf_member'])->name('member.memberpdf');
