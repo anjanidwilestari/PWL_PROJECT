@@ -61,13 +61,13 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Tanggal Sewa * :</label>
-                                    <input type="date" class="form-control has-feedback-right" placeholder="Tanggal Pinjam"
-                                        name="tgl_pinjam" required value="{{ $peminjaman->tgl_pinjam }}">
-                                    <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('tgl_pinjam'))
-                                        <div class="error">{{ $errors->first('tgl_pinjam') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
+                                    <label for="fullname">Harga Satuan * :</label>
+                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
+                                        name="harga_satuan" required placeholder="Harga satuan" value="{{ $peminjaman->harga_satuan }}">
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('harga_satuan'))
+                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
                                     @endif
                                 </div>
 
@@ -86,20 +86,20 @@
                                     @endif
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="harga_satuan">
-                                    <label for="fullname">Harga Satuan * :</label>
-                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
-                                        name="harga_satuan" required placeholder="Harga satuan" onkeyup="hitungHarga()" value="{{ $peminjaman->harga_satuan }}">
-                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('harga_satuan'))
-                                        <div class="error">{{ $errors->first('harga_satuan') }}</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
+                                    <label for="fullname">Total Harga * :</label>
+                                    <input type="number" class="form-control has-feedback-right" placeholder="Total Harga" id="total_harga"
+                                        name="total_harga" value="{{ $peminjaman->total_harga }}">
+                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
+                                    @if ($errors->has('total_harga'))
+                                        <div class="error">{{ $errors->first('total_harga') }}</div>
                                     @endif
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jumlah Sewa* :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam" min="1"
-                                        onkeyup="hitungHarga()" placeholder="Jumlah Sewa" name="jumlah_pinjam" required
+                                    <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam" name="jumlah_pinjam"
+                                        onkeyup="hitungHarga()" placeholder="Jumlah Sewa" required
                                         value="{{ $peminjaman->jumlah_pinjam }}">
                                     <span class="fa fa-list-ol form-control-feedback left" aria-hidden="true"></span>
                                     @if ($errors->has('jumlah_pinjam'))
@@ -110,7 +110,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Pegawai yang Melayani* :</label>
                                     <input type="text" class="form-control has-feedback-right" placeholder="Nama Pegawai"
-                                        name="nama_petugas" value="{{ $peminjaman->nama_petugas }}">
+                                        name="nama_petugas" value="{{ $peminjaman->nama_petugas }}" readonly>
                                     <span class="fa fa-users form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('nama_petugas'))
                                     <div class="error">{{ $errors->first('nama_petugas') }}</div>
@@ -119,22 +119,12 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Lama Sewa* :</label>
-                                    <input type="number" class="form-control has-feedback-left" id="lama_pinjam" min="1"
+                                    <input type="number" class="form-control has-feedback-left" id="lama_pinjam"
                                         onkeyup="hitungHarga()" placeholder="Lama Sewa" name="lama_pinjam" required
                                         value="{{ $peminjaman->lama_pinjam }}">
                                     <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                     @if ($errors->has('lama_pinjam'))
                                         <div class="error">{{ $errors->first('lama_pinjam') }}</div>
-                                    @endif
-                                </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Total Harga * :</label>
-                                    <input type="number" class="form-control has-feedback-right" placeholder="Total Harga"
-                                        name="total_harga" value="{{ $peminjaman->total_harga }}">
-                                    <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
-                                    @if ($errors->has('total_harga'))
-                                        <div class="error">{{ $errors->first('total_harga') }}</div>
                                     @endif
                                 </div>
 
@@ -156,22 +146,22 @@
     </div>
 @endsection
 @section('js')
-    <script>
-        $.ajaxSetup({
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-        $('select#produk_id').on('change', function(e) {
+        $('select#produk_id').on('change',function(e){
             var selected_produk = $(this).children("option:selected").val();
             $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '/getProduk/' + selected_produk,
-                success: function(response) {
+                type:"GET",
+                dataType:"json",
+                url:'/getPeminjaman/'+selected_produk,
+                success:function(response){
                     console.log(response);
-                    $('#biaya_per_hari').val(response.biaya_per_hari);
-                    $('#satuan').text(response.satuan);
+                    $('#harga_satuan').val(response.harga);
                     hitungHarga();
                 }
             })
@@ -179,15 +169,14 @@
 
         // calculate price
         hitungHarga();
-
         function hitungHarga() {
             var totalHarga = $('#total_harga');
-            var jumlahpinjam = $('#jumlah_pinjam').val();
-            var biayaperhari = $('#biaya_per_hari').val();
-            var lamapinjam = $('#lama_pinjam')
+            var lamaPinjam = $('#lama_pinjam').val();
+            var jumlahPinjam = $('#jumlah_pinjam').val();
+            var hargaSatuan = $('#harga_satuan').val();
 
-            var hitungTotal = parseFloat(jumlahpinjam) * parseFloat(biayaperhari) * parseFloat(jumlahpinjam);
+            var hitungTotal = parseFloat(hargaSatuan) * parseFloat(jumlahPinjam) * parseFloat(lamaPinjam);
             totalHarga.val(hitungTotal);
         }
-    </script>
+</script>
 @endsection

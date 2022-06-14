@@ -53,7 +53,7 @@
                 <img src="{{ public_path("styleAdmin/production/images/logo-bolang-dark.jpg") }}" alt="" style="width: 150px; height: 150px;">
             </td>
             <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
-                <h2 align="center">LAPORAN TRANSAKSI BOLANG GUNUNG
+                <h2 align="center">LAPORAN TRANSAKSI BELUM KEMBALI BOLANG GUNUNG
                     <br>
                     Jl. Soekarno Hatta
                     <br>
@@ -86,7 +86,7 @@
                 <td>bolanggunungexample@gmail.com</td>
             </tr>
         </table>
-        <h4>Data Transaksi Bolang Gunung</h4>
+        <h4>Data Transaksi Belum Kembali Bolang Gunung</h4>
         <table border="1">
             <thead>
                 <tr>

@@ -11,7 +11,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use PDF;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PeminjamanController extends Controller
 {
@@ -73,7 +74,7 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'total_harga' => 'required',
             'harga_satuan' => 'required',
-            'tgl_pinjam' => 'required',
+            // 'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
             // 'status' => 'required',
         ]);
@@ -84,7 +85,7 @@ class PeminjamanController extends Controller
         $peminjaman->nama_petugas = $request->nama_petugas;
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $peminjaman->total_harga = $request->total_harga;
-        $peminjaman->tgl_pinjam = $request->tgl_pinjam;
+        $peminjaman->tgl_pinjam = Carbon::now();
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->lama_pinjam = $request->lama_pinjam;
         $peminjaman->status = 'Dipinjam';
@@ -142,20 +143,17 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'harga_satuan' => 'required',
             'total_harga' => 'required',
-            'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
-            // 'status' => 'required',
         ]);
         $peminjaman = Peminjaman::where('id', $id)->first();
         $peminjaman->member_id = $request->member_id;
         $peminjaman->produk_id = $request->produk_id;
-        $peminjaman->nama_petugas = $request->get('nama_petugas');
-        $peminjaman->jumlah_pinjam = $request->get('jumlah_pinjam');
-        $peminjaman->harga_satuan = $request->get('harga_satuan');
-        $peminjaman->total_harga = $request->get('total_harga');
-        $peminjaman->tgl_pinjam = $request->get('tgl_pinjam');
-        $peminjaman->lama_pinjam = $request->get('lama_pinjam');
-        // $peminjaman->status = $request->get('status');
+        $peminjaman->nama_petugas = $request->nama_petugas;
+        $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
+        $peminjaman->harga_satuan = $request->harga_satuan;
+        $peminjaman->total_harga = $request->total_harga;
+        $peminjaman->tgl_pinjam = Carbon::now();
+        $peminjaman->lama_pinjam = $request->lama_pinjam;
 
         $peminjaman->save();
 
@@ -177,6 +175,14 @@ class PeminjamanController extends Controller
             -> with('success', 'Data Peminjaman Berhasil Dihapus');
     }
 
+    public function cetak_pdf_peminjaman(){
+        $peminjaman = Peminjaman::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
+
     public function cetaknota($id){
         $peminjaman = new Peminjaman;
         $peminjaman = $peminjaman->find($id);
@@ -186,8 +192,48 @@ class PeminjamanController extends Controller
         return $pdf->stream($id);
     }
 
-    public function getPrice($id){
+    public function getHarga($id){
         $loadData = Produk::find($id);
         return response()->json($loadData);
+    }
+    
+    public function belumkembali(){
+        $pagination = 5;
+        $peminjaman = Peminjaman::with('member','produk')
+        ->where('status', 'like', 'Dipinjam') 
+        ->orderBy('kode_peminjaman')
+        ->paginate($pagination);
+
+        return view('transaksi.belumkembali', compact('peminjaman'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
+    }
+
+    public function dikembalikan(){
+        $pagination = 5;
+        $peminjaman = Peminjaman::with('member','produk')
+        ->where('status', 'like', 'Dikembalikan') 
+        ->orderBy('kode_peminjaman')
+        ->paginate($pagination);
+
+        return view('transaksi.dikembalikan', compact('peminjaman'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
+    }
+
+    public function cetak_pdf_dikembalikan(){
+        $peminjaman = Peminjaman::all()
+        ->where('status', 'like', 'Dikembalikan');
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('transaksi.dikembalikanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
+
+    public function cetak_pdf_belumkembali(){
+        $peminjaman = Peminjaman::all()
+        ->where('status', 'like', 'Dipinjam');
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('transaksi.belumkembalipdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }

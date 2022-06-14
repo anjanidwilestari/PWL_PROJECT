@@ -1,10 +1,10 @@
 @extends('adminLayouts.main')
 
 @section('title')
-    Data Peminjaman
+    Peminjaman Belum Kembali
 @endsection
 
-@section('peminjaman', 'active')
+@section('belumkembali', 'active')
 
 @section('content')
     <!-- page content -->
@@ -16,26 +16,26 @@
                 </div>
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        <form class="input-group" action="{{ url()->current() }}" method="GET">
+                        {{-- <form class="input-group" action="{{ url()->current() }}" method="GET">
                             <input type="search" class="form-control" placeholder="Search for .." aria-label="Search"
                                 name="keyword" value="{{ request('keyword') }}">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">Cari!</button>
                             </span>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
-                @can('admin')
+                
                 <div class="title_left">
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
-                            <a class="btn btn-round btn-success" href="{{ route('peminjaman.create') }}">+ Tambah Data</a>
-                            <a class="btn btn-round btn-danger" href="{{route('peminjaman.peminjamanpdf')}}">
-                                <i class="fa fa-print"></i></a>
+                            {{-- <a class="btn btn-round btn-success" href="{{ route('peminjaman.create') }}">+ Tambah Data</a> --}}
+                            <a class="btn btn-round btn-danger" href="{{route('peminjaman.belumkembalipdf')}}">
+                                <i class="fa fa-print"> Cetak Transaki</i></a>
                         </div>
                     </div>
                 </div>
-                @endcan
+               
             </div>
 
             <div class="clearfix"></div>
@@ -77,7 +77,7 @@
                                         <th scope="col" class="text-center">Harga Total</th>
                                         <th scope="col" class="text-center">Pegawai</th>
                                         <th scope="col" class="text-center">Status</th>
-                                        <th scope="col" class="text-center">Action</th>
+                                        {{-- <th scope="col" class="text-center">Action</th> --}}
                                     </tr>
                                 </thead>
 
@@ -100,7 +100,7 @@
                                                     <td class="text-center"><span
                                                             class="label label-success">Dikembalikan</span></td>
                                                 @endif
-                                            <td>
+                                            {{-- <td>
                                                 <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
                                                     <a class="btn btn-icons btn-dark" href="{{ route('peminjaman.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>
                                                     <a class="btn btn-icons btn-primary" href="{{ route('peminjaman.show', $data->id) }}"><i class="fa fa-eye"></i></a>
@@ -111,7 +111,7 @@
                                                     <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
                                                     @endcan
                                                 </form>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class ProdukController extends Controller
 {
@@ -154,5 +156,13 @@ class ProdukController extends Controller
         Produk::find($id)->delete();
         return redirect()->route('produk.index')
             ->with('success', 'Data Produk Berhasil Dihapus');
+    }
+
+    public function cetak_pdf_produk(){
+        $produk = Produk::all();
+        $tanggal = Carbon::now()->format('d-m-Y');
+
+        $pdf = PDF::loadview('produk.produkpdf',['produk'=>$produk], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
     }
 }

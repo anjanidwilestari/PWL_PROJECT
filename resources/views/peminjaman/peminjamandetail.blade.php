@@ -133,7 +133,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title">
-                                                <a>{{ $peminjaman->total_harga }}</a>
+                                                <a>Rp. {{ $peminjaman->total_harga }}</a>
                                             </h2>
                                         </div>
                                         <br>
