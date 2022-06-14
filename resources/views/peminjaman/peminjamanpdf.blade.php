@@ -109,7 +109,7 @@
                         <td>{{ $p->produk->nama_produk }}</td>
                         <td>{{ $p->jumlah_pinjam }}</td>
                         <td>{{ $p->lama_pinjam }} Hari</td>
-                        <td>Rp. {{ $p->total_harga }}</td>
+                        <td>Rp{{ number_format($p->total_harga) }}</td>
                         <td>{{ $p->nama_petugas }}</td>
                     </tr>
                 @endforeach
