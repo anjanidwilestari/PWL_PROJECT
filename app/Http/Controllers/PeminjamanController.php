@@ -93,7 +93,7 @@ class PeminjamanController extends Controller
         
         $peminjaman->save();
         
-        Alert::success('Success','Data Peminjaman Berhasil Ditambahkan');
+        Alert::success('Data Peminjaman Berhasil Ditambahkan');
         return redirect()->route('peminjaman.index');
     }
 

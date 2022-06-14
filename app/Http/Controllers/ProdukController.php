@@ -33,7 +33,7 @@ class ProdukController extends Controller
                 $kategoriproduk->where('nama_kategori','like',"%{$request->keyword}%");
             });
         })->orderBy('kode_produk')->paginate($pagination);
-
+        
         return view('produk.produkindex',compact('produk'))
             ->with('i',(request()->input('page',1)-1)*$pagination);
     }
@@ -76,7 +76,7 @@ class ProdukController extends Controller
         
         $produk->save();
 
-        Alert::success('Success', 'Data Produk Berhasil Ditambahkan');
+        Alert::success('Data Produk Berhasil Ditambahkan');
         return redirect()->route('produk.index');
 
 

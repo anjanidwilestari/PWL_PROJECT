@@ -61,7 +61,7 @@ class KategoriProdukController extends Controller
 
         $kategoriproduk->save();
 
-        Alert::success('Success','Data Kategori Produk Berhasil Ditambahkan');
+        Alert::success('Kategori Produk Berhasil Ditambahkan');
         return redirect()->route('kategoriproduk.index');
     }
 
@@ -110,7 +110,7 @@ class KategoriProdukController extends Controller
         
         $kategoriproduk->save();
 
-        Alert::success('Success','Data Kategori Produk Berhasil Diupdate');
+        Alert::success('Kategori Produk Berhasil Diupdate');
         return redirect()->route('kategoriproduk.index');
     }
 
@@ -125,7 +125,7 @@ class KategoriProdukController extends Controller
         $this->authorize('admin');
         KategoriProduk::find($id)->delete();
         return redirect()->route('kategoriproduk.index')
-            -> with('success', ' Data Kategori Produk Berhasil Dihapus');
+            -> with('success', 'Kategori Produk Berhasil Dihapus');
     }
 
     public function cetak_pdf_kategori(){

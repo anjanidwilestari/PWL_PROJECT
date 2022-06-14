@@ -78,7 +78,7 @@ class PegawaiController extends Controller
 
         $pegawai->save();
 
-        Alert::success('Success', 'Data Pegawai Berhasil Ditambahkan');
+        Alert::success('Data Pegawai Berhasil Ditambahkan');
         return redirect()->route('pegawai.index');
     }
 
@@ -153,7 +153,7 @@ class PegawaiController extends Controller
         $this->authorize('admin');
         Pegawai::find($id)->delete();
         return redirect()->route('pegawai.index')
-            ->with('success', 'Pegawai Berhasil Dihapus');
+            ->with('success', 'Data Pegawai Berhasil Dihapus');
     }
 
     public function cetak_pdf_pegawai(){
