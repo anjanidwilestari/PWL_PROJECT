@@ -17,10 +17,6 @@ class KategoriProduk extends Model
     ];
 
     public function produk(){
-<<<<<<< HEAD
         return $this->hasMany('App\Models\Produk', 'kategori_id', 'id');
-=======
-        return $this->hasMany('App\Produk', 'foreign_key', 'local_key');
->>>>>>> cd1ccdb60bd4a84e0c180d558b1388428baeb695
     }
 }
