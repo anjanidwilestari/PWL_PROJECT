@@ -10,7 +10,6 @@ class KategoriProduk extends Model
 {
     use HasFactory;
     protected $table = 'kategori_produks';
-    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nama_kategori',
@@ -18,6 +17,6 @@ class KategoriProduk extends Model
     ];
 
     public function produk(){
-        return $this->hasMany(Produk::class);
+        return $this->hasMany('App\Produk', 'foreign_key', 'local_key');
     }
 }

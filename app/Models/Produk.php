@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\KategoriProduk;
 use App\Models\Peminjaman;
 
 class Produk extends Model
 {
     use HasFactory;
     protected $table ='produks';
-    protected $primaryKey = 'id';
 
     protected $fillable =[
         'kategori_id',
@@ -23,7 +21,7 @@ class Produk extends Model
     ];
 
     public function kategoriproduk(){
-        return $this->belongsTo(KategoriProduk::class);
+        return $this->belongsTo(KategoriProduk::class, 'foreign_key', 'other_key');
     }
 
     public function peminjaman()
