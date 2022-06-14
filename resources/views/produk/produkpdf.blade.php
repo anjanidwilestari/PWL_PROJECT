@@ -93,6 +93,7 @@
                     <th width="20px">No</th>
                     <th width="100px">Kode Produk</th>
                     <th width="120px">Nama Produk</th>
+                    <th width="100px">Kategori</th>
                     <th width="120px">Harga</th>
                     <th width="120px">Ditambahkan Pada</th>
                 </tr>
@@ -103,7 +104,8 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $pr->kode_produk }}</td>
                         <td>{{ $pr->nama_produk }}</td>
-                        <td>Rp. {{ $pr->harga }}/{{$pr->satuan}}</td>
+                        <td>{{ $pr->kategoriproduk->nama_kategori }}</td>
+                        <td>Rp{{ number_format($pr->harga) }}/{{$pr->satuan}}</td>
                         <td>{{ \Carbon\Carbon::parse($pr->created_at)->format('d F Y') }}</td>
                     </tr>
                 @endforeach

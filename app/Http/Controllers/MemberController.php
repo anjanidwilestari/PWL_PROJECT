@@ -74,7 +74,7 @@ class MemberController extends Controller
 
         $member->save();
         
-        Alert::success('Success','Data Member Berhasil Ditambahkan');
+        Alert::success('Data Member Berhasil Ditambahkan');
         return redirect()->route('member.index');
     }
 

@@ -21,7 +21,7 @@ class Produk extends Model
     ];
 
     public function kategoriproduk(){
-        return $this->belongsTo(KategoriProduk::class, 'foreign_key', 'other_key');
+        return $this->belongsTo('App\Models\KategoriProduk', 'kategori_id', 'id');
     }
 
     public function peminjaman()

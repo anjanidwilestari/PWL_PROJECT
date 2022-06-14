@@ -59,7 +59,7 @@ class GetInTouchController extends Controller
 
         $getintouch->save();
         
-        Alert::success('Success', 'Terima Kasih Telah Memberikan Masukan');
+        Alert::success('Terima Kasih Telah Memberikan Masukan');
         return view('klien.home', ['title' => 'Beranda']);
     }
 
