@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <title>Bolang Gunung || Rekap Transaksi</title>
     <style>
-        * {
-            box-sizing: border-box;
-            font-size: 18px;
-            font-family: Times New Roman;
-        }
-
+        * 
         body {
             background-color: #f8f8f8;
         }
 
         .margin {
             background-color: #fff;
-            width: 80%;
-            margin: 20px auto;
-            box-shadow: 0 1px 1px 0 #ccc;
-            padding: 40px 60px;
+            width: 100%;
         }
 
         table {
@@ -66,13 +58,13 @@
 
         <table>
             <tr>
-                <td scope="col" width="60px">Ditujukan Kepada</td>
-                <td scope="row" width="50px">:</td>
-                <td scope="row">Founder Bolang Gunung</td>
+                <td width="60px">Ditujukan Kepada</td>
+                <td width="50px">:</td>
+                <td >Founder Bolang Gunung</td>
             </tr>
             <tr>
                 <td>Alamat</td>
-                <td scope="col">:</td>
+                <td >:</td>
                 <td>Jl. Soekarno Hatta</td>
             </tr>
             <tr>
@@ -91,13 +83,13 @@
             <thead>
                 <tr>
                     <th width="20px">No</th>
-                    <th width="100px">Kode Sewa</th>
-                    <th width="120px">Nama Penyewa</th>
-                    <th width="120px">Produk yang Disewa</th>
-                    <th width="60px">Jumlah Sewa</th>
-                    <th width="60px">Lama Sewa</th>
-                    <th width="80px">Total Harga</th>
-                    <th width="120px">Petugas yang Melayani</th>
+                    <th >Kode Sewa</th>
+                    <th >Nama Penyewa</th>
+                    <th >Produk yang Disewa</th>
+                    <th >Jumlah Sewa</th>
+                    <th >Lama Sewa</th>
+                    <th >Total Harga</th>
+                    <th >Petugas yang Melayani</th>
                 </tr>
             </thead>
             <tbody>
