@@ -36,4 +36,9 @@ class Peminjaman extends Model
         return $this->belongsTo(Produk::class);
     }
 
+    public function pengembalian()
+    {
+        return $this->hasOne(Pengembalian::class);
+    }
+
 }
