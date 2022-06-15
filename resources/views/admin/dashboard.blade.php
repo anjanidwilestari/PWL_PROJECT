@@ -11,21 +11,30 @@
     <div class="right_col" role="main">
         <!-- top tiles -->
         <div class="row tile_count">
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-group"></i> Total Pegawai</span>
-                <div class="count">{{ $pegawais }}</div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Member</span>
-                <div class="count">{{ $members }}</div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Transaksi</span>
-                <div class="count green">{{ $peminjamans }}</div>
+                <div class="count">{{ $peminjamans }}</div>
+                <span class="count_bottom"><i class="green">{{ $pinjambulanini }}</i> Total transaksi Bulan {{ \Carbon\Carbon::now()->format('F') }}</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-user"></i> Belum Kembali</span>
+                <div class="count red">{{ $belumkembali }}</div>
+                <span class="count_bottom">{{ \Carbon\Carbon::now()->format('F') }} : <i class="red">{{ $pinjambulanini }}</i> Peminjaman</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-user"></i> Transaksi Selesai</span>
+                <div class="count green">{{ $sudahkembali }}</div>
+                <span class="count_bottom">{{ \Carbon\Carbon::now()->format('F') }} : <i class="green">{{ $pinjambulanini }}</i> Peminjaman</span>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Produk</span>
-                <div class="count">{{ $produks }}</div>
+                <span class="count_top"><i class="fa fa-user"></i>Pemasukan Lain</span>
+                <div class="count">Rp{{ number_format($biayalain) }}</div>
+                <span class="count_bottom">Diambil dari Biaya Denda Transaksi</span>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-user"></i> Total Pemasukan</span>
+                <div class="count blue">Rp{{ number_format($pemasukans) }}</div>
+                <span class="count_bottom">Diambil dari Nominal Sewa Transaksi</span>
             </div>
         </div>
         <!-- /top tiles -->
@@ -41,7 +50,7 @@
                     <div class="col-md-3">
                         <div class="col-md-12 col-sm-12 col-xs-12 bg-white">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div id="high-chart-buku"></div>
+                                <div id="high-chart-produk"></div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -123,7 +132,7 @@
         });
     </script>
     <script>
-        Highcharts.chart('high-chart-buku', {
+        Highcharts.chart('high-chart-produk', {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,

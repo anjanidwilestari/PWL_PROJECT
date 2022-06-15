@@ -5,6 +5,7 @@ use App\Models\Peminjaman;
 use App\Models\Produk;
 use App\Models\Member;
 use App\Models\Pegawai;
+use App\Models\Pengembalian;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -14,11 +15,16 @@ class DashboardController extends Controller
     public function index(){
         $get_data_peminjaman = Peminjaman::get();
         $data_produk = [];
+        $month = Carbon::now()->format("m");
 
-        $members = Member::count();
-        $pegawais = Pegawai::count();
         $peminjamans = Peminjaman::count();
-        $produks = Produk::count();
+        $pinjambulanini = Peminjaman::where('tgl_pinjam', 'like', "%{$month}%")->count();
+        $pemasukans = Peminjaman::sum('total_harga');
+        $belumkembali = Peminjaman::where('status', 'like', 'Dipinjam')->count();
+        $biayalain = Pengembalian::sum('denda');
+        $sudahkembali = Peminjaman::where('status', 'like', 'Dikembalikan')->count();
+        $sudahkembalibulanini = Peminjaman::where('tgl_pinjam', 'like', "%{$month}%")->count();
+        
 
         $period = CarbonPeriod::create(Carbon::now()->firstOfMonth(), Carbon::now()->endOfMonth());
         foreach ($period as $key => $date) {
@@ -42,10 +48,13 @@ class DashboardController extends Controller
         $data = [
             'hari'     => $data_hari,
             'peminjam' => $data_peminjam,
-            'pegawais' => $pegawais,
-            'members' => $members,
             'peminjamans' => $peminjamans,
-            'produks' => $produks,
+            'pemasukans' => $pemasukans,
+            'belumkembali' => $belumkembali,
+            'sudahkembali' => $sudahkembali,
+            'pinjambulanini' => $pinjambulanini,
+            'biayalain' => $biayalain,
+
             'bulan' => [
                 'Transaksi Peminjaman Bolang Gunung di Bulan '.Carbon::now()->format('F'),
             ],
