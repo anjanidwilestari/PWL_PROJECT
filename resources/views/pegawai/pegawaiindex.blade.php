@@ -148,9 +148,8 @@
 @endsection
 @section('js')
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
 <script type="text/javascript">
- 
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
@@ -165,6 +164,8 @@
           .then((willDelete) => {
             if (willDelete) {
               form.submit();
+            } else {
+                swal("Data Anda Aman!");
             }
           });
       });
