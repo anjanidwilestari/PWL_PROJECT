@@ -15,7 +15,6 @@
             <h2>{{Auth()->user()->nama}}</h2>
             <div>
                 <small class="designation text-muted">{{Auth()->user()->jabatan}}</small>
-                <span class="status-indicator online"></span>
             </div>
         </div>
     </div>
@@ -31,7 +30,6 @@
                 <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li class="nav-item"><a href="{{route('home')}}">Grafik Peminjaman</a></li>
-                        {{-- <li class="nav-item"><a href="{{route('home')}}">Grafik Penyewaan</a></li> --}}
                     </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
@@ -41,33 +39,28 @@
                         <li class="nav-item @yield('pegawai')"><a href="{{route('pegawai.index')}}">Pegawai</a></li>
                         <li class="nav-item @yield('member')"><a href="{{route('member.index')}}">Member</a></li>
                         <li class="nav-item @yield('user')"><a href="{{route('user.index')}}">Pengguna Website</a></li>
-                        {{-- <li class="nav-item"><a href="form_upload.html">Form Upload</a></li>
-                        <li class="nav-item"><a href="form_buttons.html">Form Buttons</a></li> --}}
                     </ul>
                 </li>
                 <li><a><i class="fa fa-exchange"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li class="nav-item @yield('peminjaman')"><a href="{{route('peminjaman.index')}}">Penyewaan</a></li>
                         <li class="nav-item @yield('pengembalian')"><a href="{{route('pengembalian.index')}}">Pengembalian</a></li>
-                        {{-- <li class="nav-item"><a href="morisjs.html">Terlambat</a></li> --}}
-                        {{-- <li class="nav-item"><a href="echarts.html">ECharts</a></li>
-                        <li class="nav-item"><a href="other_charts.html">Other Charts</a></li> --}}
                     </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart-o"></i> Daftar Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li class="nav-item"@yield('dikembalikan')><a href="{{route('peminjaman.dikembalikan')}}">Berhasil</a></li>
                         <li class="nav-item @yield('belumkembali')"><a href="{{route('peminjaman.belumkembali')}}">Belum Kembali</a></li>
-                        <li class="nav-item"><a href="morisjs.html">Terlambat</a></li>
+                        {{-- <li class="nav-item"><a href="morisjs.html">Terlambat</a></li> --}}
                     </ul>
                 </li>
-                <li><a><i class="fa fa-table"></i> Rekap Transaksi <span class="fa fa-chevron-down"></span></a>
+                {{-- <li><a><i class="fa fa-table"></i> Rekap Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a class="nav-link"href="/admin/contohtabel">Berhasil</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Belum Kembali</a></li>
                         <li><a class="nav-link"href="/admin/contohtabel">Terlambat</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li><a><i class="fa fa-envelope"></i> Kata Mereka <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li class="nav-item"><a href="{{ url('getintouch') }}">Get In Touch Member</a></li>
