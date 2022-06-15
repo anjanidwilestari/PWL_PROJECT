@@ -4,7 +4,7 @@
     Data Pengembalian
 @endsection
 
-@section('peminjaman', 'active')
+@section('pengembalian', 'active')
 
 @section('content')
     <!-- page content -->
@@ -94,10 +94,10 @@
                                             @endif
                                             <td>{{ $data->keterangan }}</td>
                                             <td>{{ $data->denda }}</td>
-                                            <td>{{ $data->created_at }}</td>
+                                            <td>{{ $data->created_at->format('d-m-Y') }}</td>
                                             <td>
                                                 <form action="{{ route('pengembalian.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-dark" href="{{ route('pengembalian.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>
+                                                    {{-- <a class="btn btn-icons btn-dark" href="{{ route('pengembalian.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a> --}}
                                                     <a class="btn btn-icons btn-primary" href="{{ route('pengembalian.show', $data->id) }}"><i class="fa fa-eye"></i></a>
                                                     @can('admin')
                                                     <a class="btn btn-icons btn-warning" href="{{ route('pengembalian.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
