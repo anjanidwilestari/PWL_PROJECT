@@ -56,7 +56,7 @@ class DashboardController extends Controller
             'biayalain' => $biayalain,
 
             'bulan' => [
-                'Transaksi Peminjaman Bolang Gunung di Bulan '.Carbon::now()->format('F'),
+                'Transaksi Peminjaman Bolang Gunung di Bulan '.Carbon::now()->isoFormat('MMMM'),
             ],
             'produk' => array_merge($data_produk),
         ];

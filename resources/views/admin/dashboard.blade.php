@@ -19,12 +19,12 @@
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Belum Kembali</span>
                 <div class="count red">{{ $belumkembali }}</div>
-                <span class="count_bottom">{{ \Carbon\Carbon::now()->format('F') }} : <i class="red">{{ $pinjambulanini }}</i> Peminjaman</span>
+                <span class="count_bottom">{{ \Carbon\Carbon::now()->isoFormat('MMMM') }} : <i class="red">{{ $pinjambulanini }}</i> Peminjaman</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Transaksi Selesai</span>
                 <div class="count green">{{ $sudahkembali }}</div>
-                <span class="count_bottom">{{ \Carbon\Carbon::now()->format('F') }} : <i class="green">{{ $pinjambulanini }}</i> Peminjaman</span>
+                <span class="count_bottom">{{ \Carbon\Carbon::now()->isoFormat('MMMM') }} : <i class="green">{{ $pinjambulanini }}</i> Peminjaman</span>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i>Pemasukan Lain</span>
