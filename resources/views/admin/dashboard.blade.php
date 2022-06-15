@@ -9,36 +9,49 @@
 @section('content')
     <!-- page content -->
     <div class="right_col" role="main">
-        <!-- top tiles -->
-        <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Transaksi</span>
-                <div class="count">{{ $peminjamans }}</div>
-                <span class="count_bottom"><i class="green">{{ $pinjambulanini }}</i> Total transaksi Bulan {{ \Carbon\Carbon::now()->format('F') }}</span>
+        
+        <div class="row top_tiles">
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12" onclick="location.href='{{ route('peminjaman.index') }}';">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-exchange"></i></div>
+                  <div class="count">{{ $peminjamans }}</div>
+                  <h3>Transaksi</h3>
+                  <p>{{ $pinjambulanini }} Total transaksi Bulan {{ \Carbon\Carbon::now()->isoFormat('MMMM') }}</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12" onclick="location.href='{{ route('peminjaman.belumkembali') }}';">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-upload"></i></div>
+                  <div class="count">{{ $belumkembali }}</div>
+                  <h3>Dipinjam</h3>
+                  <p>Dari {{$pinjambulanini}} Peminjaman {{ \Carbon\Carbon::now()->isoFormat('MMMM') }}</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12" onclick="location.href='{{ route('peminjaman.dikembalikan') }}';">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-download"></i></div>
+                  <div class="count">{{ $sudahkembali }}</div>
+                  <h3>Kembali</h3>
+                  <p>Dari {{$pinjambulanini}} Peminjaman {{ \Carbon\Carbon::now()->isoFormat('MMMM') }}</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="location.href='{{ route('pengembalian.index') }}';">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-plus"></i></div>
+                  <div class="count">Rp{{ number_format($biayalain) }}</div>
+                  <h3>Pemasukan Lain</h3>
+                  <p>Diambil dari Biaya Denda Transaksi</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="location.href='{{ route('peminjaman.index') }}';">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-money"></i></div>
+                  <div class="count">Rp{{ number_format($pemasukans) }}</div>
+                  <h3>Pemasukan Utama</h3>
+                  <p>Diambil dari Nominal Sewa Transaksi</p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Belum Kembali</span>
-                <div class="count red">{{ $belumkembali }}</div>
-                <span class="count_bottom">{{ \Carbon\Carbon::now()->isoFormat('MMMM') }} : <i class="red">{{ $pinjambulanini }}</i> Peminjaman</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Transaksi Selesai</span>
-                <div class="count green">{{ $sudahkembali }}</div>
-                <span class="count_bottom">{{ \Carbon\Carbon::now()->isoFormat('MMMM') }} : <i class="green">{{ $pinjambulanini }}</i> Peminjaman</span>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i>Pemasukan Lain</span>
-                <div class="count">Rp{{ number_format($biayalain) }}</div>
-                <span class="count_bottom">Diambil dari Biaya Denda Transaksi</span>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Pemasukan</span>
-                <div class="count blue">Rp{{ number_format($pemasukans) }}</div>
-                <span class="count_bottom">Diambil dari Nominal Sewa Transaksi</span>
-            </div>
-        </div>
-        <!-- /top tiles -->
-
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="dashboard_graph">
