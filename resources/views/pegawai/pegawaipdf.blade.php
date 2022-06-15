@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <title>Bolang Gunung || Rekap Pegawai</title>
     <style>
-        * {
-            box-sizing: border-box;
-            font-size: 18px;
-            font-family: Times New Roman;
-        }
-
+        * 
         body {
             background-color: #f8f8f8;
         }
 
         .margin {
             background-color: #fff;
-            width: 80%;
-            margin: 20px auto;
-            box-shadow: 0 1px 1px 0 #ccc;
-            padding: 40px 60px;
+            width: 100%;
         }
 
         table {
@@ -66,9 +58,9 @@
 
         <table>
             <tr>
-                <td scope="col" width="60px">Ditujukan Kepada</td>
-                <td scope="row" width="50px">:</td>
-                <td scope="row">Founder Bolang Gunung</td>
+                <td width="60px">Ditujukan Kepada</td>
+                <td width="50px">:</td>
+                <td >Founder Bolang Gunung</td>
             </tr>
             <tr>
                 <td>Alamat</td>
@@ -91,12 +83,12 @@
             <thead>
                 <tr>
                     <th width="20px">No</th>
-                    <th width="100px">Kode Pegawai</th>
-                    <th width="120px">Nama Pegawai</th>
-                    <th width="120px">Alamat</th>
-                    <th width="120px">Tanggal Lahir</th>
-                    <th width="120px">Umur</th>
-                    <th width="120px">Jabatan</th>
+                    <th>Kode Pegawai</th>
+                    <th >Nama Pegawai</th>
+                    <th >Alamat</th>
+                    <th >Tanggal Lahir</th>
+                    <th >Umur</th>
+                    <th >Jabatan</th>
                     {{-- <th width="120px">Foto KTP</th>
                         <th width="120px">Kartu Pelajar</th> --}}
                 </tr>

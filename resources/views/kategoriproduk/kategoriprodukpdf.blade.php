@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <title>Bolang Gunung || Rekap Kategori Produk</title>
     <style>
-        * {
-            box-sizing: border-box;
-            font-size: 18px;
-            font-family: Times New Roman;
-        }
-
+        * 
         body {
             background-color: #f8f8f8;
         }
 
         .margin {
             background-color: #fff;
-            width: 80%;
-            margin: 20px auto;
-            box-shadow: 0 1px 1px 0 #ccc;
-            padding: 40px 60px;
+            width: 100%;
         }
 
         table {
@@ -91,9 +83,9 @@
             <thead>
                 <tr>
                     <th width="20px">No</th>
-                    <th width="100px">Kategori Produk</th>
-                    <th width="200px">Deskripsi</th>
-                    <th width="120px">Ditambahkan Pada</th>
+                    <th >Kategori Produk</th>
+                    <th >Deskripsi</th>
+                    <th >Ditambahkan Pada</th>
                 </tr>
             </thead>
             <tbody>

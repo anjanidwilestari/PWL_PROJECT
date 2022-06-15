@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bolang Gunung || Rekap Produk</title>
+    <title>Bolang Gunung || Rekap Transaksi Pengembalian</title>
     <style>
         * 
         body {
@@ -40,14 +40,14 @@
 
 <body>
     <div class="margin">
-        <table align="center" style="border-collapse:collapse;">
-            <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 50px; width:50px">
+        <table align="right" style="border-collapse:collapse;">
+            <td style="border-bottom:2px solid #000; text-align: center; width: 50px; width:50px">
                 <img src="{{ public_path("styleAdmin/production/images/logo-bolang-dark.jpg") }}" alt="" style="width: 150px; height: 150px;">
             </td>
-            <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
-                <h2 align="center">LAPORAN PRODUK BOLANG GUNUNG
+            <td style="border-bottom:2px solid #000; text-align: center; width: 200px; width:800px">
+                <h2 align="center">LAPORAN PENGEMBALIAN BOLANG GUNUNG
                     <br>
-                    Jl. Soekarno Hatta, Malang
+                    Jl. Soekarno Hatta
                     <br>
                     Telepon: +6285231404775, Email : bolanggunungexample@gmail.com
                 </h2>
@@ -58,14 +58,14 @@
 
         <table>
             <tr>
-                <td scope="col" width="60px">Ditujukan Kepada</td>
-                <td scope="row" width="50px">:</td>
-                <td scope="row">Founder Bolang Gunung</td>
+                <td width="60px">Ditujukan Kepada</td>
+                <td width="50px">:</td>
+                <td >Founder Bolang Gunung</td>
             </tr>
             <tr>
                 <td>Alamat</td>
                 <td scope="col">:</td>
-                <td>Jl. Soekarno Hatta, Malang</td>
+                <td>Jl. Soekarno Hatta</td>
             </tr>
             <tr>
                 <td>Telepon</td>
@@ -78,27 +78,40 @@
                 <td>bolanggunungexample@gmail.com</td>
             </tr>
         </table>
-        <h4>Data Produk Bolang Gunung</h4>
+        <br><br>
+        <h4>Data Transaksi Bolang Gunung</h4>
         <table border="1">
             <thead>
                 <tr>
-                    <th width="20px">No</th>
-                    <th width="100px">Kode Produk</th>
-                    <th width="120px">Nama Produk</th>
-                    <th width="100px">Kategori</th>
-                    <th width="120px">Harga</th>
-                    <th width="120px">Ditambahkan Pada</th>
+                    <th width="60px">No</th>
+                    <th >Kode Sewa</th>
+                    <th >Status</th>
+                    <th >Keterangan</th>
+                    <th >Denda</th>
+                    <th>Tanggal Kembali</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($produk as $pr)
+                @foreach ($pengembalian as $p)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $pr->kode_produk }}</td>
-                        <td>{{ $pr->nama_produk }}</td>
-                        <td>{{ $pr->kategoriproduk->nama_kategori }}</td>
-                        <td>Rp{{ number_format($pr->harga) }}/{{$pr->satuan}}</td>
-                        <td>{{ \Carbon\Carbon::parse($pr->created_at)->format('d F Y') }}</td>
+                        <td>{{ $p->peminjaman->kode_peminjaman }}</td>
+                        <td>{{ $p->status_kembali }}</td>
+                        <td>
+                        @if (($p->keterangan) == null)
+                            -
+                        @else
+                            {{ $p->keterangan }}
+                        @endif
+                        </td>
+                        <td>
+                            @if (($p->denda) == null)
+                                -
+                            @else
+                                Rp{{ number_format($p->denda) }}
+                            @endif
+                        </td>
+                        <td>{{ $p->created_at->isoFormat('D MMMM Y') }}</td>
                     </tr>
                 @endforeach
             </tbody>

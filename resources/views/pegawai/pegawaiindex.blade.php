@@ -88,7 +88,7 @@
                                                 <td><img width="70px" height="70px"
                                                         src="{{ asset('storage/' . $data->foto) }}"></td>
                                                 <td>{{ $data->alamat }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->format('d-m-Y') }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
                                                 <td>{{ $data->umur }}</td>
                                                 @if ($data->jabatan == 'Admin')
                                                     <td class="text-center"><span

@@ -130,7 +130,7 @@ class KategoriProdukController extends Controller
 
     public function cetak_pdf_kategori(){
         $kategoriproduk = KategoriProduk::all();
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('kategoriproduk.kategoriprodukpdf',['kategoriproduk'=>$kategoriproduk], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();

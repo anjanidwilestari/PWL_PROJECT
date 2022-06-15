@@ -86,7 +86,7 @@
                                             <td>{{ $data->kode_member }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->alamat }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
                                             <td>{{ $data->umur }}</td>
                                             <td><img  width="70px" height="60px" src="{{ asset('storage/' . $data->ktp) }}"></td>
                                             <td>

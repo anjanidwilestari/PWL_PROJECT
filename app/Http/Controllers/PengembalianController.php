@@ -148,11 +148,11 @@ class PengembalianController extends Controller
             -> with('success', 'Data Pengembalian Berhasil Dihapus');
     }
 
-    // public function cetak_pdf_pengembalian(){
-    //     $peminjaman = Peminjaman::all();
-    //     $tanggal = Carbon::now()->format('d-m-Y');
+    public function cetak_pdf_pengembalian(){
+        $pengembalian = Pengembalian::all();
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');;
 
-    //     $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
-    //     return $pdf->stream();
-    // }
+        $pdf = PDF::loadview('pengembalian.pengembalianpdf',['pengembalian'=>$pengembalian], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
+        return $pdf->stream();
+    }
 }

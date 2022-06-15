@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <title>Bolang Gunung || Cetak Nota</title>
     <style>
-        * {
-            box-sizing: border-box;
-            font-size: 18px;
-            font-family: Times New Roman;
-        }
-
+        * 
         body {
             background-color: #f8f8f8;
         }
 
         .margin {
             background-color: #fff;
-            width: 80%;
-            margin: 20px auto;
-            box-shadow: 0 1px 1px 0 #ccc;
-            padding: 40px 60px;
+            width: 100%;
         }
 
         table {
@@ -66,18 +58,18 @@
 
         <table>
             <tr>
-                <td scope="col" width="60px">Kode Sewa</td>
-                <td scope="row" width="50px">:</td>
-                <td scope="row">{{$peminjaman->kode_peminjaman}}</td>
+                <td width="60px">Kode Sewa</td>
+                <td width="50px">:</td>
+                <td >{{$peminjaman->kode_peminjaman}}</td>
             </tr>
             <tr>
-                <td scope="col" width="60px">Nama Penyewa</td>
-                <td scope="row" width="50px">:</td>
-                <td scope="row">{{$peminjaman->member->nama}}</td>
+                <td width="60px">Nama Penyewa</td>
+                <td width="50px">:</td>
+                <td>{{$peminjaman->member->nama}}</td>
             </tr>
             <tr>
                 <td>Alamat</td>
-                <td scope="col">:</td>
+                <td>:</td>
                 <td>{{$peminjaman->member->alamat}}</td>
             </tr>
         </table>
@@ -85,19 +77,19 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th width="120px">Produk yang Disewa</th>
-                    <th width="60px">Harga Satuan</th>
-                    <th width="60px">Jumlah yang Disewa</th>
-                    <th width="60px">Durasi Sewa</th>
-                    <th width="60px">Total Harga</th>
+                    <th >Produk yang Disewa</th>
+                    <th >Harga Satuan</th>
+                    <th >Jumlah yang Disewa</th>
+                    <th >Durasi Sewa</th>
+                    <th >Total Harga</th>
                     {{-- <th width="60px">Status</th> --}}
                 </tr>
             </thead>
             <tbody>
                     <tr>
                         <td>{{ $peminjaman->produk->nama_produk }}</td>
-                        <td>Rp. {{ $peminjaman->harga_satuan }}</td>
-                        <td>{{ $peminjaman->jumlah_pinjam }}</td>
+                        <td>Rp{{ $peminjaman->harga_satuan }}</td>
+                        <td>{{ $peminjaman->jumlah_pinjam }} Buah</td>
                         <td>{{ $peminjaman->lama_pinjam }} {{ $peminjaman->produk->satuan }}</td>
                         <td>Rp{{ number_format($peminjaman->total_harga) }}</td>
                         {{-- <td>{{ $peminjaman->status }}</td> --}}

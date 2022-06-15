@@ -160,7 +160,7 @@ class ProdukController extends Controller
 
     public function cetak_pdf_produk(){
         $produk = Produk::all();
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('produk.produkpdf',['produk'=>$produk], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();

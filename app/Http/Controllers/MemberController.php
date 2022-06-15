@@ -160,7 +160,7 @@ class MemberController extends Controller
 
     public function cetak_pdf_member(){
         $member = Member::all();
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('member.memberpdf',['member'=>$member], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();

@@ -177,7 +177,7 @@ class PeminjamanController extends Controller
 
     public function cetak_pdf_peminjaman(){
         $peminjaman = Peminjaman::all();
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();
@@ -186,7 +186,7 @@ class PeminjamanController extends Controller
     public function cetaknota($id){
         $peminjaman = new Peminjaman;
         $peminjaman = $peminjaman->find($id);
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('peminjaman.notapdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream($id);
@@ -222,7 +222,7 @@ class PeminjamanController extends Controller
     public function cetak_pdf_dikembalikan(){
         $peminjaman = Peminjaman::all()
         ->where('status', 'like', 'Dikembalikan');
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('transaksi.dikembalikanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();
@@ -231,7 +231,7 @@ class PeminjamanController extends Controller
     public function cetak_pdf_belumkembali(){
         $peminjaman = Peminjaman::all()
         ->where('status', 'like', 'Dipinjam');
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('transaksi.belumkembalipdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();

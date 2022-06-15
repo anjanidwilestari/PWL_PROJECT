@@ -158,7 +158,7 @@ class PegawaiController extends Controller
 
     public function cetak_pdf_pegawai(){
         $pegawai = Pegawai::all();
-        $tanggal = Carbon::now()->format('d-m-Y');
+        $tanggal = Carbon::now()->isoFormat('D MMMM YYYY');
 
         $pdf = PDF::loadview('pegawai.pegawaipdf',['pegawai'=>$pegawai], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
         return $pdf->stream();

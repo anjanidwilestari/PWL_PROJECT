@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
     Route::get('dikembalikanpdf', [PeminjamanController::class, 'cetak_pdf_dikembalikan'])->name('peminjaman.dikembalikanpdf');
     Route::get('belumkembalipdf', [PeminjamanController::class, 'cetak_pdf_belumkembali'])->name('peminjaman.belumkembalipdf');
+    Route::get('pengembalianpdf', [PengembalianController::class, 'cetak_pdf_pengembalian'])->name('pengembalian.pengembalianpdf');
 
     //ajax
     Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);

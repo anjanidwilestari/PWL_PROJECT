@@ -30,7 +30,7 @@
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
                             <a class="btn btn-round btn-success" href="{{ route('pengembalian.create') }}">+ Tambah Data</a>
-                            <a class="btn btn-round btn-danger" href="{{route('member.memberpdf')}}">
+                            <a class="btn btn-round btn-danger" href="{{route('pengembalian.pengembalianpdf')}}">
                                 <i class="fa fa-print"></i></a>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                                                 Rp{{ number_format($data->denda) }}
                                                 @endif
                                             </td>
-                                            <td>{{ $data->created_at->format('d M Y') }}</td>
+                                            <td>{{ $data->created_at->isoFormat('D MMMM Y') }}</td>
                                             <td>
                                                 <form action="{{ route('pengembalian.destroy', $data->id) }}" method="POST">
                                                     {{-- <a class="btn btn-icons btn-dark" href="{{ route('pengembalian.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a> --}}
@@ -150,7 +150,6 @@
 @endsection
 @section('js')
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> --}}
 <script type="text/javascript">
  
      $('.show_confirm').click(function(event) {
