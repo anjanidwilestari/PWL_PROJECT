@@ -47,7 +47,7 @@ class PengembalianController extends Controller
     public function create()
     {
         $this->authorize('admin');
-        $peminjaman = Peminjaman::all();
+        $peminjaman = Peminjaman::where('status','Dipinjam')->get();
         return view('pengembalian.pengembaliancreate',['peminjaman'=>$peminjaman]);
     }
 
@@ -62,20 +62,20 @@ class PengembalianController extends Controller
         $request -> validate([
             'peminjaman_id' => 'required',
             'status_kembali' => 'required',
-            // 'keterangan'=> 'required',
-            // 'denda'=> 'required',
-            // 'created_at' => 'required',
         ]);
         $pengembalian = new Pengembalian;
         $pengembalian->peminjaman_id = $request->peminjaman_id;
         $pengembalian->status_kembali = $request->status_kembali;
         $pengembalian->keterangan = $request->keterangan;
         $pengembalian->denda = $request->denda;
-        //$pengembalian->created_at = $request->created_at;
-        
         $pengembalian->save();
+        //$pengembalian->created_at = $request->created_at;
+        $peminjaman = Peminjaman::find($request->peminjaman_id);
+        $peminjaman -> status = 'Dikembalikan';
+        $peminjaman -> save();
+
         
-        Alert::success('Success','Data Pengembalian Berhasil Ditambahkan');
+        Alert::success('Data Pengembalian Berhasil Ditambahkan');
         return redirect()->route('pengembalian.index');
     }
 
@@ -101,8 +101,9 @@ class PengembalianController extends Controller
     public function edit($id)
     {
         $this->authorize('admin');
-        $pengembalian = Pengembalian::find($id);
+        
         $peminjaman = Peminjaman::all();
+        $pengembalian = Pengembalian::find($id);
         return view('pengembalian.pengembalianedit',compact('pengembalian','peminjaman'));
     }
 
@@ -118,16 +119,14 @@ class PengembalianController extends Controller
         $request->validate([
             'peminjaman_id' => 'required',
             'status_kembali' => 'required',
-            // 'keterangan'=> 'required',
-            // 'denda'=> 'required',
-            'created_at' => 'required',
+            
         ]);
-        $pengembalian = Pengembalian::where('id', $id)->first();
+        $pengembalian = Pengembalian::findOrFail($id);
         $pengembalian->peminjaman_id = $request->get('peminjaman_id');
         $pengembalian->status_kembali = $request->get('status_kembali');
         $pengembalian->keterangan = $request->get('keterangan');
         $pengembalian->denda = $request->get('denda');
-        $pengembalian->created_at = $request->get('created_at');
+        // $pengembalian->created_at = $request->get('created_at');
 
         $pengembalian->save();
 
@@ -154,60 +153,6 @@ class PengembalianController extends Controller
     //     $tanggal = Carbon::now()->format('d-m-Y');
 
     //     $pdf = PDF::loadview('peminjaman.peminjamanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
-    //     return $pdf->stream();
-    // }
-
-    // public function cetaknota($id){
-    //     $peminjaman = new Peminjaman;
-    //     $peminjaman = $peminjaman->find($id);
-    //     $tanggal = Carbon::now()->format('d-m-Y');
-
-    //     $pdf = PDF::loadview('peminjaman.notapdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
-    //     return $pdf->stream($id);
-    // }
-
-    // public function getHarga($id){
-    //     $loadData = Produk::find($id);
-    //     return response()->json($loadData);
-    // }
-    
-    // public function belumkembali(){
-    //     $pagination = 5;
-    //     $peminjaman = Peminjaman::with('member','produk')
-    //     ->where('status', 'like', 'Dipinjam') 
-    //     ->orderBy('kode_peminjaman')
-    //     ->paginate($pagination);
-
-    //     return view('transaksi.belumkembali', compact('peminjaman'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $pagination);
-    // }
-
-    // public function dikembalikan(){
-    //     $pagination = 5;
-    //     $peminjaman = Peminjaman::with('member','produk')
-    //     ->where('status', 'like', 'Dikembalikan') 
-    //     ->orderBy('kode_peminjaman')
-    //     ->paginate($pagination);
-
-    //     return view('transaksi.dikembalikan', compact('peminjaman'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $pagination);
-    // }
-
-    // public function cetak_pdf_dikembalikan(){
-    //     $peminjaman = Peminjaman::all()
-    //     ->where('status', 'like', 'Dikembalikan');
-    //     $tanggal = Carbon::now()->format('d-m-Y');
-
-    //     $pdf = PDF::loadview('transaksi.dikembalikanpdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
-    //     return $pdf->stream();
-    // }
-
-    // public function cetak_pdf_belumkembali(){
-    //     $peminjaman = Peminjaman::all()
-    //     ->where('status', 'like', 'Dipinjam');
-    //     $tanggal = Carbon::now()->format('d-m-Y');
-
-    //     $pdf = PDF::loadview('transaksi.belumkembalipdf',['peminjaman'=>$peminjaman], ['tanggal'=>$tanggal])->setPaper('a3', 'landscape');
     //     return $pdf->stream();
     // }
 }

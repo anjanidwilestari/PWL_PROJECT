@@ -48,7 +48,7 @@
                                 @method('PUT')
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Kode Sewa * :</label>
-                                    <select class="form-control has-feedback-left" id="peminjaman_id" name="peminjaman_id" disabled>
+                                    <select class="form-control has-feedback-left" id="peminjaman_id" name="peminjaman_id">
                                         @foreach ($peminjaman as $p)
                                             <option value="{{ $p->id }}"
                                                 @if ($p->id == $pengembalian->peminjaman_id) selected @endif>{{ $p->kode_peminjaman }}
@@ -73,7 +73,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
                                     <label for="fullname">Keterangan * :</label>
                                     <textarea class="form-control has-feedback-left" placeholder="Keterangan" id="keterangan"
-                                        name="keterangan" value="{{ $pengembalian->keterangan }}"></textarea>
+                                        name="keterangan" value="{{ $pengembalian->keterangan }}" disabled></textarea>
                                     @if ($errors->has('keterangan'))
                                         <div class="error">{{ $errors->first('keterangan') }}</div>
                                     @endif
@@ -82,7 +82,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Denda * :</label>
                                     <input type="number" class="form-control has-feedback-left" id="denda"
-                                        name="denda" required placeholder="Denda" value="{{ $pengembalian->denda }}">
+                                        name="denda" placeholder="Denda" value="{{ $pengembalian->denda }}" disabled>
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('denda'))
                                         <div class="error">{{ $errors->first('denda') }}</div>

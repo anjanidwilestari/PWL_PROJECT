@@ -71,7 +71,13 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $pengembalian->keterangan }}</a>
+                                                    <a>
+                                                        @if (($pengembalian->keterangan) == null)
+                                                            Tidak Ada
+                                                        @else
+                                                            {{ $pengembalian->keterangan }}
+                                                        @endif
+                                                    </a>
                                                 </h2>
                                             </div>
                                             <br>
@@ -88,7 +94,12 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $pengembalian->denda }}</a>
+                                                    <a>
+                                                    @if (($pengembalian->denda) == null)
+                                                        Tidak Ada
+                                                    @else
+                                                        {{ $pengembalian->denda }}
+                                                    @endif</a>
                                                 </h2>
                                             </div>
                                             <br>

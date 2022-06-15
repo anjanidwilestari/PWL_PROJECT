@@ -30,7 +30,7 @@
                     <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="input-group">
                             <a class="btn btn-round btn-success" href="{{ route('pengembalian.create') }}">+ Tambah Data</a>
-                            {{-- <a class="btn btn-round btn-danger" href="{{route('pengembalian.pengembalianpdf')}}"> --}}
+                            <a class="btn btn-round btn-danger" href="{{route('member.memberpdf')}}">
                                 <i class="fa fa-print"></i></a>
                         </div>
                     </div>
@@ -82,19 +82,31 @@
                                         <tr>
                                             <td scope="row">{{ ++$i }}</td>
                                             <td>{{ $data->peminjaman->kode_peminjaman }}</td>
-                                            @if ($data->status_kambali == 'Berhasil')
+                                            @if ($data->status_kembali == 'Berhasil')
                                                 <td class="text-center"><span
                                                             class="label label-info">Berhasil</span></td>
-                                            @elseif ($data->status_kambali == 'Terlambat')
+                                            @elseif ($data->status_kembali == 'Terlambat')
                                                 <td class="text-center"><span
-                                                            class="label label-success">Terlambat</span></td>
+                                                            class="label label-default">Terlambat</span></td>
                                             @else
                                                 <td class="text-center"><span
-                                                            class="label label-success">Bermasalah</span></td>
+                                                            class="label label-warning">Bermasalah</span></td>
                                             @endif
-                                            <td>{{ $data->keterangan }}</td>
-                                            <td>{{ $data->denda }}</td>
-                                            <td>{{ $data->created_at->format('d-m-Y') }}</td>
+                                            <td>
+                                                @if (($data->keterangan) == null)
+                                                    -
+                                                @else
+                                                {{ $data->keterangan }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if (($data->denda) == null)
+                                                    -
+                                                @else
+                                                Rp{{ number_format($data->denda) }}
+                                                @endif
+                                            </td>
+                                            <td>{{ $data->created_at->format('d M Y') }}</td>
                                             <td>
                                                 <form action="{{ route('pengembalian.destroy', $data->id) }}" method="POST">
                                                     {{-- <a class="btn btn-icons btn-dark" href="{{ route('pengembalian.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a> --}}
@@ -103,7 +115,7 @@
                                                     <a class="btn btn-icons btn-warning" href="{{ route('pengembalian.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                    <button type="submit" class="btn btn-icons btn-danger show_confirm"><i class="fa fa-trash-o"></i></button>
                                                     @endcan
                                                 </form>
                                             </td>
@@ -135,4 +147,31 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> --}}
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Yakin ingin menghapus data?`,
+              text: "Data ini akan terhapus permanen setelah anda menyetujui pesan ini",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            } else {
+                swal("Data Anda Aman!");
+            }
+          });
+      });
+  
+</script>
 @endsection
