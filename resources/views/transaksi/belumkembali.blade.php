@@ -16,13 +16,6 @@
                 </div>
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        {{-- <form class="input-group" action="{{ url()->current() }}" method="GET">
-                            <input type="search" class="form-control" placeholder="Search for .." aria-label="Search"
-                                name="keyword" value="{{ request('keyword') }}">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">Cari!</button>
-                            </span>
-                        </form> --}}
                     </div>
                 </div>
                 
@@ -89,9 +82,9 @@
                                             <td>{{ $data->member->nama }}</td>
                                             <td>{{ $data->produk->nama_produk }}</td>
                                             <td>{{ $data->jumlah_pinjam }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->isoFormat('D MMMM YYYY') }}</td>
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
-                                            <td>Rp {{ $data->total_harga }}</td>
+                                            <td>Rp{{ number_format($data->total_harga) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
                                                 @if ($data->status == 'Dipinjam')
                                                     <td class="text-center"><span
@@ -100,18 +93,6 @@
                                                     <td class="text-center"><span
                                                             class="label label-success">Dikembalikan</span></td>
                                                 @endif
-                                            {{-- <td>
-                                                <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-dark" href="{{ route('peminjaman.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>
-                                                    <a class="btn btn-icons btn-primary" href="{{ route('peminjaman.show', $data->id) }}"><i class="fa fa-eye"></i></a>
-                                                    @can('admin')
-                                                    <a class="btn btn-icons btn-warning" href="{{ route('peminjaman.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                    @endcan
-                                                </form>
-                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
