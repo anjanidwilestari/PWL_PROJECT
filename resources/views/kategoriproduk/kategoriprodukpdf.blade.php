@@ -94,7 +94,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $k->nama_kategori }}</td>
                         <td>{{ $k->deskripsi }}</td>
-                        <td>{{ \Carbon\Carbon::parse($k->created_at)->format('d F Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($k->created_at)->isOformat('D MMMM YYYY') }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -102,6 +102,7 @@
         <br>
         <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->jabatan }} Bolang
             Gunung<br><br><br><br>{{ Auth()->user()->nama }}</p>
+            <br><br><br>
     </div>
 </body>
 
