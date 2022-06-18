@@ -119,6 +119,7 @@
         <br>
         <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->jabatan }} Bolang
             Gunung<br><br><br><br>{{ Auth()->user()->nama }}</p>
+            <br><br><br>
     </div>
 </body>
 

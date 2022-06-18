@@ -89,9 +89,9 @@
                                             <td>{{ $data->member->nama }}</td>
                                             <td>{{ $data->produk->nama_produk }}</td>
                                             <td>{{ $data->jumlah_pinjam }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->isoFormat('D MMMM YYYY') }}</td>
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
-                                            <td>Rp {{ $data->total_harga }}</td>
+                                            <td>Rp{{ number_format($data->total_harga) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
                                                 @if ($data->status == 'Dipinjam')
                                                     <td class="text-center"><span
