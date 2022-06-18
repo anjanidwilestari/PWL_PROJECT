@@ -54,7 +54,7 @@
             </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="dashboard_graph">
+                <div class="">
                     <div class="col-md-9">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div id="high-chart-transaksi" class="demo-placeholder"></div>
