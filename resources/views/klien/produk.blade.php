@@ -37,7 +37,7 @@
                             <span>
                                 Rp
                             </span>
-                            {{$p->harga}}
+                            {{number_format($p->harga)}}
                         </h3>
                         <h6>
                             Per {{$p->satuan}}
