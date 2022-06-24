@@ -1,6 +1,6 @@
 {{-- <div class="left_col scroll-view"> --}}
     <div class="navbar nav_title" style="border: 0;">
-        <a href="{{route('home')}}" class="site_title"><img width="200px" height="75px" src="{{ asset('styleAdmin/production/images/logo-bolang.png')}}" alt="..."></a>
+        <a href="{{route('admin.home')}}" class="site_title"><img width="200px" height="75px" src="{{ asset('styleAdmin/production/images/logo-bolang.png')}}" alt="..."></a>
     </div>
 
     <div class="clearfix"></div>
@@ -14,7 +14,7 @@
             <span>Selamat Datang,</span>
             <h2>{{Auth()->user()->nama}}</h2>
             <div>
-                <small class="designation text-muted">{{Auth()->user()->jabatan}}</small>
+                <small class="designation text-muted">{{Auth()->user()->role}}</small>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"><a href="{{route('home')}}">Grafik Peminjaman</a></li>
+                        <li class="nav-item"><a href="{{route('admin.home')}}">Grafik Peminjaman</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>

@@ -28,8 +28,13 @@ class User extends Authenticatable
         'no_hp',
         'tanggal_lahir',
         'alamat',
-        'jabatan'
+        'role'
     ];
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

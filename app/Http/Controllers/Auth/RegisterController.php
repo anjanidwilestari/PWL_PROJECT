@@ -56,8 +56,6 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'no_hp' => ['required', 'string', 'max:13', 'unique:users'],
             'tanggal_lahir' => ['required','date'],
-            'alamat' => ['required','string'],
-            'jabatan' => ['required','string'],
             'foto' => ['required']
         ]);
     }
@@ -78,7 +76,7 @@ class RegisterController extends Controller
             'no_hp' => $data['no_hp'],
             'tanggal_lahir' => $data['tanggal_lahir'],
             'alamat' => $data['alamat'],
-            'jabatan' => $data['jabatan'],
+            'role' => "Member",
             'foto' => $data['foto']->store('user', 'public')
         ]);
     }

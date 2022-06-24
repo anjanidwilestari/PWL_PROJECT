@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(){
+    public function home(){
         $get_data_peminjaman = Peminjaman::get();
         $data_produk = [];
         $month = Carbon::now()->format("m");
@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $belumkembali = Peminjaman::where('status', 'like', 'Dipinjam')->count();
         $biayalain = Pengembalian::sum('denda');
         $sudahkembali = Peminjaman::where('status', 'like', 'Dikembalikan')->count();
-        $sudahkembalibulanini = Peminjaman::where('tgl_pinjam', 'like', "%{$month}%")->count();
+        // $sudahkembalibulanini = Peminjaman::where('tgl_pinjam', 'like', "%{$month}%")->count();
         
 
         $period = CarbonPeriod::create(Carbon::now()->firstOfMonth(), Carbon::now()->endOfMonth());

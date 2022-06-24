@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::defaultView('vendor.pagination.custom');
 
         Gate::define('admin', function(User $user){
-            return $user->jabatan === 'Admin';
+            return $user->role === 'Admin';
         });
     }
 }

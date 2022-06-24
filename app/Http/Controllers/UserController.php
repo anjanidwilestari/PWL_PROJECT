@@ -26,7 +26,7 @@ class UserController extends Controller
                 ->orWhere('email', 'like', "%{$request->keyword}%")
                 ->orWhere('no_hp', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_lahir', 'like', "%{$request->keyword}%")
-                ->orWhere('jabatan', 'like', "%{$request->keyword}%");
+                ->orWhere('role', 'like', "%{$request->keyword}%");
         })->orderBy('nama')->paginate($pagination);
 
         return view('user.userindex', compact('user'))
@@ -96,7 +96,7 @@ class UserController extends Controller
             'no_hp' => 'string|max:13|required|unique:users,no_hp,'.$id,
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required',
-            'jabatan' => 'required'
+            'role' => 'required'
         ]);
 
         $user = User::findOrFail($id);
@@ -118,7 +118,7 @@ class UserController extends Controller
         $user -> no_hp = $request->no_hp;
         $user -> tanggal_lahir = $request->tanggal_lahir;
         $user -> alamat = $request->alamat;
-        $user -> jabatan = $request->jabatan;
+        $user -> role = $request->role;
         $user -> save();
 
         Alert::success('Success','User Berhasil Diupdate');

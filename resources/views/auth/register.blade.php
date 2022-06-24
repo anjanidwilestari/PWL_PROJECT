@@ -150,7 +150,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div>
+                                        {{-- <div>
                                             <h6 align="left">Jabatan</h6>
                                             <select class="form-control @error('jabatan') is-invalid @enderror"
                                                 name="jabatan" id="jabatan" value="{{ old('jabatan') }}" required>
@@ -162,7 +162,7 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div>
                                             <h6 align="left">Upload Foto</h6>
                                             <input type="file" class="form-control @error('foto') is-invalid @enderror"

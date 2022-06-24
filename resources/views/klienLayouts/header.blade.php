@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav  ml-auto">
                     <li class="nav-item @yield('beranda')">
-                        <a class="nav-link" href="/klien-beranda">Beranda <span
+                        <a class="nav-link" href="{{route('member.home')}}">Beranda <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item @yield('produk')">
@@ -27,10 +27,19 @@
                     <li class="nav-item @yield('contact')">
                         <a class="nav-link" href="{{ route('contact.create') }}">Hubungi</a>
                     </li>
+                    <li class="nav-item @yield('keranjang')">
+                        <a class="nav-link" href="#">Keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    </li>
+                        <form action="{{route('logout')}}" id="logout-form" method="POST" class="d-none">
+                            @csrf
+                        </form>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                {{-- <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
                     <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                </form>
+                </form> --}}
             </div>
         </nav>
     </div>

@@ -58,7 +58,7 @@
                                 <div>
                                     <h6 align="left">Username</h6>
                                     <input type="text" class="form-control @error('username') is-invalid @enderror"
-                                        placeholder="Username" name="username" id="username" required />
+                                        placeholder="Username" autofocus name="username" id="username" required />
                                     @error('username')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

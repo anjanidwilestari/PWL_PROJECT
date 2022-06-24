@@ -27,48 +27,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/login', [LoginController::class, 'index']);
-// Route::post('/login', [LoginController::class, 'authenticate']);
-
 Auth::routes();
-
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('home');
-    Route::resource('user', UserController::class);
-    Route::resource('pegawai', PegawaiController::class);
-    Route::resource('kategoriproduk', KategoriProdukController::class);
-    Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
-    Route::resource('member', MemberController::class);
-    Route::resource('produk', ProdukController::class);
-    Route::resource('peminjaman', PeminjamanController::class);
-    Route::resource('pengembalian', PengembalianController::class);
 
-    //cetakpdf&nota
-    Route::get('memberpdf', [MemberController::class, 'cetak_pdf_member'])->name('member.memberpdf');
-    Route::get('pegawaipdf', [PegawaiController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
-    Route::get('kategoriprodukpdf', [KategoriProdukController::class, 'cetak_pdf_kategori'])->name('kategoriproduk.kategoriprodukpdf');
-    Route::get('produkpdf', [ProdukController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
-    Route::get('peminjamanpdf', [PeminjamanController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
-    Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
-    Route::get('dikembalikanpdf', [PeminjamanController::class, 'cetak_pdf_dikembalikan'])->name('peminjaman.dikembalikanpdf');
-    Route::get('belumkembalipdf', [PeminjamanController::class, 'cetak_pdf_belumkembali'])->name('peminjaman.belumkembalipdf');
-    Route::get('pengembalianpdf', [PengembalianController::class, 'cetak_pdf_pengembalian'])->name('pengembalian.pengembalianpdf');
+    Route::group(['middleware' => ['isAdmin','auth']], function () {
+        Route::get('/', [DashboardController::class, 'home'])->name('admin.home');
+        Route::resource('user', UserController::class);
+        Route::resource('pegawai', PegawaiController::class);
+        Route::resource('kategoriproduk', KategoriProdukController::class);
+        Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
+        Route::resource('member', MemberController::class);
+        Route::resource('produk', ProdukController::class);
+        Route::resource('peminjaman', PeminjamanController::class);
+        Route::resource('pengembalian', PengembalianController::class);
 
-    //ajax
-    Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);
+        //cetakpdf&nota
+        Route::get('memberpdf', [MemberController::class, 'cetak_pdf_member'])->name('member.memberpdf');
+        Route::get('pegawaipdf', [PegawaiController::class, 'cetak_pdf_pegawai'])->name('pegawai.pegawaipdf');
+        Route::get('kategoriprodukpdf', [KategoriProdukController::class, 'cetak_pdf_kategori'])->name('kategoriproduk.kategoriprodukpdf');
+        Route::get('produkpdf', [ProdukController::class, 'cetak_pdf_produk'])->name('produk.produkpdf');
+        Route::get('peminjamanpdf', [PeminjamanController::class, 'cetak_pdf_peminjaman'])->name('peminjaman.peminjamanpdf');
+        Route::get('peminjaman/{id}/cetaknota', [PeminjamanController::class,'cetaknota'])->name('peminjaman.cetaknota');
+        Route::get('dikembalikanpdf', [PeminjamanController::class, 'cetak_pdf_dikembalikan'])->name('peminjaman.dikembalikanpdf');
+        Route::get('belumkembalipdf', [PeminjamanController::class, 'cetak_pdf_belumkembali'])->name('peminjaman.belumkembalipdf');
+        Route::get('pengembalianpdf', [PengembalianController::class, 'cetak_pdf_pengembalian'])->name('pengembalian.pengembalianpdf');
 
-    //daftar-transaksi
-    Route::get('peminjamanbelumkembali',[PeminjamanController::class,'belumkembali'])->name('peminjaman.belumkembali');
-    Route::get('peminjamandikembalikan',[PeminjamanController::class,'dikembalikan'])->name('peminjaman.dikembalikan');
+        //ajax
+        Route::get('getPeminjaman/{id}',[PeminjamanController::class,'getHarga']);
+
+        //daftar-transaksi
+        Route::get('peminjamanbelumkembali',[PeminjamanController::class,'belumkembali'])->name('peminjaman.belumkembali');
+        Route::get('peminjamandikembalikan',[PeminjamanController::class,'dikembalikan'])->name('peminjaman.dikembalikan');
+    });
+
+    //view klien
+    Route::group(['middleware' => ['isMember','auth']], function () {
+        Route::get('/beranda', [KlienController::class, 'home'])->name('member.home');
+        Route::get('/klien-produk', [KlienController::class, 'produk'])->name('member.produk');
+        Route::get('/klien-galery', [KlienController::class, 'galery']);
+        Route::get('/klien-about', [KlienController::class, 'about']);
+        Route::resource('contact', GetInTouchController::class);
+        
+        Route::resource('detailpinjam', DetailPinjamController::class);
+    });
+
 });
-
-//view klien
-Route::get('/klien-beranda', [KlienController::class, 'home']);
-Route::get('/klien-produk', [KlienController::class, 'produk']);
-Route::get('/klien-galery', [KlienController::class, 'galery']);
-Route::get('/klien-about', [KlienController::class, 'about']);
-Route::resource('contact', GetInTouchController::class);
