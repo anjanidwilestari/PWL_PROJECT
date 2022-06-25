@@ -64,7 +64,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
                                     <label for="fullname">Harga Satuan * :</label>
                                     <input type="number" class="form-control has-feedback-right" id="harga_satuan"
-                                        name="harga_satuan" required value="{{ old('harga_satuan') }}" placeholder="Harga Satuan">
+                                        name="harga_satuan" required value="{{ old('harga_satuan') }}" placeholder="Harga Satuan" readonly>
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('harga_satuan'))
                                         <div class="error">{{ $errors->first('harga_satuan') }}</div>
@@ -89,7 +89,7 @@
                                     <label for="fullname">Total Harga * :</label>
                                     <input type="number" class="form-control has-feedback-right" id="total_harga"
                                         name="total_harga" required value="{{ old('total_harga') }}"
-                                        placeholder="Total Harga">
+                                        placeholder="Total Harga" readonly>
                                     <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('total_harga'))
                                         <div class="error">{{ $errors->first('total_harga') }}</div>
