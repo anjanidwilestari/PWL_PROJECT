@@ -1,7 +1,7 @@
 @extends('klienLayouts.main')
 
 @section('title')
-    {{ $title }}
+    Beranda
 @endsection
 
 @section('beranda', 'active')
@@ -23,8 +23,12 @@
                 <div class="detail-box">
                   <div>
                     <h1>
-                        RENTAL ALAT PENDAKIAN
+                        Selamat Datang, {{Auth()->user()->nama}} !<br>
                     </h1>
+                    <h2>
+                        
+                        DI RENTAL ALAT PENDAKIAN
+                    </h2>
                     <a href="/klien-produk">
                       Lihat Sekarang
                     </a>
@@ -41,8 +45,11 @@
                 <div class="detail-box">
                   <div>
                     <h1>
-                        RENTAL ALAT CAMPING
+                        Selamat Datang, {{Auth()->user()->nama}} !<br>
                     </h1>
+                    <h2>
+                        DI RENTAL ALAT CAMPING
+                    </h2>
                     <a href="/klien-produk">
                       Lihat Sekarang
                     </a>
@@ -59,7 +66,7 @@
                 <div class="detail-box">
                   <div>
                     <h1>
-                      SEWA SEKARANG 
+                        MAU SEWA SEKARANG, {{Auth()->user()->nama}} ?<br>
                     </h1>
                     <a href="https://wa.me/6285231404775">
                       Hubungi Kami

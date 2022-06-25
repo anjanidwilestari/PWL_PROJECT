@@ -60,7 +60,7 @@ class GetInTouchController extends Controller
         $getintouch->save();
         
         Alert::success('Terima Kasih Telah Memberikan Masukan');
-        return view('klien.home', ['title' => 'Beranda']);
+        return redirect()->route('member.home');
     }
 
     /**

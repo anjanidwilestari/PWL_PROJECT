@@ -68,7 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/klien-about', [KlienController::class, 'about']);
         Route::resource('contact', GetInTouchController::class);
         
-        Route::resource('detailpinjam', DetailPinjamController::class);
+        Route::get('/buatmember', [KlienController::class, 'createmember'])->name('buatmember.create');
+        Route::post('getMember',[KlienController::class,'storemember'])->name('buatmember.store');
     });
 
 });

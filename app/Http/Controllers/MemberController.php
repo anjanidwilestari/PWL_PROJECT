@@ -141,7 +141,7 @@ class MemberController extends Controller
         $member->save();
 
         return redirect()->route('member.index')
-        ->with('success', 'Data Member Berhasil Diupdate');
+        ->with('success', 'Anda Berhasil Mendaftar!');
     }
 
     /**
