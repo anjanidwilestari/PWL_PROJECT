@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ \Carbon\Carbon::parse($user->tanggal_lahir)->format('d M Y') }}</a>
+                                                    <a>{{ \Carbon\Carbon::parse($user->tanggal_lahir)->isoFormat('D MMMM YYYY') }}</a>
                                                 </h2>
                                             </div>
                                             <br>
@@ -147,7 +147,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ $user->jabatan }}</a>
+                                                    <a>{{ $user->role }}</a>
                                                 </h2>
                                             </div>
                                             <br>

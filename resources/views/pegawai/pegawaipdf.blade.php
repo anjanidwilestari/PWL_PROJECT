@@ -88,7 +88,7 @@
                     <th >Alamat</th>
                     <th >Tanggal Lahir</th>
                     <th >Umur</th>
-                    <th >Jabatan</th>
+                    <th >role</th>
                     {{-- <th width="120px">Foto KTP</th>
                         <th width="120px">Kartu Pelajar</th> --}}
                 </tr>
@@ -102,13 +102,13 @@
                         <td>{{ $p->alamat }}</td>
                         <td>{{ \Carbon\Carbon::parse($p->tanggal_lahir)->format('d M Y') }}</td>
                         <td>{{ $p->umur }}</td>
-                        <td>{{ $p->jabatan }}</td></td>
+                        <td>{{ $p->role }}</td></td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         <br>
-        <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->jabatan }} Bolang
+        <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->role }} Bolang
             Gunung<br><br><br><br>{{ Auth()->user()->nama }}</p>
             <br><br><br>
     </div>

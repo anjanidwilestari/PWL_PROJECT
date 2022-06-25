@@ -80,10 +80,10 @@
                                             <td>{{ $data->email }}</td>
                                             <td>{{ $data->no_hp }}</td>
                                             <td>{{ $data->alamat }}</td>
-                                            @if ($data->jabatan == 'Admin')
+                                            @if ($data->role == 'Admin')
                                                 <td class="text-center"><span class="label label-success">Admin</span></td>
                                             @else
-                                                <td class="text-center"><span class="label label-default">Manajer</span></td>
+                                                <td class="text-center"><span class="label label-default">Member</span></td>
                                             @endif
                                             <td>
                                                 <form action="{{ route('user.destroy', $data->id) }}" method="POST">
@@ -92,7 +92,7 @@
                                                     <a class="btn btn-icons btn-warning" href="{{ route('user.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                    <button type="submit" class="btn btn-icons btn-danger show_confirm"><i class="fa fa-trash-o"></i></button>
                                                     @endcan
                                                 </form>
                                             </td>
@@ -124,4 +124,31 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> --}}
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Yakin ingin menghapus data?`,
+              text: "Data ini akan terhapus permanen setelah anda menyetujui pesan ini",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            } else {
+                swal("Data Anda Aman!");
+            }
+          });
+      });
+  
+</script>
 @endsection

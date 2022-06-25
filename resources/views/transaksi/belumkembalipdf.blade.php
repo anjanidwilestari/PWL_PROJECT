@@ -108,7 +108,7 @@
             </tbody>
         </table>
         <br>
-        <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->jabatan }} Bolang
+        <p align="right">Malang, {{ $tanggal }}<br>{{ Auth()->user()->role }} Bolang
             Gunung<br><br><br><br>{{ Auth()->user()->nama }}</p>
             <br><br><br>
     </div>
