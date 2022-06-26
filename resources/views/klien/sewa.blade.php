@@ -43,8 +43,7 @@
                             Form Peminjaman Bolang Gunung
                         </h5>
                         <br>
-                        <form class="form-horizontal form-label-left input_mask" method="POST"
-                        enctype="multipart/form-data" action="{{ route('sewa.store') }}">
+                        <form class="form-horizontal form-label-left input_mask" method="POST" action="{{ route('sewa.store') }}">
                             @csrf
                             <div>
                                 <label for="fullname">Nama Member * :</label>
@@ -152,8 +151,6 @@
 @section('js')
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-    
-
     $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')

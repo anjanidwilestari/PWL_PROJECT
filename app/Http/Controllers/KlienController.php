@@ -103,7 +103,7 @@ class KlienController extends Controller
             'status_bayar' => 'required'
         ]);
 
-        $peminjaman = new Peminjaman();
+        $peminjaman = new Peminjaman;
         $peminjaman->member_id = $request->member_id;
         $peminjaman->produk_id = $request->produk_id;
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
