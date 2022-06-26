@@ -13,17 +13,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="detail-box">
-                        <div class="heading_container">
-                            <h3>
-                               Sudah memiliki akun member penyewaan Bolang Gunung? Jika Belum, Daftar Sekarang Yuk
-                            </h3>
-                            {{-- <div class="btn-box">
-                                <a href="https://wa.me/6285231404775">
-                                    <img width="30px" height="30px" src="{{ asset('styleKlien/images/wa.png') }}" alt="" />
-                                    WhatsApp
-                                </a>
-                            </div> --}}
-                        </div>
+                        <section class="event_section layout_padding">
+                            <div class="heading_container">
+                                <h3>
+                                   Sudah memiliki akun member penyewaan Bolang Gunung? Sewa Sekarang Yuk !
+                                </h3>
+                                <div class="btn-box">
+                                    <a href="/sewa">
+                                        <center>SEWA SEKARANG</center>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div class="col-md-6">

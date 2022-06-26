@@ -75,7 +75,9 @@
                                         <th scope="col" class="text-center">Tanggal Sewa</th>
                                         <th scope="col" class="text-center">Lama Sewa</th>
                                         <th scope="col" class="text-center">Harga Total</th>
-                                        <th scope="col" class="text-center">Pegawai</th>
+                                        <th scope="col" class="text-center">Petugas</th>
+                                        <th scope="col" class="text-center">Status Bayar</th>
+                                        <th scope="col" class="text-center">Bukti Pembayaran</th>
                                         <th scope="col" class="text-center">Status</th>
                                         <th scope="col" class="text-center">Action</th>
                                     </tr>
@@ -93,9 +95,24 @@
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
                                             <td>Rp{{ number_format($data->total_harga) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
+                                            <td>{{ $data->status_bayar }}</td>
+                                            <td>
+                                                @if (($data->status_bayar) == 'Lunas' && ($data->updated_at) != null)
+                                                    Bayar di tempat
+                                                @elseif (($data->status_bayar) == 'Belum Lunas' && ($data->nama_petugas) == 'Tanpa Petugas')
+                                                    -
+                                                @elseif (($data->status_bayar) == 'Lunas' && ($data->nama_petugas) == 'Tanpa Petugas')
+                                                    <img  width="70px" height="60px" src="{{ asset('storage/' . $data->bukti) }}">
+                                                @else
+                                                    Tidak Perlu
+                                                @endif
+                                            </td>
                                                 @if ($data->status == 'Dipinjam')
                                                     <td class="text-center"><span
                                                             class="label label-info">Dipinjam</span></td>
+                                                @elseif ($data->status == 'Konfirmasi')
+                                                    <td class="text-center"><span
+                                                        class="label label-default">Konfirmasi</span></td>
                                                 @else
                                                     <td class="text-center"><span
                                                             class="label label-success">Dikembalikan</span></td>

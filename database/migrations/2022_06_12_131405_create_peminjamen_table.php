@@ -26,7 +26,9 @@ return new class extends Migration
             $table->double('total_harga');
             $table->date('tgl_pinjam');
             $table->integer('lama_pinjam');
-            $table->enum('status', ['Dipinjam','Dikembalikan']);
+            $table->enum('status', ['Konfirmasi','Dipinjam','Dikembalikan']);
+            $table->enum('status_bayar', ['Lunas','Belum Lunas']);
+            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }
