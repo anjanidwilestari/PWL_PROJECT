@@ -73,8 +73,5 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/sewa', [KlienController::class, 'createsewa'])->name('sewa.create');
         Route::post('getSewa',[KlienController::class,'storesewa'])->name('sewa.store');
-    
-        Route::get('getPinjam/{id}',[KlienController::class,'getHarga']);
     });
-
 });

@@ -64,7 +64,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
                                     <label for="fullname">Harga Satuan * :</label>
                                     <input type="number" class="form-control has-feedback-right" id="harga_satuan"
-                                        name="harga_satuan" required placeholder="Harga satuan" value="{{ $peminjaman->harga_satuan }}">
+                                        name="harga_satuan" required placeholder="Harga satuan" value="{{ $peminjaman->produk->harga }}">
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('harga_satuan'))
                                         <div class="error">{{ $errors->first('harga_satuan') }}</div>
@@ -89,7 +89,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
                                     <label for="fullname">Total Harga * :</label>
                                     <input type="number" class="form-control has-feedback-right" placeholder="Total Harga" id="total_harga"
-                                        name="total_harga" value="{{ $peminjaman->total_harga }}">
+                                        name="total_harga" value="{{ ($peminjaman->produk->harga)*($peminjaman->lama_pinjam)*($peminjaman->jumlah_pinjam) }}">
                                     <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('total_harga'))
                                         <div class="error">{{ $errors->first('total_harga') }}</div>
@@ -126,15 +126,6 @@
                                     @if ($errors->has('lama_pinjam'))
                                         <div class="error">{{ $errors->first('lama_pinjam') }}</div>
                                     @endif
-                                </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                    <label for="fullname">Status Bayar * :</label>
-                                    <select class="form-control" id="status_bayar" name="status_bayar" value="{{$peminjaman->status_bayar}}">
-                                        <option value="Lunas" @if ($peminjaman->status_bayar == "Lunas")selected @endif>Lunas</option>
-                                        <option value="Belum Lunas" @if ($peminjaman->status_bayar == "Belum Lunas")selected @endif>Belum Lunas</option>
-                                    </select>
-                                    <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">

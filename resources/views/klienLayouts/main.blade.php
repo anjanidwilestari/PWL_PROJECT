@@ -3,7 +3,8 @@
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
@@ -41,6 +42,10 @@
 
         @yield('js')
 
+        {{-- <!-- jQuery -->
+        <script src="{{ asset('styleAdmin/vendors/jquery/dist/jquery.min.js')}}"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="{{ asset('styleAdmin/build/js/custom.min.js')}}"></script> --}}
         {{-- <script type="text/javascript" src="{{ asset('styleKlien/js/jquery-3.4.1.min.js')}}"></script> --}}
         {{-- <script type="text/javascript" src="{{ asset('styleKlien/js/bootstrap.js')}}"></script> --}}
 

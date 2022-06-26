@@ -103,7 +103,7 @@
                                             </div>
                                             <div class="block_content">
                                                 <h2 class="title">
-                                                    <a>{{ \Carbon\Carbon::parse($peminjaman->tgl_pinjam)->format('d F Y') }}</a>
+                                                    <a>{{ \Carbon\Carbon::parse($peminjaman->tgl_pinjam)->isoFormat('D MMMM YYYY') }}</a>
                                                 </h2>
                                             </div>
                                             <br>
@@ -133,7 +133,7 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title">
-                                                <a>Rp. {{ $peminjaman->total_harga }}</a>
+                                                <a>Rp{{ number_format(($peminjaman->produk->harga)*($peminjaman->lama_pinjam)*($peminjaman->jumlah_pinjam)) }}</a>
                                             </h2>
                                         </div>
                                         <br>

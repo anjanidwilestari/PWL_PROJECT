@@ -42,6 +42,7 @@
                         <h5>
                             Daftar member Bolang Gunung
                         </h5>
+                        <br>
                         <form class="form-horizontal form-label-left input_mask" method="POST"
                         enctype="multipart/form-data" action="{{ route('buatmember.store') }}">
                             @csrf

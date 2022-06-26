@@ -74,19 +74,11 @@
                                 @endif
                             </div>
                             <br>
-                            <div id="hargaSatuan">
-                                <label for="fullname">Harga Satuan :</label>
-                                <input type="number" class="form-control" placeholder="Harga Satuan" id="harga_satuan"
-                                name="harga_satuan" required value="{{ old('harga_satuan') }}">
-                                @if ($errors->has('harga_satuan'))
-                                    <div class="error">{{ $errors->first('harga_satuan') }}</div>
-                                @endif
-                            </div>
                             <div>
                                 <label for="fullname">Jumlah Sewa * :</label>
                                 <input type="number" class="form-control" id="jumlah_pinjam"
                                 name="jumlah_pinjam" required value="{{ old('jumlah_pinjam') }}" min="1"
-                                onkeyup="hitungHarga()" placeholder="Jumlah Sewa">
+                                onkeyup="hitungPrice()" placeholder="Jumlah Sewa">
                                 @if ($errors->has('jumlah_pinjam'))
                                     <div class="error">{{ $errors->first('jumlah_pinjam') }}</div>
                                 @endif
@@ -95,46 +87,10 @@
                                 <label for="fullname">Lama Sewa * :</label>
                                 <input type="number" class="form-control" id="lama_pinjam"
                                     name="lama_pinjam" required value="{{ old('lama_pinjam') }}" min="1"
-                                    onkeyup="hitungHarga()" placeholder="Lama Sewa">
+                                    onkeyup="hitungPrice()" placeholder="Lama Sewa">
                                 @if ($errors->has('lama_pinjam'))
                                     <div class="error">{{ $errors->first('lama_pinjam') }}</div>
                                 @endif
-                            </div>
-                            <div id="totalHarga">
-                                <label for="fullname">Total Harga :</label>
-                                <input type="number" class="form-control" id="total_harga"
-                                    name="total_harga" required value="{{ old('total_harga') }}"
-                                    placeholder="Total Harga">
-                                @if ($errors->has('total_harga'))
-                                    <div class="error">{{ $errors->first('total_harga') }}</div>
-                                @endif
-                            </div>
-                            <div>
-                                <label for="fullname">Status Bayar :</label>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-radio">
-                                            <input type="radio" class="form-control" name="status_bayar" id="status_bayar" value="Lunas" @if (old('status_bayar')) checked @endif><center> Lunas</center>
-                                        </div>
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <div class="form-radio">
-                                            <input type="radio" class="form-control" name="status_bayar" id="status_bayar" checked value="Belum Lunas" @if (old('status_bayar')) checked @endif><center> Belum Lunas</center>
-                                        </div>
-                                      </div>
-                                   </div>
-                            </div>
-                            <br>
-                            <div id="bukti">
-                                {{-- @if (old('status_bayar') == 'Belum Lunas') --}}
-                                    {{-- <input type="hidden" class="form-control" id="bukti" name="bukti" required > --}}
-                                {{-- @else --}}
-                                <label for="fullname">Bukti Pembayaran (Kosongi saja jika pembayaran belum lunas):</label>
-                                <input type="file" id="bukti" name="bukti" value="{{ old('bukti') }}" placeholder="Bukti">
-                                @if ($errors->has('bukti'))
-                                    <div class="error">{{ $errors->first('bukti') }}</div>
-                                @endif
-                                {{-- @endif --}}
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn_on-hover">
@@ -148,41 +104,4 @@
         </div>
     </section>
     <!-- end contact section -->
-@endsection
-@section('js')
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-    
-
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
-        $('select#produk_id').on('change',function(e){
-            var selected_produk = $(this).children("option:selected").val();
-            $.ajax({
-                type:"GET",
-                dataType:"json",
-                url:'/getPinjam/'+selected_produk,
-                success:function(response){
-                    console.log(response);
-                    $('#harga_satuan').val(response.harga);
-                    hitungHarga();
-                }
-            })
-        });
-
-        // calculate price
-        hitungHarga();
-        function hitungHarga() {
-            var totalHarga = $('#total_harga');
-            var lamaPinjam = $('#lama_pinjam').val();
-            var jumlahPinjam = $('#jumlah_pinjam').val();
-            var hargaSatuan = $('#harga_satuan').val();
-
-            var hitungTotal = parseFloat(hargaSatuan) * parseFloat(jumlahPinjam) * parseFloat(lamaPinjam);
-            totalHarga.val(hitungTotal);
-        }
-</script>
 @endsection

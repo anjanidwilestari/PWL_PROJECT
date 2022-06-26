@@ -23,7 +23,6 @@ class Peminjaman extends Model
         'harga_satuan',
         'tgl_pinjam',
         'lama_pinjam',
-        'status_bayar',
         'status'
     ];
 

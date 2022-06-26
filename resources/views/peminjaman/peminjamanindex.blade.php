@@ -78,8 +78,8 @@
                                         <th scope="col" class="text-center">Petugas</th>
                                         <th scope="col" class="text-center">Status Bayar</th>
                                         <th scope="col" class="text-center">Bukti Pembayaran</th>
-                                        <th scope="col" class="text-center">Status</th>
-                                        <th scope="col" class="text-center">Action</th>
+                                        {{-- <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Action</th> --}}
                                     </tr>
                                 </thead>
 
@@ -93,20 +93,8 @@
                                             <td>{{ $data->jumlah_pinjam }}</td>
                                             <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->isoFormat('D MMMM YYYY') }}</td>
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
-                                            <td>Rp{{ number_format($data->total_harga) }}</td>
+                                            <td>Rp{{ number_format(($data->produk->harga)*($data->lama_pinjam)*($data->jumlah_pinjam)) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
-                                            <td>{{ $data->status_bayar }}</td>
-                                            <td>
-                                                @if (($data->status_bayar) == 'Lunas' && ($data->updated_at) != null)
-                                                    Bayar di tempat
-                                                @elseif (($data->status_bayar) == 'Belum Lunas' && ($data->nama_petugas) == 'Tanpa Petugas')
-                                                    -
-                                                @elseif (($data->status_bayar) == 'Lunas' && ($data->nama_petugas) == 'Tanpa Petugas')
-                                                    <img  width="70px" height="60px" src="{{ asset('storage/' . $data->bukti) }}">
-                                                @else
-                                                    Tidak Perlu
-                                                @endif
-                                            </td>
                                                 @if ($data->status == 'Dipinjam')
                                                     <td class="text-center"><span
                                                             class="label label-info">Dipinjam</span></td>

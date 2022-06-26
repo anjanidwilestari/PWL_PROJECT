@@ -21,14 +21,12 @@ return new class extends Migration
             $table->foreign('member_id')->references('id')->on('members');
             $table->foreign('produk_id')->references('id')->on('produks');
             $table->string('nama_petugas');
-            $table->double('harga_satuan');
+            $table->double('harga_satuan')->nullable();
             $table->integer('jumlah_pinjam');
-            $table->double('total_harga');
             $table->date('tgl_pinjam');
             $table->integer('lama_pinjam');
+            $table->double('total_harga')->nullable();
             $table->enum('status', ['Konfirmasi','Dipinjam','Dikembalikan']);
-            $table->enum('status_bayar', ['Lunas','Belum Lunas']);
-            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }

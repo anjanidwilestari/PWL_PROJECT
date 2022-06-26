@@ -95,40 +95,22 @@ class KlienController extends Controller
         $request -> validate([
             'member_id' => 'required',
             'produk_id' => 'required',
-            // 'nama_petugas' => 'required',
             'jumlah_pinjam' => 'required',
-            'total_harga' => 'required',
-            'harga_satuan' => 'required',
-            'lama_pinjam' => 'required',
-            'status_bayar' => 'required'
         ]);
 
         $peminjaman = new Peminjaman();
         $peminjaman->member_id = $request->member_id;
         $peminjaman->produk_id = $request->produk_id;
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
-        $peminjaman->total_harga = $request->total_harga;
         $peminjaman->tgl_pinjam = Carbon::now();
-        $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->lama_pinjam = $request->lama_pinjam;
         $peminjaman->status = 'Konfirmasi';
         $peminjaman->nama_petugas = 'Tanpa Petugas';
-        $peminjaman->status_bayar = $request->status_bayar;
-        if ($request->file('bukti') == null) {
-            $peminjaman->bukti = "Tidak ada";
-        }else{
-           $peminjaman->bukti = $request->file('bukti')->store('bukti','public');  
-        }
         $peminjaman->kode_peminjaman = Helper::KodePeminjamanGenerator();
         
         $peminjaman->save();
         
-        Alert::success('Ajuan Peminjaman Berhasil Disimpan');
+        Alert::success('Permintaan Anda Sedang Diproses');
         return redirect()->route('member.home');
-    }
-
-    public function getHarga($id){
-        $loadData = Produk::find($id);
-        return response()->json($loadData);
     }
 }
