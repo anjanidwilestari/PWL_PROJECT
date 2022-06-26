@@ -40,7 +40,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('admin');
+        return view('user.usercreate');
     }
 
     /**
@@ -51,7 +52,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama'=> 'required',
+            'username' => 'required|string|max:20|unique:users',
+            'password' => 'required',
+            //'password_confirmation' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'no_hp' => 'string|max:13|required|unique:users',
+            'tanggal_lahir' => 'required|date',
+            'alamat' => 'required',
+            'foto'=> 'required',
+            'role' => 'required',
+        ]);
+
+        $user = new User;
+        $user->nama = $request->get('nama');
+        $user->username = $request->get('username');
+        $user->password = $request->get('password');
+        //$user->password_confirmation = $request->get('password_confirmation');
+        $user->email = $request->get('email');
+        $user->no_hp = $request->get('no_hp');
+        $user->tanggal_lahir = $request->get('tanggal_lahir');
+        $user->alamat = $request->get('alamat');
+        $user->foto = $request->file('foto')->store('user','public');
+        $user->role = $request->get('role');
+        $user-> save();
+
+        Alert::success('User Baru Berhasil Ditambahkan');
+        return redirect()->route('user.index');
     }
 
     /**
