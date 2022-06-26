@@ -74,9 +74,7 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'total_harga' => 'required',
             'harga_satuan' => 'required',
-            // 'tgl_pinjam' => 'required',
             'lama_pinjam' => 'required',
-            // 'status' => 'required',
         ]);
 
         $peminjaman = new Peminjaman;
@@ -89,8 +87,6 @@ class PeminjamanController extends Controller
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->lama_pinjam = $request->lama_pinjam;
         $peminjaman->status = 'Dipinjam';
-        $peminjaman->status_bayar = 'Lunas';
-        $peminjaman->bukti = 'Bayar di tempat';
         $peminjaman->kode_peminjaman = Helper::KodePeminjamanGenerator();
         
         $peminjaman->save();
