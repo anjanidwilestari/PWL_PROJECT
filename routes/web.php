@@ -70,6 +70,11 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::get('/buatmember', [KlienController::class, 'createmember'])->name('buatmember.create');
         Route::post('getMember',[KlienController::class,'storemember'])->name('buatmember.store');
+
+        Route::get('/sewa', [KlienController::class, 'createsewa'])->name('sewa.create');
+        Route::post('getSewa',[KlienController::class,'storesewa'])->name('sewa.store');
+    
+        Route::get('getPinjam/{id}',[KlienController::class,'getHarga']);
     });
 
 });

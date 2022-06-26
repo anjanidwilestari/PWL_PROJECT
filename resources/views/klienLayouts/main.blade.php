@@ -39,8 +39,10 @@
 
         @include('sweetalert::alert')
 
-        <script type="text/javascript" src="{{ asset('styleKlien/js/jquery-3.4.1.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('styleKlien/js/bootstrap.js')}}"></script>
+        @yield('js')
+
+        {{-- <script type="text/javascript" src="{{ asset('styleKlien/js/jquery-3.4.1.min.js')}}"></script> --}}
+        {{-- <script type="text/javascript" src="{{ asset('styleKlien/js/bootstrap.js')}}"></script> --}}
 
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </div>

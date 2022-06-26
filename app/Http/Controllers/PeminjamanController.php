@@ -89,6 +89,8 @@ class PeminjamanController extends Controller
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->lama_pinjam = $request->lama_pinjam;
         $peminjaman->status = 'Dipinjam';
+        $peminjaman->status_bayar = 'Lunas';
+        $peminjaman->bukti = 'Bayar di tempat';
         $peminjaman->kode_peminjaman = Helper::KodePeminjamanGenerator();
         
         $peminjaman->save();
@@ -143,6 +145,8 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'harga_satuan' => 'required',
             'total_harga' => 'required',
+            'status_bayar' => 'required',
+            'status' => 'required',
             'lama_pinjam' => 'required',
         ]);
         $peminjaman = Peminjaman::where('id', $id)->first();
@@ -152,6 +156,8 @@ class PeminjamanController extends Controller
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->total_harga = $request->total_harga;
+        $peminjaman->status_bayar = $request->status_bayar;
+        $peminjaman->status = $request->status;
         $peminjaman->tgl_pinjam = Carbon::now();
         $peminjaman->lama_pinjam = $request->lama_pinjam;
 

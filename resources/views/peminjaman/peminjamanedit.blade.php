@@ -128,6 +128,24 @@
                                     @endif
                                 </div>
 
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Status Bayar * :</label>
+                                    <select class="form-control" id="status_bayar" name="status_bayar" value="{{$peminjaman->status_bayar}}">
+                                        <option value="Lunas" @if ($peminjaman->status_bayar == "Lunas")selected @endif>Lunas</option>
+                                        <option value="Belum Lunas" @if ($peminjaman->status_bayar == "Belum Lunas")selected @endif>Belum Lunas</option>
+                                    </select>
+                                    <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                    <label for="fullname">Status * :</label>
+                                    <select class="form-control" id="status" name="status" value="{{$peminjaman->status}}">
+                                        <option value="Konfirmasi" @if ($peminjaman->status == "Konfirmasi")selected @endif>Konfirmasi</option>
+                                        <option value="Dipinjam" @if ($peminjaman->status == "Dipinjam")selected @endif>Dipinjam</option>
+                                    </select>
+                                    <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback-left">
