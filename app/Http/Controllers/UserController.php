@@ -136,6 +136,7 @@ class UserController extends Controller
             $user->foto = $image_name;
         }
         $user -> nama = $request->nama;
+        $user -> password = Hash::make($request->password);
         $user -> username = $request->username;
         $user -> email = $request->email;
         $user -> no_hp = $request->no_hp;
