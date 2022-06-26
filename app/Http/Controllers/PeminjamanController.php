@@ -145,7 +145,7 @@ class PeminjamanController extends Controller
             'jumlah_pinjam' => 'required',
             'harga_satuan' => 'required',
             'total_harga' => 'required',
-            'status_bayar' => 'required',
+            // 'status_bayar' => 'required',
             'status' => 'required',
             'lama_pinjam' => 'required',
         ]);
@@ -156,7 +156,6 @@ class PeminjamanController extends Controller
         $peminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $peminjaman->harga_satuan = $request->harga_satuan;
         $peminjaman->total_harga = $request->total_harga;
-        $peminjaman->status_bayar = $request->status_bayar;
         $peminjaman->status = $request->status;
         $peminjaman->tgl_pinjam = Carbon::now();
         $peminjaman->lama_pinjam = $request->lama_pinjam;
