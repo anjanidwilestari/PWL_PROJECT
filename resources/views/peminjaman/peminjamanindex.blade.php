@@ -76,10 +76,10 @@
                                         <th scope="col" class="text-center">Lama Sewa</th>
                                         <th scope="col" class="text-center">Harga Total</th>
                                         <th scope="col" class="text-center">Petugas</th>
-                                        <th scope="col" class="text-center">Status Bayar</th>
-                                        <th scope="col" class="text-center">Bukti Pembayaran</th>
-                                        {{-- <th scope="col" class="text-center">Status</th>
-                                        <th scope="col" class="text-center">Action</th> --}}
+                                        <th scope="col" class="text-center">Status</th>
+                                        {{-- <th scope="col" class="text-center">Bukti Pembayaran</th> --}}
+                                        {{-- <th scope="col" class="text-center">Status</th>--}}
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
