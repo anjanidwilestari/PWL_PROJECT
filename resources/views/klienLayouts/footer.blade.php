@@ -9,7 +9,7 @@
                     </h5>
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/klien-beranda">Beranda <span
+                            <a class="nav-link" href="/beranda">Beranda <span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
