@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Throwable;
 
 class ProdukController extends Controller
 {
@@ -153,9 +154,15 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         $this->authorize('admin');
-        Produk::find($id)->delete();
-        return redirect()->route('produk.index')
-            ->with('success', 'Data Produk Berhasil Dihapus');
+        try{
+            Produk::find($id)->delete();
+        } catch (Throwable $error){
+            report($error);
+            return to_route(route: 'produk.index')->with('warning', 
+            'Mohon Maaf Data Produk Belum Bisa Dihapus. Coba Lagi Nanti.');
+        }
+        return to_route(route: 'produk.index')->with('success', 
+            'Data Produk Berhasil Dihapus');
     }
 
     public function cetak_pdf_produk(){
