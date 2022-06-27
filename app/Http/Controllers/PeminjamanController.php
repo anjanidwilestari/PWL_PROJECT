@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Throwable;
 
 class PeminjamanController extends Controller
 {
@@ -171,7 +172,13 @@ class PeminjamanController extends Controller
     public function destroy($id)
     {
         $this->authorize('admin');
-        Peminjaman::find($id)->delete();
+        try{
+            Peminjaman::find($id)->delete();
+        }catch(Throwable $error){
+            report($error);
+            return to_route(route: 'peminjaman.index')->with('warning', 
+            'Mohon Maaf Data Peminjaman Belum Bisa Dihapus. Coba Lagi Nanti.');
+        }
         return redirect()->route('peminjaman.index')
             -> with('success', 'Data Peminjaman Berhasil Dihapus');
     }

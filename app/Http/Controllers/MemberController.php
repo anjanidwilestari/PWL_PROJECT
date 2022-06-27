@@ -9,6 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Throwable;
 
 class MemberController extends Controller
 {
@@ -153,7 +154,13 @@ class MemberController extends Controller
     public function destroy($id)
     {
         $this->authorize('admin');
-        Member::find($id)->delete();
+        try{
+            Member::find($id)->delete();
+        }catch(Throwable $error){
+            report($error);
+            return to_route(route: 'member.index')->with('warning', 
+            'Mohon Maaf Data Member Belum Bisa Dihapus. Coba Lagi Nanti.');
+        }
         return redirect()->route('member.index')
             -> with('success', 'Member Berhasil Dihapus');
     }
