@@ -63,8 +63,13 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="hargaSatuan">
                                     <label for="fullname">Harga Satuan * :</label>
+                                    @if ($peminjaman->harga_satuan != null)
+                                    <input type="number" class="form-control has-feedback-right" id="harga_satuan"
+                                        name="harga_satuan" required placeholder="Harga satuan" value="{{ $peminjaman->harga_satuan }}" readonly>
+                                    @else
                                     <input type="number" class="form-control has-feedback-right" id="harga_satuan"
                                         name="harga_satuan" required placeholder="Harga satuan" value="{{ $peminjaman->produk->harga }}" readonly>
+                                    @endif 
                                     <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('harga_satuan'))
                                         <div class="error">{{ $errors->first('harga_satuan') }}</div>
@@ -88,8 +93,13 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" id="totalHarga">
                                     <label for="fullname">Total Harga * :</label>
+                                    @if ($peminjaman->harga_satuan != null)
+                                    <input type="number" class="form-control has-feedback-right" placeholder="Total Harga" id="total_harga"
+                                        name="total_harga" value="{{ $peminjaman->total_harga }}" readonly>
+                                    @else
                                     <input type="number" class="form-control has-feedback-right" placeholder="Total Harga" id="total_harga"
                                         name="total_harga" value="{{ ($peminjaman->produk->harga)*($peminjaman->lama_pinjam)*($peminjaman->jumlah_pinjam) }}" readonly>
+                                    @endif 
                                     <span class="fa fa-calculator form-control-feedback right" aria-hidden="true"></span>
                                     @if ($errors->has('total_harga'))
                                         <div class="error">{{ $errors->first('total_harga') }}</div>

@@ -133,7 +133,13 @@
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title">
-                                                <a>Rp{{ number_format(($peminjaman->produk->harga)*($peminjaman->lama_pinjam)*($peminjaman->jumlah_pinjam)) }}</a>
+                                                <a>
+                                                    @if ($peminjaman->total_harga != null)
+                                                        Rp{{number_format($peminjaman->total_harga)}}
+                                                    @else
+                                                        Rp{{ number_format(($peminjaman->produk->harga)*($peminjaman->lama_pinjam)*($peminjaman->jumlah_pinjam)) }}
+                                                    @endif
+                                                </a>
                                             </h2>
                                         </div>
                                         <br>

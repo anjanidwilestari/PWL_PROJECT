@@ -93,7 +93,13 @@
                                             <td>{{ $data->jumlah_pinjam }}</td>
                                             <td>{{ \Carbon\Carbon::parse($data->tgl_pinjam)->isoFormat('D MMMM YYYY') }}</td>
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
-                                            <td>Rp{{ number_format(($data->produk->harga)*($data->lama_pinjam)*($data->jumlah_pinjam)) }}</td>
+                                            <td>
+                                                @if ($data->total_harga != null)
+                                                    Rp{{number_format($data->total_harga)}}
+                                                @else
+                                                    Rp{{ number_format(($data->produk->harga)*($data->lama_pinjam)*($data->jumlah_pinjam)) }}
+                                                @endif
+                                            </td>
                                             <td>{{ $data->nama_petugas }}</td>
                                                 @if ($data->status == 'Dipinjam')
                                                     <td class="text-center"><span

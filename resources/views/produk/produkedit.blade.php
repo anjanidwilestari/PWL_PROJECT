@@ -72,7 +72,7 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Harga per {{$produk->satuan}} * :</label>
-                                    <input type="text" class="form-control" placeholder="harga" name="harga" required value="{{$produk->harga}}">
+                                    <input type="number" class="form-control" placeholder="harga" name="harga" required value="{{$produk->harga}}">
                                     <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                                 
