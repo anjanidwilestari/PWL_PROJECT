@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Throwable;
 
 class KategoriProdukController extends Controller
 {
@@ -123,7 +124,13 @@ class KategoriProdukController extends Controller
     public function destroy($id)
     {
         $this->authorize('admin');
-        KategoriProduk::find($id)->delete();
+        try{
+            KategoriProduk::find($id)->delete();
+        }catch(Throwable $error){
+            report($error);
+            return to_route(route: 'kategoriproduk.index')->with('warning', 
+            'Mohon Maaf Data Kategori Produk Belum Bisa Dihapus. Coba Lagi Nanti.');
+        }
         return redirect()->route('kategoriproduk.index')
             -> with('success', 'Kategori Produk Berhasil Dihapus');
     }
