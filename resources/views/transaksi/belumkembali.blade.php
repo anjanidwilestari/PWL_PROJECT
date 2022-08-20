@@ -69,8 +69,6 @@
                                         <th scope="col" class="text-center">Lama Sewa</th>
                                         <th scope="col" class="text-center">Harga Total</th>
                                         <th scope="col" class="text-center">Pegawai</th>
-                                        <th scope="col" class="text-center">Status</th>
-                                        {{-- <th scope="col" class="text-center">Action</th> --}}
                                     </tr>
                                 </thead>
 
@@ -86,13 +84,6 @@
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
                                             <td>Rp{{ number_format($data->total_harga) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
-                                                @if ($data->status == 'Dipinjam')
-                                                    <td class="text-center"><span
-                                                            class="label label-info">Dipinjam</span></td>
-                                                @else
-                                                    <td class="text-center"><span
-                                                            class="label label-success">Dikembalikan</span></td>
-                                                @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

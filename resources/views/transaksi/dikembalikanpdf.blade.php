@@ -90,6 +90,7 @@
                     <th >Lama Sewa</th>
                     <th >Total Harga</th>
                     <th >Petugas yang Melayani</th>
+                    <th >Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,6 +104,7 @@
                         <td>{{ $p->lama_pinjam }} {{ $p->produk->satuan }}</td>
                         <td>Rp{{ number_format($p->total_harga) }}</td>
                         <td>{{ $p->nama_petugas }}</td>
+                        <td>{{ $p->pengembalian->status_kembali }}</td>
                     </tr>
                 @endforeach
             </tbody>

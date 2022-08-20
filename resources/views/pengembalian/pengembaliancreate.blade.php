@@ -68,8 +68,8 @@
                                         <option value="Terlambat" {{old('status_kembali') == 'Terlambat' ? 'selected' : ''}}>Terlambat</option>
                                         <option value="Bermasalah" {{old('status_kembali') == 'Bermasalah' ? 'selected' : ''}}>Bermasalah</option>
                                     </select>
-                                    @if ($errors->has('status'))
-                                        <div class="error">{{ $errors->first('status') }}</div>
+                                    @if ($errors->has('status_kembali'))
+                                        <div class="error">{{ $errors->first('status_kembali') }}</div>
                                     @endif
                                 </div>
 
@@ -116,13 +116,15 @@
 <script type="text/javascript">
     $(function(){
         $("#status_kembali").change(function () {
-            if ($(this).val() == 'Terlambat', 'Bermasalah') {
+            if ($(this).val() == 'Berhasil') {
+                
+                $("#keterangan").attr("disabled", "disabled");
+                $("#denda").attr("disabled", "disabled");
+            } else {
                 $("#keterangan").removeAttr("disabled");
                 $("#keterangan").focus();
                 $("#denda").removeAttr("disabled");
                 $("#denda").focus();
-            } else {
-                $("#keterangan").attr("disabled", "disabled");
             }
         });
     });

@@ -72,7 +72,7 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn_on-hover">
-                                    Send
+                                    Simpan Data
                                 </button>
                             </div>
                         </form>

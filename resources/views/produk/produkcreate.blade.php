@@ -48,7 +48,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Nama Produk * :</label>
                                     <input type="text" class="form-control has-feedback-left" placeholder="Nama Produk" name="nama_produk" required>
-                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    <span class="fa fa-compass form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -62,7 +62,7 @@
                                     @if ($errors->has('kategori_id'))
                                         <div class="error">{{ $errors->first('kategori_id') }}</div>
                                     @endif
-                                    <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
+                                    <span class="fa fa-book form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -75,16 +75,16 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Harga * :</label>
                                     <input type="number" class="form-control has-feedback-right" placeholder="Harga" name="harga" required>
-                                    <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Satuan * :</label>
-                                    <select class="form-control has-feedback-right" id="satuan" name="satuan">
+                                    <select class="form-control has-feedback-left" id="satuan" name="satuan">
                                         <option value="hari" {{old('satuan') == 'hari' ? 'selected' : ''}}>Hari</option>
                                         <option value="jam" {{old('satuan') == 'jam' ? 'selected' : ''}}>Jam</option>
                                     </select>
-                                    <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                    <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="ln_solid"></div>

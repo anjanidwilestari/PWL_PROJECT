@@ -48,7 +48,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Nama Produk * :</label>
                                     <input type="text" class="form-control has-feedback-left" placeholder="Nama Produk" name="nama_produk" required value="{{$produk->nama_produk}}">
-                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                    <span class="fa fa-compass form-control-feedback left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -61,7 +61,7 @@
                                           </option>
                                         @endforeach
                                       </select>
-                                    <span class="fa fa-group form-control-feedback right" aria-hidden="true"></span>
+                                    <span class="fa fa-book form-control-feedback right" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -73,7 +73,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Harga per {{$produk->satuan}} * :</label>
                                     <input type="number" class="form-control" placeholder="harga" name="harga" required value="{{$produk->harga}}">
-                                    <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                                    <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                                 
                                 <div class="ln_solid"></div>

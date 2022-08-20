@@ -87,35 +87,7 @@
         <section class="info_section layout_padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="info_menu">
-                            <h5>
-                                TAUTAN LANGSUNG
-                            </h5>
-                            <ul class="navbar-nav  ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/klien-beranda"> > Beranda <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/klien-produk"> > Produk </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/klien-galery"> > Galeri </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/klien-about"> > Tentang </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('contact.create') }}"> > Hubungi</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/"> > Login</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="info_course">
                             <h5>
                                 PERSEWAAN TERBAIK

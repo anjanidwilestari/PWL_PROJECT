@@ -93,25 +93,16 @@
                                             <td>{{ $data->lama_pinjam }} {{ $data->produk->satuan }}</td>
                                             <td>Rp{{ number_format($data->total_harga) }}</td>
                                             <td>{{ $data->nama_petugas }}</td>
-                                                @if ($data->status == 'Dipinjam')
+                                                @if ($data->pengembalian->status_kembali == 'Berhasil')
                                                     <td class="text-center"><span
-                                                            class="label label-info">Dipinjam</span></td>
+                                                            class="label label-info">Berhasil</span></td>
+                                                @elseif ($data->pengembalian->status_kembali == 'Terlambat')
+                                                    <td class="text-center"><span
+                                                            class="label label-default">Terlambat</span></td>
                                                 @else
                                                     <td class="text-center"><span
-                                                            class="label label-success">Dikembalikan</span></td>
+                                                            class="label label-warning">Bermasalah</span></td>
                                                 @endif
-                                            {{-- <td>
-                                                <form action="{{ route('peminjaman.destroy', $data->id) }}" method="POST">
-                                                    <a class="btn btn-icons btn-dark" href="{{ route('peminjaman.cetaknota', $data->id) }}"><i class="fa fa-print"></i></a>
-                                                    <a class="btn btn-icons btn-primary" href="{{ route('peminjaman.show', $data->id) }}"><i class="fa fa-eye"></i></a>
-                                                    @can('admin')
-                                                    <a class="btn btn-icons btn-warning" href="{{ route('peminjaman.edit', $data->id) }}"><i class="fa fa-pencil"></i></a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-icons btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                    @endcan
-                                                </form>
-                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -47,9 +47,9 @@
                         <li class="nav-item @yield('pengembalian')"><a href="{{route('pengembalian.index')}}">Pengembalian</a></li>
                     </ul>
                 </li>
-                <li><a><i class="fa fa-bar-chart-o"></i> Daftar Transaksi <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-bar-chart-o"></i> Rekap Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li class="nav-item"@yield('dikembalikan')><a href="{{route('peminjaman.dikembalikan')}}">Berhasil</a></li>
+                        <li class="nav-item"@yield('dikembalikan')><a href="{{route('peminjaman.dikembalikan')}}">Kembali</a></li>
                         <li class="nav-item @yield('belumkembali')"><a href="{{route('peminjaman.belumkembali')}}">Belum Kembali</a></li>
                         {{-- <li class="nav-item"><a href="morisjs.html">Terlambat</a></li> --}}
                     </ul>

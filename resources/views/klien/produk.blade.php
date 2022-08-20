@@ -52,7 +52,7 @@
                 {{-- </div> --}}
             </div>
             <div class="btn-box">
-                <a href="https://wa.me/6285231404775">
+                <a href="/sewa">
                     Sewa Sekarang
                 </a>
             </div>

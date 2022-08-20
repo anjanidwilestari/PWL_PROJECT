@@ -99,7 +99,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Jumlah Sewa* :</label>
                                     <input type="number" class="form-control has-feedback-left" id="jumlah_pinjam"
-                                        name="jumlah_pinjam" required value="{{ old('jumlah_pinjam') }}" min="1"
+                                        name="jumlah_pinjam" required value="1" min="1"
                                         onkeyup="hitungHarga()" placeholder="Jumlah Sewa">
                                     <div class="input-group-prepend bg-secondary">
                                         <span class="input-group-text" id="satuan"></span>
@@ -123,7 +123,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                     <label for="fullname">Lama Sewa* :</label>
                                     <input type="number" class="form-control has-feedback-left" id="lama_pinjam"
-                                        name="lama_pinjam" required value="{{ old('lama_pinjam') }}" min="1"
+                                        name="lama_pinjam" required value="1" min="1"
                                         onkeyup="hitungHarga()" placeholder="Lama Sewa">
                                     <div class="input-group-prepend bg-secondary">
                                         <span class="input-group-text" id="satuan"></span>
