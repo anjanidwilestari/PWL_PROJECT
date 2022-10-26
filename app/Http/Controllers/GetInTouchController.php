@@ -15,16 +15,26 @@ class GetInTouchController extends Controller
      */
     public function index(Request $request)
     {
-        // return view('klien.contact', ['title' => 'Hubungi Kami']);
+        $pagination = 5;
+        $getintouch = GetInTouch::when($request->keyword, function ($query) use ($request) {
+            $query
+                ->where('nama', 'like', "%{$request->keyword}%")
+                ->orWhere('no_hp', 'like', "%{$request->keyword}%")
+                ->orWhere('email', 'like', "%{$request->keyword}%")
+                ->orWhere('pesan', 'like', "%{$request->keyword}%");
+        })->orderBy('nama')->paginate($pagination);
+
+        return view('getintouch.getintouchindex', compact('getintouch'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
-    public function getintouch(Request $request)
-    {
-        $getintouch = GetInTouch::paginate(5);
-        $posts = GetInTouch::orderBy('nama', 'asc')->paginate(5);
-        return view('getintouch.getintouchindex', compact('getintouch'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+    // public function getintouch(Request $request)
+    // {
+    //     $getintouch = GetInTouch::paginate(5);
+    //     $posts = GetInTouch::orderBy('nama', 'asc')->paginate(5);
+    //     return view('getintouch.getintouchindex', compact('getintouch'))
+    //         ->with('i', (request()->input('page', 1) - 1) * 5);
+    // }
 
     /**
      * Show the form for creating a new resource.

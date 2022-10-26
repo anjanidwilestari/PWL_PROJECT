@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('user', UserController::class);
         Route::resource('pegawai', PegawaiController::class);
         Route::resource('kategoriproduk', KategoriProdukController::class);
-        Route::get('getintouch', [GetInTouchController::class, 'getintouch'])->name('getintouch');
+        Route::get('getintouch', [GetInTouchController::class, 'index'])->name('getintouch');
         Route::resource('member', MemberController::class);
         Route::resource('produk', ProdukController::class);
         Route::resource('peminjaman', PeminjamanController::class);

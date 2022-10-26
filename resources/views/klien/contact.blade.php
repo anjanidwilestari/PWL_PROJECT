@@ -51,7 +51,7 @@
                                 <input type="text" placeholder="Nama Lengkap" name="nama" required>
                             </div>
                             <div>
-                                <input type="text" placeholder="Nomor Handphone" name="no_hp" required>
+                                <input type="number" placeholder="Nomor Handphone" name="no_hp" required>
                             </div>
                             <div>
                                 <input type="email" placeholder="Email" name="email" required>

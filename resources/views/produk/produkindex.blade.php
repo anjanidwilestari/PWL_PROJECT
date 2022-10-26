@@ -18,7 +18,7 @@
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                         <form class="input-group" action="{{ url()->current() }}" method="GET">
                             <input type="search" class="form-control" placeholder="Search for .." aria-label="Search"
-                                name="keyword">
+                                name="keyword" required>
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">Cari!</button>
                             </span>
